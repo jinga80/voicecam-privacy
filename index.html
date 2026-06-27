@@ -3,86 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>보이스캠 개인정보처리방침</title>
+<title>보이스캠 — 내 하루를 지켜주는 보이스 바디캠 | 코리아세일즈</title>
+<meta name="description" content="경찰의 바디캠처럼, 보이스캠은 당신의 일상과 통화를 녹음하고 내 구글 드라이브·외장에 안전하게 백업합니다. 개발사 서버 없음. 코리아세일즈.">
+<meta property="og:title" content="보이스캠 — 내 하루를 지켜주는 보이스 바디캠">
+<meta property="og:description" content="일상과 통화를 녹음하고 내 클라우드·외장에 자동 백업. 내 데이터는 내 것.">
+<meta property="og:image" content="./icon.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="./icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
-  :root { color-scheme: light dark; }
-  body { max-width: 760px; margin: 0 auto; padding: 28px 20px 80px;
-    font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
-    line-height: 1.7; color: #232323; background: #fbf7ef; }
-  @media (prefers-color-scheme: dark) { body { color: #ece6da; background: #15120f; } a { color: #f2b65c; } h1,h2 { color: #fad89a; } }
-  h1 { font-size: 1.7rem; margin-bottom: 4px; }
-  h2 { font-size: 1.15rem; margin-top: 2em; border-bottom: 1px solid #c9701a44; padding-bottom: 4px; color:#b9650f; }
-  .sub { color: #8a8175; font-size: .9rem; margin-bottom: 2em; }
-  ul { padding-left: 1.2em; } li { margin: .3em 0; }
-  code { background: #c9701a22; padding: 1px 5px; border-radius: 5px; }
-  .note { font-size: .85rem; color: #8a8175; margin-top: 3em; border-top: 1px dashed #8884; padding-top: 1em; }
+  :root{
+    --ink:#15120f; --ink2:#1d1611; --surface:#241c14; --line:#3a2c1d;
+    --amber:#F2B65C; --amber-hi:#F7C765; --ember:#FF7A3C; --red:#FF5247;
+    --cream:#F5EFE2; --muted:#B0A595; --faint:#8a7d6c;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Pretendard","Pretendard Variable",-apple-system,system-ui,sans-serif;
+    background:var(--ink); color:var(--cream); line-height:1.65;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:"Space Grotesk",sans-serif;}
+
+  /* ambient glow */
+  .glow{position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(60% 42% at 50% -6%, rgba(255,138,52,.20), transparent 70%),
+      radial-gradient(50% 36% at 86% 8%, rgba(242,182,92,.12), transparent 70%),
+      linear-gradient(180deg,#15120f 0%, #120f0c 100%);}
+
+  /* nav */
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 0;}
+  .brand{display:flex; align-items:center; gap:11px; font-weight:700; letter-spacing:-.01em;}
+  .brand img{width:34px; height:34px; border-radius:9px; display:block;}
+  .brand .co{font-size:.72rem; color:var(--faint); font-weight:600; letter-spacing:.14em; text-transform:uppercase;}
+  .nav .links{display:flex; gap:26px; font-size:.92rem; color:var(--muted);}
+  .nav .links a:hover{color:var(--cream);}
+
+  /* hero */
+  .hero{padding:60px 0 30px; text-align:center;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--amber); font-weight:600;
+    border:1px solid var(--line); border-radius:999px; padding:7px 16px; margin-bottom:30px;}
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 0 0 rgba(255,82,71,.6); animation:rec 2s infinite;}
+  @keyframes rec{0%{box-shadow:0 0 0 0 rgba(255,82,71,.55);}70%{box-shadow:0 0 0 9px rgba(255,82,71,0);}100%{box-shadow:0 0 0 0 rgba(255,82,71,0);}}
+  h1{font-size:clamp(2.5rem,6.5vw,4.6rem); line-height:1.08; letter-spacing:-.025em; font-weight:800;}
+  h1 .amberline{background:linear-gradient(100deg,var(--amber-hi),var(--ember)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .lead{margin:24px auto 0; max-width:560px; font-size:clamp(1rem,2.3vw,1.18rem); color:var(--muted);}
+  .cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:38px;}
+  .btn{display:inline-flex; align-items:center; gap:9px; font-weight:700; font-size:1rem;
+    padding:15px 26px; border-radius:14px; transition:transform .15s ease, box-shadow .15s ease;}
+  .btn-primary{background:linear-gradient(100deg,var(--amber-hi),var(--ember)); color:#231405;
+    box-shadow:0 12px 34px -10px rgba(255,122,60,.6);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 18px 40px -10px rgba(255,122,60,.7);}
+  .btn-ghost{border:1px solid var(--line); color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
+  .soon{font-size:.82rem; color:var(--faint); margin-top:16px;}
+
+  /* waveform signature */
+  .wave{display:flex; align-items:center; justify-content:center; gap:6px; height:120px; margin:54px auto 0; max-width:680px;}
+  .wave span{width:7px; border-radius:6px; background:linear-gradient(180deg,var(--amber-hi),var(--ember));
+    animation:bar 1.5s ease-in-out infinite; opacity:.92;}
+  @keyframes bar{0%,100%{height:14px;}50%{height:var(--h);}}
+  @media (prefers-reduced-motion:reduce){.wave span{animation:none; height:var(--h);} .eyebrow .dot{animation:none;}}
+
+  /* sections */
+  .section{padding:74px 0;}
+  .section h2{font-size:clamp(1.7rem,4vw,2.5rem); letter-spacing:-.02em; font-weight:800; text-align:center;}
+  .section .sub{text-align:center; color:var(--muted); margin:14px auto 0; max-width:520px;}
+
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:48px;}
+  .card{background:linear-gradient(180deg,var(--ink2),#181208); border:1px solid var(--line);
+    border-radius:20px; padding:30px;}
+  .card .ic{width:52px; height:52px; border-radius:14px; display:grid; place-items:center;
+    background:rgba(242,182,92,.12); border:1px solid var(--line); margin-bottom:18px;}
+  .card .ic svg{width:26px; height:26px; stroke:var(--amber); fill:none; stroke-width:1.8;}
+  .card h3{font-size:1.18rem; font-weight:700; letter-spacing:-.01em;}
+  .card p{color:var(--muted); margin-top:9px; font-size:.96rem;}
+
+  /* trust strip */
+  .trust{background:linear-gradient(100deg,rgba(242,182,92,.10),rgba(255,122,60,.07));
+    border:1px solid var(--line); border-radius:24px; padding:40px 32px; text-align:center; margin-top:14px;}
+  .trust h2{font-size:clamp(1.5rem,3.5vw,2.1rem);}
+  .pills{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px;}
+  .pill{font-size:.9rem; color:var(--cream); background:rgba(0,0,0,.25); border:1px solid var(--line);
+    border-radius:999px; padding:10px 18px;}
+  .pill b{color:var(--amber);}
+
+  /* footer */
+  footer{border-top:1px solid var(--line); margin-top:30px; padding:46px 0 60px;}
+  .foot{display:flex; justify-content:space-between; gap:28px; flex-wrap:wrap; align-items:flex-start;}
+  .foot .co-name{font-weight:700; letter-spacing:-.01em;}
+  .foot .co-sub{color:var(--faint); font-size:.86rem; margin-top:6px;}
+  .foot .fcol a{display:block; color:var(--muted); font-size:.92rem; margin-top:10px;}
+  .foot .fcol a:hover{color:var(--amber);}
+  .copy{color:var(--faint); font-size:.82rem; margin-top:34px;}
+
+  @media (max-width:680px){
+    .nav .links{display:none;}
+    .grid{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
-<h1>보이스캠(VoiceCam) 개인정보처리방침</h1>
-<div class="sub">시행일: 2026-06-27</div>
+<div class="glow"></div>
 
-<p>보이스캠(이하 "앱")은 <b>코리아세일즈</b>가 개발·운영하는 앱으로, 사용자가 자신의 일상과 통화를 녹음하고, 본인의 클라우드(구글 드라이브)나 외장 저장장치에 백업하도록 돕는 도구입니다. 본 방침은 앱이 어떤 정보를 다루고, 어떻게 보호하는지 설명합니다.</p>
+<div class="wrap">
+  <nav class="nav">
+    <div class="brand">
+      <img src="./icon.png" alt="보이스캠">
+      <div>보이스캠<div class="co">코리아세일즈</div></div>
+    </div>
+    <div class="links">
+      <a href="#features">기능</a>
+      <a href="#trust">개인정보</a>
+      <a href="./privacy.html">처리방침</a>
+      <a href="./terms.html">약관</a>
+    </div>
+  </nav>
 
-<h2>1. 한눈에 보기</h2>
-<ul>
-<li>앱은 <b>사용자 본인의 녹음 파일만</b> 다룹니다. 개발사는 사용자의 녹음 내용을 수집·열람·전송하지 않습니다.</li>
-<li>녹음 파일은 <b>사용자가 직접 연결한 본인의 구글 드라이브 계정</b> 또는 <b>사용자가 선택한 외장 폴더</b>에만 저장됩니다.</li>
-<li>개발사 서버는 없으며, 녹음이 개발사나 제3자에게 전송되지 않습니다.</li>
-</ul>
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span> 보이스 바디캠</div>
+    <h1>내 하루를 지켜주는<br><span class="amberline">보이스 바디캠</span></h1>
+    <p class="lead">경찰의 바디캠처럼 — 보이스캠은 당신의 일상과 통화를 기록하고, 내 구글 드라이브·외장에 안전하게 백업합니다.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#features">기능 살펴보기</a>
+      <a class="btn btn-ghost" href="./privacy.html">개인정보처리방침</a>
+    </div>
+    <p class="soon">Google Play 정식 출시 예정 · 코리아세일즈</p>
 
-<h2>2. 수집·처리하는 정보</h2>
-<p>앱은 다음을 <b>기기 내에서</b> 처리합니다. 개발사로 전송되지 않습니다.</p>
-<ul>
-<li><b>음성 녹음 파일</b>: 사용자가 만든 .m4a 파일.</li>
-<li><b>통화 녹음 파일(선택 기능)</b>: 사용자가 "통화 녹음 자동 백업"을 켜고 휴대폰의 통화 녹음 폴더를 <b>직접 선택</b>한 경우, 그 폴더의 파일만 읽어 백업합니다.</li>
-<li><b>설정 값</b>: 백업 옵션, 선택한 백업 폴더 위치, 백업 진행 기록 등(기기 내 저장).</li>
-</ul>
-<p>앱은 이름·이메일·연락처·위치·광고식별자 등 <b>개인 식별 정보를 수집하지 않습니다.</b></p>
+    <div class="wave" aria-hidden="true">
+      <!-- bars: heights & delays set inline -->
+      <span style="--h:46px; animation-delay:0s"></span>
+      <span style="--h:78px; animation-delay:.1s"></span>
+      <span style="--h:110px; animation-delay:.2s"></span>
+      <span style="--h:62px; animation-delay:.3s"></span>
+      <span style="--h:96px; animation-delay:.15s"></span>
+      <span style="--h:40px; animation-delay:.25s"></span>
+      <span style="--h:84px; animation-delay:.05s"></span>
+      <span style="--h:118px; animation-delay:.35s"></span>
+      <span style="--h:56px; animation-delay:.2s"></span>
+      <span style="--h:90px; animation-delay:.1s"></span>
+      <span style="--h:48px; animation-delay:.3s"></span>
+      <span style="--h:104px; animation-delay:0s"></span>
+      <span style="--h:70px; animation-delay:.22s"></span>
+      <span style="--h:88px; animation-delay:.12s"></span>
+      <span style="--h:38px; animation-delay:.28s"></span>
+      <span style="--h:100px; animation-delay:.06s"></span>
+      <span style="--h:60px; animation-delay:.18s"></span>
+      <span style="--h:82px; animation-delay:.32s"></span>
+    </div>
+  </header>
 
-<h2>3. 정보의 저장과 전송</h2>
-<ul>
-<li><b>구글 드라이브 백업</b>: 사용자가 본인 구글 계정으로 인증하면, 앱은 <code>drive.file</code> 범위(앱이 만든 파일만 접근)로 <b>사용자 본인 드라이브의 '보이스캠' 폴더</b>에 녹음을 업로드합니다. 개발사는 접근할 수 없습니다.</li>
-<li><b>외장(USB/SSD) 백업</b>: 사용자가 선택한 폴더에만 복사됩니다.</li>
-<li>업로드는 기기에서 구글 드라이브로 직접 이루어지며, 개발사 서버를 거치지 않습니다.</li>
-</ul>
+  <section class="section" id="features">
+    <h2>녹음부터 백업까지, 한 앱에서</h2>
+    <p class="sub">놓치고 싶지 않은 순간, 다시 듣고 싶은 대화, 만약을 위한 기록.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+        <h3>실시간 파형 녹음</h3>
+        <p>한 번 녹음과 하루종일 연속 녹음(30분 자동 분할). 화면이 꺼져도 백그라운드로 이어지고, 소리는 파형으로 눈에 보입니다.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 18 9a4 4 0 0 1 0 9H7z"/><path d="M12 12v5M9.5 14.5 12 12l2.5 2.5"/></svg></div>
+        <h3>안전한 자동 백업</h3>
+        <p>녹음이 끝나면 내 구글 드라이브에 날짜별로 자동 업로드. USB·SSD 외장에도 동시 백업, Wi-Fi 전용 옵션까지.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <h3>통화 녹음 백업</h3>
+        <p>휴대폰의 통화 녹음 폴더를 직접 골라 자동 백업. '모든 파일 접근' 권한 없이, 선택한 폴더만 안전하게.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+        <h3>내 데이터는 내 것</h3>
+        <p>개발사 서버가 없습니다. 녹음은 오직 본인 계정과 외장에만 저장되며, 보관·선택·일괄 삭제도 직접 관리합니다.</p>
+      </div>
+    </div>
+  </section>
 
-<h2>4. 사용하는 권한과 이유</h2>
-<ul>
-<li><b>마이크·마이크 포그라운드 서비스</b>: 녹음 및 화면이 꺼져도 녹음 유지.</li>
-<li><b>폴더 접근(사용자 선택)</b>: 사용자가 직접 선택한 통화 녹음 폴더만 읽어 백업합니다(통화 백업 기능을 켤 때만). '모든 파일 접근' 권한은 사용하지 않습니다.</li>
-<li><b>인터넷</b>: 구글 드라이브 업로드.</li>
-<li><b>알림</b>: 녹음 진행 표시.</li>
-<li><b>부팅 완료 수신</b>: '재부팅 후 자동 녹음' 옵션 사용 시 재개 안내.</li>
-</ul>
+  <section class="section" id="trust">
+    <div class="trust">
+      <h2>프라이버시가 기본값입니다</h2>
+      <p class="sub">당신의 목소리는 당신에게만.</p>
+      <div class="pills">
+        <span class="pill"><b>개발사 서버 없음</b> · 직접 전송 안 함</span>
+        <span class="pill"><b>drive.file</b> 최소 권한</span>
+        <span class="pill">본인 드라이브·외장에만 보관</span>
+        <span class="pill">광고 추적 없음</span>
+      </div>
+    </div>
+  </section>
+</div>
 
-<h2>5. 제3자 제공·공유</h2>
-<ul>
-<li>개발사는 사용자의 녹음을 <b>제3자에게 제공·판매·공유하지 않습니다.</b></li>
-<li>구글 드라이브는 사용자가 선택한 저장소 제공자이며, 데이터는 사용자 본인 계정에 귀속됩니다(구글 약관·정책 적용).</li>
-</ul>
-
-<h2>6. 보관과 삭제</h2>
-<ul>
-<li>녹음 파일은 앱 목록(개별/선택/일괄 삭제)이나 본인 드라이브·외장 폴더에서 직접 삭제할 수 있습니다.</li>
-<li>앱 삭제 시 기기 내 설정과 앱 전용 폴더의 파일이 함께 삭제됩니다. 이미 백업된 파일은 사용자가 별도로 관리합니다.</li>
-</ul>
-
-<h2>7. 어린이</h2>
-<p>본 앱은 만 14세 미만 아동을 대상으로 하지 않습니다.</p>
-
-<h2>8. 법적 유의 (대한민국 통신비밀보호법)</h2>
-<ul>
-<li>본인이 참여한 대화나 본인의 일상 녹음은 일반적으로 적법합니다.</li>
-<li><b>본인이 참여하지 않은 타인 간 대화를 동의 없이 녹음하는 것은 불법</b>입니다. 사용자는 관련 법령을 준수할 책임이 있습니다.</li>
-</ul>
-
-<h2>9. 변경</h2>
-<p>본 방침이 변경되면 앱 또는 본 페이지를 통해 고지합니다.</p>
-
-<h2>10. 문의</h2>
-<p>운영: 코리아세일즈<br>이메일: <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a></p>
-
-<div class="note">이 문서는 초안입니다. 출시 전 법률 검토를 권장합니다. 이 페이지를 공개 URL로 호스팅(GitHub Pages, Notion 공개 페이지 등)한 뒤, Play Console "개인정보처리방침" 칸과 앱 내 링크에 등록하세요.</div>
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand"><img src="./icon.png" alt="">
+        <div>보이스캠<div class="co">코리아세일즈</div></div>
+      </div>
+      <div class="co-sub">내 하루를 지켜주는 보이스 바디캠</div>
+    </div>
+    <div class="fcol">
+      <a href="./privacy.html">개인정보처리방침</a>
+      <a href="./terms.html">서비스 이용약관</a>
+      <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a>
+    </div>
+  </div>
+  <div class="wrap copy">© 2026 코리아세일즈 (korsales). 본인이 참여하지 않은 타인 간 대화의 무단 녹음은 법에 저촉될 수 있습니다. 관련 법령을 준수해 사용하세요.</div>
+</footer>
 </body>
 </html>
