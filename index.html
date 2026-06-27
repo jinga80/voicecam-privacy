@@ -3,220 +3,361 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>보이스캠 — 내 하루를 지켜주는 보이스 바디캠 | 코리아세일즈</title>
-<meta name="description" content="경찰의 바디캠처럼, 보이스캠은 당신의 일상과 통화를 녹음하고 내 구글 드라이브·외장에 안전하게 백업합니다. 개발사 서버 없음. 코리아세일즈.">
-<meta property="og:title" content="보이스캠 — 내 하루를 지켜주는 보이스 바디캠">
-<meta property="og:description" content="일상과 통화를 녹음하고 내 클라우드·외장에 자동 백업. 내 데이터는 내 것.">
-<meta property="og:image" content="./icon.png">
+<title>보이스캠 — 녹음을 넘어, 당신의 하루를 읽다 | 코리아세일즈</title>
+<meta name="description" content="보이스캠은 당신의 일상과 통화를 기록하고, 내 구글 드라이브 또는 외장장치에 안전하게 백업합니다. 수면·통화·위험까지 자동 분석. 한 번 구매로 평생 · 구독 없음 · 개발사 서버 없음. 코리아세일즈.">
+<meta property="og:title" content="보이스캠 — 녹음을 넘어, 당신의 하루를 읽다">
+<meta property="og:description" content="기록하고, 분석하고, 지켜준다. 한 번 구매 · 구독 없음 · 서버 없음.">
 <meta property="og:type" content="website">
 <link rel="icon" href="./icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#15120f; --ink2:#1d1611; --surface:#241c14; --line:#3a2c1d;
-    --amber:#F2B65C; --amber-hi:#F7C765; --ember:#FF7A3C; --red:#FF5247;
-    --cream:#F5EFE2; --muted:#B0A595; --faint:#8a7d6c;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:"Pretendard","Pretendard Variable",-apple-system,system-ui,sans-serif;
-    background:var(--ink); color:var(--cream); line-height:1.65;
-    -webkit-font-smoothing:antialiased; overflow-x:hidden;
-  }
-  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
-  a{color:inherit; text-decoration:none;}
-  .mono{font-family:"Space Grotesk",sans-serif;}
+:root{
+  --ink:#100E0C;--bg:#15110F;--surf:#1E1A16;--surf2:#27201A;--line:#352C24;
+  --amber:#F2B65C;--amber2:#F7C765;--ember:#FF7A3C;--red:#FF5247;
+  --tx:#F4ECE1;--mut:#AEA293;--mut2:#7C7164;
+  --disp:'Space Grotesk','Noto Sans KR',sans-serif;
+  --body:'Noto Sans KR',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.12}
 
-  /* ambient glow */
-  .glow{position:fixed; inset:0; z-index:-1; pointer-events:none;
-    background:
-      radial-gradient(60% 42% at 50% -6%, rgba(255,138,52,.20), transparent 70%),
-      radial-gradient(50% 36% at 86% 8%, rgba(242,182,92,.12), transparent 70%),
-      linear-gradient(180deg,#15120f 0%, #120f0c 100%);}
+nav{position:sticky;top:0;z-index:50;background:rgba(21,17,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:64px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--disp);font-weight:700;font-size:19px}
+.brand img{width:34px;height:34px;border-radius:9px}
+.brand .co{font-family:var(--body);font-size:11px;color:var(--mut2);font-weight:500}
+.nav .sp{flex:1}
+.nav a.link{color:var(--mut);font-size:14.5px;font-weight:500}
+.nav a.link:hover{color:var(--tx)}
+@media(max-width:640px){.nav a.link{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;cursor:pointer;transition:.15s;border:1px solid transparent;white-space:nowrap}
+.btn-pri{background:linear-gradient(135deg,var(--amber2),var(--ember));color:#241400}
+.btn-pri:hover{transform:translateY(-1px);box-shadow:0 8px 26px rgba(255,122,60,.32)}
+.btn-ghost{border-color:var(--line);color:var(--tx)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+.btn-sm{padding:9px 17px;font-size:14px}
 
-  /* nav */
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:22px 0;}
-  .brand{display:flex; align-items:center; gap:11px; font-weight:700; letter-spacing:-.01em;}
-  .brand img{width:34px; height:34px; border-radius:9px; display:block;}
-  .brand .co{font-size:.72rem; color:var(--faint); font-weight:600; letter-spacing:.14em; text-transform:uppercase;}
-  .nav .links{display:flex; gap:26px; font-size:.92rem; color:var(--muted);}
-  .nav .links a:hover{color:var(--cream);}
+.hero{position:relative;padding:78px 0 30px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:760px;height:760px;
+  background:radial-gradient(circle,rgba(242,182,92,.18),rgba(255,122,60,.05) 42%,transparent 66%);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--amber);
+  border:1px solid var(--line);background:var(--surf);padding:7px 15px;border-radius:999px;margin-bottom:24px}
+.eyebrow b{color:var(--tx)}
+.hero h1{font-size:clamp(34px,6.4vw,60px);font-weight:700}
+.hero h1 .stroke{background:linear-gradient(120deg,var(--amber2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:clamp(16px,2.4vw,20px);color:var(--mut);max-width:660px;margin:22px auto 0}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.ticks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px;font-weight:500}
+.ticks span{display:inline-flex;align-items:center;gap:7px}
+.ticks i{color:var(--amber);font-style:normal}
 
-  /* hero */
-  .hero{padding:60px 0 30px; text-align:center;}
-  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; letter-spacing:.16em;
-    text-transform:uppercase; color:var(--amber); font-weight:600;
-    border:1px solid var(--line); border-radius:999px; padding:7px 16px; margin-bottom:30px;}
-  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--red); box-shadow:0 0 0 0 rgba(255,82,71,.6); animation:rec 2s infinite;}
-  @keyframes rec{0%{box-shadow:0 0 0 0 rgba(255,82,71,.55);}70%{box-shadow:0 0 0 9px rgba(255,82,71,0);}100%{box-shadow:0 0 0 0 rgba(255,82,71,0);}}
-  h1{font-size:clamp(2.5rem,6.5vw,4.6rem); line-height:1.08; letter-spacing:-.025em; font-weight:800;}
-  h1 .amberline{background:linear-gradient(100deg,var(--amber-hi),var(--ember)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .lead{margin:24px auto 0; max-width:560px; font-size:clamp(1rem,2.3vw,1.18rem); color:var(--muted);}
-  .cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:38px;}
-  .btn{display:inline-flex; align-items:center; gap:9px; font-weight:700; font-size:1rem;
-    padding:15px 26px; border-radius:14px; transition:transform .15s ease, box-shadow .15s ease;}
-  .btn-primary{background:linear-gradient(100deg,var(--amber-hi),var(--ember)); color:#231405;
-    box-shadow:0 12px 34px -10px rgba(255,122,60,.6);}
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 18px 40px -10px rgba(255,122,60,.7);}
-  .btn-ghost{border:1px solid var(--line); color:var(--cream);}
-  .btn-ghost:hover{border-color:var(--amber); color:var(--amber);}
-  .soon{font-size:.82rem; color:var(--faint); margin-top:16px;}
+.wave{display:flex;align-items:center;justify-content:center;gap:5px;height:46px;margin:38px auto 0;max-width:340px}
+.wave b{width:5px;border-radius:3px;background:linear-gradient(var(--amber2),var(--ember));animation:bounce 1.25s ease-in-out infinite}
+@keyframes bounce{0%,100%{height:12px;opacity:.55}50%{height:42px;opacity:1}}
 
-  /* waveform signature */
-  .wave{display:flex; align-items:center; justify-content:center; gap:6px; height:120px; margin:54px auto 0; max-width:680px;}
-  .wave span{width:7px; border-radius:6px; background:linear-gradient(180deg,var(--amber-hi),var(--ember));
-    animation:bar 1.5s ease-in-out infinite; opacity:.92;}
-  @keyframes bar{0%,100%{height:14px;}50%{height:var(--h);}}
-  @media (prefers-reduced-motion:reduce){.wave span{animation:none; height:var(--h);} .eyebrow .dot{animation:none;}}
+.phone{border:8px solid #0a0a0c;border-radius:38px;background:#000;overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.05) inset;max-width:260px}
+.phone img{display:block;width:100%}
+.hero-phones{display:flex;justify-content:center;align-items:flex-end;margin-top:50px;perspective:1400px}
+.hero-phones .phone{margin:0 -22px;transition:.4s}
+.hero-phones .phone:nth-child(1){transform:rotate(-7deg) translateY(18px) scale(.9);opacity:.92}
+.hero-phones .phone:nth-child(2){z-index:3;transform:translateY(-8px) scale(1.04)}
+.hero-phones .phone:nth-child(3){transform:rotate(7deg) translateY(18px) scale(.9);opacity:.92}
+@media(max-width:640px){.hero-phones .phone:nth-child(1),.hero-phones .phone:nth-child(3){display:none}}
 
-  /* sections */
-  .section{padding:74px 0;}
-  .section h2{font-size:clamp(1.7rem,4vw,2.5rem); letter-spacing:-.02em; font-weight:800; text-align:center;}
-  .section .sub{text-align:center; color:var(--muted); margin:14px auto 0; max-width:520px;}
+section{padding:60px 0}
+.kicker{font-family:var(--disp);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.h2{font-size:clamp(26px,4.3vw,40px);font-weight:700;margin-top:12px}
+.sub{color:var(--mut);font-size:17px;margin-top:14px;max-width:640px}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
 
-  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:48px;}
-  .card{background:linear-gradient(180deg,var(--ink2),#181208); border:1px solid var(--line);
-    border-radius:20px; padding:30px;}
-  .card .ic{width:52px; height:52px; border-radius:14px; display:grid; place-items:center;
-    background:rgba(242,182,92,.12); border:1px solid var(--line); margin-bottom:18px;}
-  .card .ic svg{width:26px; height:26px; stroke:var(--amber); fill:none; stroke-width:1.8;}
-  .card h3{font-size:1.18rem; font-weight:700; letter-spacing:-.01em;}
-  .card p{color:var(--muted); margin-top:9px; font-size:.96rem;}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;margin-top:30px}
+.feat.rev .txt{order:2}
+.feat .txt .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--amber);
+  background:var(--surf);border:1px solid var(--line);padding:6px 13px;border-radius:999px}
+.feat .txt h3{font-size:clamp(22px,3.2vw,30px);font-weight:700;margin:16px 0 12px}
+.feat .txt p{color:var(--mut);font-size:16.5px}
+.feat .txt .hook{color:var(--amber2);font-weight:700;font-size:17px;margin:0 0 12px;font-family:var(--disp)}
+.feat ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.feat ul li{display:flex;gap:11px;align-items:flex-start;color:var(--tx);font-size:15.5px}
+.feat ul li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;
+  background:rgba(242,182,92,.16);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F2B65C'%3E%3Cpath d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");background-size:14px;background-repeat:no-repeat;background-position:center}
+.feat .pic{display:flex;justify-content:center}
+.feat .phone{max-width:248px}
+.feat.red .txt .tag{color:var(--red);border-color:#4a221f}
+@media(max-width:760px){.feat{grid-template-columns:1fr;gap:30px}.feat.rev .txt{order:0}.feat .pic{order:-1}}
 
-  /* trust strip */
-  .trust{background:linear-gradient(100deg,rgba(242,182,92,.10),rgba(255,122,60,.07));
-    border:1px solid var(--line); border-radius:24px; padding:40px 32px; text-align:center; margin-top:14px;}
-  .trust h2{font-size:clamp(1.5rem,3.5vw,2.1rem);}
-  .pills{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px;}
-  .pill{font-size:.9rem; color:var(--cream); background:rgba(0,0,0,.25); border:1px solid var(--line);
-    border-radius:999px; padding:10px 18px;}
-  .pill b{color:var(--amber);}
+/* phone grid */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 24px;margin-top:38px}
+@media(max-width:780px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.pgrid{grid-template-columns:1fr}}
+.pitem{text-align:center}
+.pitem .phone{max-width:192px;margin:0 auto}
+.pitem h4{font-family:var(--disp);font-weight:600;font-size:17px;margin-top:18px}
+.pitem p{color:var(--mut);font-size:14px;margin-top:6px;line-height:1.55}
 
-  /* footer */
-  footer{border-top:1px solid var(--line); margin-top:30px; padding:46px 0 60px;}
-  .foot{display:flex; justify-content:space-between; gap:28px; flex-wrap:wrap; align-items:flex-start;}
-  .foot .co-name{font-weight:700; letter-spacing:-.01em;}
-  .foot .co-sub{color:var(--faint); font-size:.86rem; margin-top:6px;}
-  .foot .fcol a{display:block; color:var(--muted); font-size:.92rem; margin-top:10px;}
-  .foot .fcol a:hover{color:var(--amber);}
-  .copy{color:var(--faint); font-size:.82rem; margin-top:34px;}
+/* small feature cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card .ic{width:42px;height:42px;border-radius:12px;background:rgba(242,182,92,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:21px}
+.card h4{font-family:var(--disp);font-weight:600;font-size:17px;margin-bottom:6px}
+.card p{color:var(--mut);font-size:14.5px;line-height:1.6}
 
-  @media (max-width:680px){
-    .nav .links{display:none;}
-    .grid{grid-template-columns:1fr;}
-  }
+.price-wrap{display:flex;justify-content:center;margin-top:36px}
+.price{background:linear-gradient(180deg,var(--surf2),var(--surf));border:1px solid var(--line);border-radius:26px;
+  padding:38px 36px;max-width:440px;width:100%;text-align:center;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.price .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--amber2),var(--ember));
+  color:#241400;font-weight:700;font-size:12.5px;padding:6px 16px;border-radius:999px;white-space:nowrap}
+.price .was{color:var(--mut2);text-decoration:line-through;font-size:15px}
+.price .amt{font-family:var(--disp);font-weight:700;font-size:54px;line-height:1;margin:8px 0 4px}
+.price .amt small{font-size:18px;color:var(--mut);font-weight:500}
+.price .once{color:var(--amber);font-weight:700;font-size:15px}
+.price ul{list-style:none;text-align:left;margin:24px 0;display:flex;flex-direction:column;gap:11px}
+.price ul li{display:flex;gap:10px;color:var(--tx);font-size:15px}
+.price ul li b{color:var(--amber);font-weight:700}
+.price .btn-pri{width:100%;justify-content:center;font-size:16px;padding:15px}
+.price .fine{color:var(--mut2);font-size:12.5px;margin-top:14px}
+
+.trust{background:var(--surf);border:1px solid var(--line);border-radius:24px;padding:40px;margin-top:30px;text-align:center}
+.trust h3{font-size:26px;font-weight:700}
+.trust p{color:var(--mut);max-width:600px;margin:14px auto 0;font-size:16px}
+.trust .row{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.trust .row div{font-size:14px;color:var(--mut);font-weight:500}
+.trust .row b{display:block;font-family:var(--disp);color:var(--amber);font-size:22px;margin-bottom:2px}
+
+.band{text-align:center;background:radial-gradient(circle at 50% 0,rgba(242,182,92,.14),transparent 60%);padding:72px 0}
+.band h2{font-size:clamp(28px,4.6vw,44px);font-weight:700}
+.band p{color:var(--mut);margin:14px 0 28px;font-size:17px}
+
+footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
+.foot{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.foot .brand{color:var(--tx)}
+.foot .sp{flex:1}
+.foot a{color:var(--mut);font-size:14px}.foot a:hover{color:var(--amber)}
+.copy{margin-top:26px;font-size:12.5px;color:var(--mut2);line-height:1.6}
 </style>
 </head>
 <body>
-<div class="glow"></div>
 
-<div class="wrap">
-  <nav class="nav">
-    <div class="brand">
-      <img src="./icon.png" alt="보이스캠">
-      <div>보이스캠<div class="co">코리아세일즈</div></div>
-    </div>
-    <div class="links">
-      <a href="#features">기능</a>
-      <a href="#trust">개인정보</a>
-      <a href="./privacy.html">처리방침</a>
-      <a href="./terms.html">약관</a>
-    </div>
-  </nav>
+<nav><div class="wrap nav">
+  <a class="brand" href="#"><img src="./icon.png" alt="보이스캠"><div>보이스캠<div class="co">코리아세일즈</div></div></a>
+  <span class="sp"></span>
+  <a class="link" href="#features">기능</a>
+  <a class="link" href="#screens">화면</a>
+  <a class="link" href="#price">가격</a>
+  <a class="btn btn-pri btn-sm" href="#price">출시 알림</a>
+</div></nav>
 
-  <header class="hero">
-    <div class="eyebrow"><span class="dot"></span> 보이스 바디캠</div>
-    <h1>내 하루를 지켜주는<br><span class="amberline">보이스 바디캠</span></h1>
-    <p class="lead">경찰의 바디캠처럼 — 보이스캠은 당신의 일상과 통화를 기록하고, 내 구글 드라이브·외장에 안전하게 백업합니다.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="#features">기능 살펴보기</a>
-      <a class="btn btn-ghost" href="./privacy.html">개인정보처리방침</a>
-    </div>
-    <p class="soon">Google Play 정식 출시 예정 · 코리아세일즈</p>
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">🔒 한 번 구매로 평생 · <b>구독 없음</b></div>
+  <h1>녹음을 넘어,<br><span class="stroke">당신의 하루를 읽다</span></h1>
+  <p class="lead">보이스캠은 당신의 일상과 통화를 기록하고, 내 <b style="color:var(--tx)">구글 드라이브 또는 외장장치</b>에 안전하게 백업합니다. 수면·통화·위험 상황까지 알아서 분석하면서요.</p>
+  <div class="cta">
+    <a class="btn btn-pri" href="#price">▶ Google Play에서 만나기</a>
+    <a class="btn btn-ghost" href="#features">기능 둘러보기</a>
+  </div>
+  <div class="ticks">
+    <span><i>✓</i> 구독·광고 없음</span>
+    <span><i>✓</i> 개발사 서버 없음</span>
+    <span><i>✓</i> 온디바이스 분석</span>
+    <span><i>✓</i> 7개 언어</span>
+  </div>
+  <div class="wave">
+    <b style="animation-delay:0s"></b><b style="animation-delay:.1s"></b><b style="animation-delay:.2s"></b>
+    <b style="animation-delay:.3s"></b><b style="animation-delay:.15s"></b><b style="animation-delay:.05s"></b>
+    <b style="animation-delay:.25s"></b><b style="animation-delay:.35s"></b><b style="animation-delay:.2s"></b>
+    <b style="animation-delay:.1s"></b><b style="animation-delay:.3s"></b><b style="animation-delay:0s"></b>
+  </div>
+  <div class="hero-phones">
+    <div class="phone"><img src="./site-img/sleep.webp" alt="수면 분석" loading="lazy"></div>
+    <div class="phone"><img src="./site-img/record.webp" alt="녹음 화면" loading="lazy"></div>
+    <div class="phone"><img src="./site-img/library.webp" alt="목록" loading="lazy"></div>
+  </div>
+</div></header>
 
-    <div class="wave" aria-hidden="true">
-      <!-- bars: heights & delays set inline -->
-      <span style="--h:46px; animation-delay:0s"></span>
-      <span style="--h:78px; animation-delay:.1s"></span>
-      <span style="--h:110px; animation-delay:.2s"></span>
-      <span style="--h:62px; animation-delay:.3s"></span>
-      <span style="--h:96px; animation-delay:.15s"></span>
-      <span style="--h:40px; animation-delay:.25s"></span>
-      <span style="--h:84px; animation-delay:.05s"></span>
-      <span style="--h:118px; animation-delay:.35s"></span>
-      <span style="--h:56px; animation-delay:.2s"></span>
-      <span style="--h:90px; animation-delay:.1s"></span>
-      <span style="--h:48px; animation-delay:.3s"></span>
-      <span style="--h:104px; animation-delay:0s"></span>
-      <span style="--h:70px; animation-delay:.22s"></span>
-      <span style="--h:88px; animation-delay:.12s"></span>
-      <span style="--h:38px; animation-delay:.28s"></span>
-      <span style="--h:100px; animation-delay:.06s"></span>
-      <span style="--h:60px; animation-delay:.18s"></span>
-      <span style="--h:82px; animation-delay:.32s"></span>
-    </div>
-  </header>
+<!-- STORY -->
+<section class="center" style="padding-bottom:30px"><div class="wrap">
+  <div class="kicker">왜 보이스캠인가</div>
+  <div class="h2">그 순간은, 다시 오지 않습니다</div>
+  <p class="sub">중요한 통화의 약속, 잊어버린 회의의 결론, 매일 밤 나도 모르게 멈추는 숨, 그리고 혼자 맞닥뜨린 위험한 순간. 보이스캠은 <b style="color:var(--tx)">기록하고, 정리하고, 분석하고, 지켜줍니다</b> — 구독료도, 클라우드 비용도 없이.</p>
+</div></section>
 
-  <section class="section" id="features">
-    <h2>녹음부터 백업까지, 한 앱에서</h2>
-    <p class="sub">놓치고 싶지 않은 순간, 다시 듣고 싶은 대화, 만약을 위한 기록.</p>
-    <div class="grid">
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
-        <h3>실시간 파형 녹음</h3>
-        <p>한 번 녹음과 하루종일 연속 녹음(30분 자동 분할). 화면이 꺼져도 백그라운드로 이어지고, 소리는 파형으로 눈에 보입니다.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 18 9a4 4 0 0 1 0 9H7z"/><path d="M12 12v5M9.5 14.5 12 12l2.5 2.5"/></svg></div>
-        <h3>안전한 자동 백업</h3>
-        <p>녹음이 끝나면 내 구글 드라이브에 날짜별로 자동 업로드. USB·SSD 외장에도 동시 백업, Wi-Fi 전용 옵션까지.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
-        <h3>통화 녹음 백업</h3>
-        <p>휴대폰의 통화 녹음 폴더를 직접 골라 자동 백업. '모든 파일 접근' 권한 없이, 선택한 폴더만 안전하게.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
-        <h3>내 데이터는 내 것</h3>
-        <p>개발사 서버가 없습니다. 녹음은 오직 본인 계정과 외장에만 저장되며, 보관·선택·일괄 삭제도 직접 관리합니다.</p>
-      </div>
-    </div>
-  </section>
+<div id="features"></div>
 
-  <section class="section" id="trust">
-    <div class="trust">
-      <h2>프라이버시가 기본값입니다</h2>
-      <p class="sub">당신의 목소리는 당신에게만.</p>
-      <div class="pills">
-        <span class="pill"><b>개발사 서버 없음</b> · 직접 전송 안 함</span>
-        <span class="pill"><b>drive.file</b> 최소 권한</span>
-        <span class="pill">본인 드라이브·외장에만 보관</span>
-        <span class="pill">광고 추적 없음</span>
-      </div>
+<!-- F1: 하루종일 연속 녹음 (강조) -->
+<section><div class="wrap">
+  <div class="feat">
+    <div class="txt">
+      <span class="tag">🎙 하루종일 연속 녹음</span>
+      <h3>켜두기만 하면,<br>온종일 끊김 없이</h3>
+      <p class="hook">화면이 꺼져도, 가방 속에서도 멈추지 않습니다.</p>
+      <p>‘하루종일’ 모드는 한 번 켜두면 <b style="color:var(--tx)">24시간 내내</b> 백그라운드로 이어 녹음합니다. 길어진 녹음은 <b style="color:var(--tx)">30분마다 자동으로 나눠 저장</b>되고, 소리는 실시간 파형으로 눈에 보여요. 잠깐의 순간도 놓치지 않도록.</p>
+      <ul>
+        <li>하루종일 연속 녹음 · 30분 자동 분할</li>
+        <li>화면 꺼짐·앱 종료에도 백그라운드 유지</li>
+        <li>한 번 녹음 모드 · 실시간 파형 · 북마크</li>
+        <li>재부팅 후 자동 재개 · 빠른 타일/위젯</li>
+      </ul>
     </div>
-  </section>
-</div>
+    <div class="pic"><div class="phone"><img src="./site-img/recording.webp" alt="실시간 파형 녹음" loading="lazy"></div></div>
+  </div>
+</div></section>
 
-<footer>
-  <div class="wrap foot">
-    <div>
-      <div class="brand"><img src="./icon.png" alt="">
-        <div>보이스캠<div class="co">코리아세일즈</div></div>
-      </div>
-      <div class="co-sub">내 하루를 지켜주는 보이스 바디캠</div>
+<!-- F2: 통화 자동 백업 (hook) -->
+<section style="background:var(--ink)"><div class="wrap">
+  <div class="feat rev">
+    <div class="txt">
+      <span class="tag">📞 통화 녹음 자동 백업</span>
+      <h3>통화 녹음, 자동으로<br>백업되고 있을까요?</h3>
+      <p class="hook">스마트폰 통화 녹음 — 대부분 ‘자동 백업’은 안 됩니다.</p>
+      <p>휴대폰에 쌓인 통화 녹음, 기기를 잃어버리면 그대로 사라집니다. 보이스캠은 <b style="color:var(--tx)">통화 녹음 폴더를 직접 골라</b> 새 통화가 생길 때마다 내 드라이브로 자동 백업해요. ‘모든 파일 접근’ 권한 없이, 선택한 폴더만 안전하게.</p>
+      <ul>
+        <li>통화 녹음 폴더 선택 → 새 통화 자동 백업</li>
+        <li>기존 통화 전체 백업도 한 번에</li>
+        <li>Wi-Fi 전용 옵션 · 업로드 후 정리</li>
+      </ul>
     </div>
-    <div class="fcol">
-      <a href="./privacy.html">개인정보처리방침</a>
-      <a href="./terms.html">서비스 이용약관</a>
-      <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a>
+    <div class="pic"><div class="phone"><img src="./site-img/backup.webp" alt="통화 녹음 백업" loading="lazy"></div></div>
+  </div>
+</div></section>
+
+<!-- F3: 수면 분석 -->
+<section><div class="wrap">
+  <div class="feat">
+    <div class="txt">
+      <span class="tag">🌙 수면 분석</span>
+      <h3>잠든 사이,<br>몸이 보내는 신호를 읽다</h3>
+      <p>수면 모드로 녹음하면 진폭을 온디바이스로 분석해 <b style="color:var(--tx)">코골이 점수</b>와 <b style="color:var(--tx)">무호흡 의심 구간</b>을 찾아드립니다. 의심되는 순간은 그 지점부터 바로 들어볼 수 있어요.</p>
+      <ul>
+        <li>코골이 점수 · 무호흡 의심 횟수</li>
+        <li>밤새 강도 타임라인 + 이벤트 마커</li>
+        <li>이비인후과·수면클리닉 상담 자료로</li>
+      </ul>
+    </div>
+    <div class="pic"><div class="phone"><img src="./site-img/sleep.webp" alt="수면 분석 리포트" loading="lazy"></div></div>
+  </div>
+</div></section>
+
+<!-- F4: 안전 SOS -->
+<section style="background:var(--ink)"><div class="wrap">
+  <div class="feat rev red">
+    <div class="txt">
+      <span class="tag">🆘 안전 SOS</span>
+      <h3>위급한 순간,<br>당신 대신 전화를 겁니다</h3>
+      <p>녹음 중 위급한 큰 소리가 감지되면 전체화면 경보가 뜨고, 취소하지 않으면 <b style="color:var(--tx)">지정한 연락처로 자동 전화</b>합니다. 혼자 자는 밤에도, 야외에서도.</p>
+      <ul>
+        <li>외침·위험 소리 자동 감지 (온디바이스)</li>
+        <li>취소 카운트다운 → 자동 발신</li>
+        <li>민감도 · 연락처 직접 설정</li>
+      </ul>
+    </div>
+    <div class="pic"><div class="phone"><img src="./site-img/sos.webp" alt="긴급 SOS" loading="lazy"></div></div>
+  </div>
+</div></section>
+
+<!-- SCREENS GALLERY -->
+<section id="screens" class="center"><div class="wrap">
+  <div class="kicker">실제 앱 화면</div>
+  <div class="h2">손에 익는, 똑똑한 화면들</div>
+  <p class="sub">기록부터 분석·정리·설정까지 — 보이스캠의 모든 화면은 한 손으로 쉽게.</p>
+  <div class="pgrid">
+    <div class="pitem"><div class="phone"><img src="./site-img/modes.webp" alt="모드 선택" loading="lazy"></div>
+      <h4>모드 자동 분류</h4><p>일상·수면·중요·회의를 시간대로 자동 분류.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/insight.webp" alt="내용 정리" loading="lazy"></div>
+      <h4>내용 정리</h4><p>긴 녹음을 챕터·하이라이트로 자동 정리.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/timeline.webp" alt="그룹 타임라인" loading="lazy"></div>
+      <h4>그룹 타임라인</h4><p>모드별 녹음을 날짜로 모아보기.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/player.webp" alt="재생" loading="lazy"></div>
+      <h4>똑똑한 재생</h4><p>배속 · 무음 건너뛰기 · 구간 자르기 · 북마크.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/share.webp" alt="암호 공유" loading="lazy"></div>
+      <h4>암호 압축 공유</h4><p>공유 전 암호를 걸어 zip으로 안전하게.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/library.webp" alt="목록" loading="lazy"></div>
+      <h4>정리 · 검색</h4><p>폴더·즐겨찾기·메모, 한 번에 검색.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/wizard.webp" alt="설정 마법사" loading="lazy"></div>
+      <h4>설정 마법사</h4><p>간편·표준·전체 중 골라 1분이면 시작.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/sossettings.webp" alt="SOS 설정" loading="lazy"></div>
+      <h4>긴급 SOS 설정</h4><p>연락처·민감도를 직접 지정.</p></div>
+    <div class="pitem"><div class="phone"><img src="./site-img/settings.webp" alt="설정" loading="lazy"></div>
+      <h4>친절한 설정</h4><p>켜짐/꺼짐에 따라 ‘무엇이 바뀌는지’ 바로 안내.</p></div>
+  </div>
+</div></section>
+
+<!-- MORE GRID -->
+<section class="center" style="background:var(--ink)"><div class="wrap">
+  <div class="kicker">그리고 더</div>
+  <div class="h2">이 모든 것이, 추가 결제 없이</div>
+  <p class="sub">한 번 구매하면 지금의 기능도, 앞으로 더해질 기능도 전부 당신의 것.</p>
+  <div class="grid" style="text-align:left">
+    <div class="card"><div class="ic">🌙</div><h4>수면·일상·업무 인사이트</h4><p>모드마다 특화된 분석과 정리를 온디바이스로.</p></div>
+    <div class="card"><div class="ic">⚡</div><h4>앱 바로가기</h4><p>아이콘 길게 눌러 수면·중요·일상 녹음을 바로 시작.</p></div>
+    <div class="card"><div class="ic">🧩</div><h4>위젯 · 빠른 타일</h4><p>홈 위젯과 빠른 설정 타일로 한 번에 녹음.</p></div>
+    <div class="card"><div class="ic">☁️</div><h4>다중 백업</h4><p>Google Drive · USB 외장 · 통화 녹음까지.</p></div>
+    <div class="card"><div class="ic">🌐</div><h4>7개 언어</h4><p>한·영·스·중·일·프·독 완전 현지화.</p></div>
+    <div class="card"><div class="ic">🎬</div><h4>살아있는 사용법</h4><p>실제 화면이 움직이는 인앱 가이드로 누구나 쉽게.</p></div>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section id="price" class="center"><div class="wrap">
+  <div class="kicker">가격</div>
+  <div class="h2">평생 한 번, 그게 전부입니다</div>
+  <p class="sub">매달 빠져나가는 구독료 대신, 단 한 번. 광고도, 숨은 결제도, 서버 비용도 없습니다.</p>
+  <div class="price-wrap"><div class="price">
+    <div class="ribbon">구독 없음 · 광고 없음</div>
+    <div class="was">구독형 녹음 앱은 매달 결제</div>
+    <div class="amt" style="font-size:34px">한 번 구매<small style="display:block;font-size:15px;margin-top:6px">매달 빠져나가는 구독료 없이, 단 한 번</small></div>
+    <div class="once">가격은 출시와 함께 공개됩니다</div>
+    <ul>
+      <li><b>✓</b> 하루종일 녹음 · 수면 분석 · 내용 정리</li>
+      <li><b>✓</b> 통화 자동 백업 · 긴급 SOS · 암호 공유</li>
+      <li><b>✓</b> Google Drive · USB 외장 백업</li>
+      <li><b>✓</b> 향후 업데이트 무료 · 광고 없음</li>
+      <li><b>✓</b> 구독 없음 · 개발사 서버 없음</li>
+    </ul>
+    <a class="btn btn-pri" href="mailto:korsales.dev@gmail.com?subject=보이스캠%20출시%20알림%20신청">🔔 출시 알림 받기</a>
+    <div class="fine">Google Play 정식 출시 예정 · 안심 환불 정책 적용</div>
+  </div></div>
+</div></section>
+
+<!-- TRUST -->
+<section id="trust"><div class="wrap">
+  <div class="trust">
+    <h3>🔒 프라이버시가 기본값입니다</h3>
+    <p>보이스캠은 당신의 녹음을 개발사 서버로 보내지 않습니다. 모든 분석은 휴대폰 안에서 처리되고, 백업은 오직 본인의 계정으로만. 데이터의 주인은 처음부터 끝까지 당신입니다.</p>
+    <div class="row">
+      <div><b>0</b>개발사 서버</div>
+      <div><b>100%</b>온디바이스 분석</div>
+      <div><b>내 계정</b>에만 백업</div>
     </div>
   </div>
-  <div class="wrap copy">© 2026 코리아세일즈 (korsales). 본인이 참여하지 않은 타인 간 대화의 무단 녹음은 법에 저촉될 수 있습니다. 관련 법령을 준수해 사용하세요.</div>
-</footer>
+</div></section>
+
+<!-- CTA BAND -->
+<div class="band"><div class="wrap">
+  <h2>오늘 밤부터, 당신의 하루를 기록하세요</h2>
+  <p>기록하고 · 분석하고 · 지켜주는 단 하나의 레코더.</p>
+  <a class="btn btn-pri" href="#price">▶ Google Play에서 만나기</a>
+</div></div>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="foot">
+    <a class="brand" href="#"><img src="./icon.png" alt="보이스캠" style="width:30px;height:30px;border-radius:8px"><div>보이스캠<div class="co">코리아세일즈</div></div></a>
+    <span class="sp"></span>
+    <a href="./privacy.html">개인정보처리방침</a>
+    <a href="./terms.html">서비스 이용약관</a>
+    <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a>
+  </div>
+  <div class="copy">© 2026 코리아세일즈 (korsales). 본인이 참여하지 않은 타인 간 대화의 무단 녹음은 법에 저촉될 수 있습니다. 관련 법령을 준수해 사용하세요. · 수면 분석은 의료 진단이 아닌 참고용이며, 긴급 SOS는 통신 환경에 따라 동작이 달라질 수 있습니다.</div>
+</div></footer>
+
 </body>
 </html>
