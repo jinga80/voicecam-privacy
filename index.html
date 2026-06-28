@@ -12,7 +12,7 @@
   gtag('config', 'G-KSEVMLSC3Y');
 </script>
 <title>보이스캠 — 녹음을 넘어, 당신의 하루를 읽다 | 코리아세일즈</title>
-<meta name="description" content="보이스캠은 당신의 일상과 통화를 기록하고, 내 구글 드라이브 또는 외장장치에 안전하게 백업합니다. 수면·통화·위험까지 자동 분석. 한 번 구매로 평생 · 구독 없음 · 개발사 서버 없음. 코리아세일즈.">
+<meta name="description" content="보이스캠은 회의·통화·일상을 기록하고 AI로 자동 전사·요약·할 일까지 정리합니다. 수면·위험 자동 분석, 내 구글 드라이브·외장 백업. 요약·정리는 온디바이스 무료, 한 번 구매로 평생 · 구독 없음 · 개발사 서버 없음. 코리아세일즈.">
 <meta name="naver-site-verification" content="bcf64a6971dd3fbb008aa4e11bff0fb89fc03f64" />
 <meta name="google-site-verification" content="MFheV272P3ZfsWu9MPFy0p_Ksd0Y5ZvAzrcsTAeIZho" />
 <meta property="og:title" content="보이스캠 — 녹음을 넘어, 당신의 하루를 읽다">
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="보이스캠 — 녹음을 넘어, 당신의 하루를 읽다">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="보이스캠 — 녹음을 넘어, 당신의 하루를 읽다">
-<meta name="twitter:description" content="통화·일상·수면·회의를 기록하고 코골이부터 위험 상황까지 자동 분석. 한 번 구매 · 구독 없음 · 서버 없음.">
+<meta name="twitter:description" content="녹음이 끝나면 AI 회의록이 완성. 자동 전사·요약·할 일 정리. 수면·위험 분석까지. 한 번 구매 · 구독 없음 · 서버 없음.">
 <meta name="twitter:image" content="https://voicecam.net/og.png">
 <meta name="theme-color" content="#15110F">
 <meta name="robots" content="index,follow">
@@ -42,7 +42,7 @@
   "name": "보이스캠 (VoiceCam)",
   "operatingSystem": "Android",
   "applicationCategory": "UtilitiesApplication",
-  "description": "통화·일상·수면·회의를 기록하고 내 구글 드라이브 또는 외장장치에 안전하게 백업하는 프리미엄 보이스 레코더. 코골이·무호흡 수면 분석, 챕터 자동 정리, 긴급 SOS까지. 한 번 구매·구독 없음·개발사 서버 없음.",
+  "description": "통화·일상·수면·회의를 기록하고 AI로 자동 전사·요약·할 일까지 정리하는 프리미엄 보이스 레코더. 코골이·무호흡 수면 분석, 긴급 SOS, 내 구글 드라이브·외장 백업. 요약·정리는 온디바이스 무료, 한 번 구매·구독 없음·개발사 서버 없음.",
   "url": "https://voicecam.net/",
   "image": "https://voicecam.net/og.png",
   "inLanguage": ["ko","en","es","zh","ja","fr","de"],
@@ -132,6 +132,18 @@ section{padding:60px 0}
 .feat .pic{display:flex;justify-content:center}
 .feat .phone{max-width:248px}
 .feat.red .txt .tag{color:var(--red);border-color:#4a221f}
+
+.cmp{max-width:760px;margin:30px auto 0}
+.cmp table{width:100%;border-collapse:collapse;background:var(--surf);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cmp th,.cmp td{padding:14px 16px;text-align:center;font-size:15px;border-bottom:1px solid var(--line)}
+.cmp td:first-child,.cmp th:first-child{text-align:left;color:var(--mut)}
+.cmp thead th{font-family:var(--disp);font-weight:700;color:var(--mut);background:var(--ink)}
+.cmp th.me,.cmp td.me{color:var(--tx);font-weight:700;background:rgba(242,182,92,.08)}
+.cmp thead th.me{color:var(--amber)}
+.cmp th small{display:block;font-size:11px;color:var(--mut2);font-weight:500;margin-top:2px}
+.cmp tbody tr:last-child td{border-bottom:none}
+.cmp-note{font-size:12px;color:var(--mut2);margin-top:14px;text-align:left;line-height:1.6}
+@media(max-width:560px){.cmp th,.cmp td{padding:11px 8px;font-size:12.5px}}
 @media(max-width:760px){.feat{grid-template-columns:1fr;gap:30px}.feat.rev .txt{order:0}.feat .pic{order:-1}}
 
 /* phone grid */
@@ -232,6 +244,26 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
 </div></section>
 
 <div id="features"></div>
+
+<!-- F0: AI 회의록 · 자동 전사 (신규 헤드라이너) -->
+<section style="background:var(--ink)"><div class="wrap">
+  <div class="feat">
+    <div class="txt">
+      <span class="tag">✨ AI 회의록 · 자동 전사</span>
+      <h3>녹음이 끝나면,<br>회의록이 완성됩니다</h3>
+      <p class="hook">기기도, 구독도 없이. 당신 폰에서 전부.</p>
+      <p>회의·강의·통화를 녹음하면 보이스캠이 <b style="color:var(--tx)">글로 옮기고(전사)</b>, 핵심 <b style="color:var(--tx)">요약</b>과 <b style="color:var(--tx)">할 일</b>, 키워드까지 자동으로 정리합니다. 요약·정리는 <b style="color:var(--tx)">100% 휴대폰 안에서, 무료로</b>. 더 정확한 전사가 필요하면 <b style="color:var(--tx)">내 API 키</b>만 연결하세요 — 녹음은 개발사 서버를 거치지 않습니다.</p>
+      <ul>
+        <li>음성 → 텍스트 자동 전사 (한국어 등 다국어)</li>
+        <li>핵심 요약 · 할 일(액션 아이템) 자동 추출 · 키워드</li>
+        <li>요약·정리는 온디바이스 무료 · 구독 없음</li>
+        <li>고급 전사는 내 키 연결(BYO) · 서버 미경유</li>
+        <li>회의록을 복사·메일·암호 압축으로 공유</li>
+      </ul>
+    </div>
+    <div class="pic"><div class="phone"><img src="./site-img/transcript.webp" alt="AI 회의록 — 자동 전사·요약·할 일 정리" loading="lazy"></div></div>
+  </div>
+</div></section>
 
 <!-- F1: 하루종일 연속 녹음 (강조) -->
 <section><div class="wrap">
@@ -364,6 +396,27 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
   </div>
 </div></section>
 
+<!-- COMPARE: vs AI 녹음기 기기 -->
+<section id="compare" class="center" style="background:var(--ink)"><div class="wrap">
+  <div class="kicker">비교</div>
+  <div class="h2">AI 녹음기 기기, 꼭 사야 할까요?</div>
+  <p class="sub">수십만 원짜리 전용 기기에 매년 구독료까지. 보이스캠은 이미 손에 있는 폰으로, 한 번 구매로 같은 일을 합니다.</p>
+  <div class="cmp">
+    <table>
+      <thead><tr><th></th><th class="me">보이스캠</th><th>AI 녹음기 기기<small>전용 하드웨어</small></th></tr></thead>
+      <tbody>
+        <tr><td>전용 기기 구입</td><td class="me">필요 없음 · 내 폰</td><td>약 25만 원~</td></tr>
+        <tr><td>월 · 연 구독료</td><td class="me">없음 · 한 번 구매</td><td>연 13만~32만 원</td></tr>
+        <tr><td>자동 전사 · 요약 · 할 일</td><td class="me">✓</td><td>✓</td></tr>
+        <tr><td>녹음 보관 위치</td><td class="me">내 폰 · 내 드라이브</td><td>제조사 클라우드</td></tr>
+        <tr><td>요약 · 정리 처리</td><td class="me">기기 안에서 (무료)</td><td>클라우드 전송</td></tr>
+        <tr><td>수면 분석 · 긴급 SOS</td><td class="me">✓</td><td>✗</td></tr>
+      </tbody>
+    </table>
+    <p class="cmp-note">※ 비교 수치는 대표적인 AI 녹음기 전용 기기의 공개된 기기 가격·구독 요금을 원화로 환산한 일반 정보이며, 특정 제품을 비방할 의도가 없습니다. 실제 가격은 제품·시점에 따라 다를 수 있습니다.</p>
+  </div>
+</div></section>
+
 <!-- PRICING -->
 <section id="price" class="center"><div class="wrap">
   <div class="kicker">가격</div>
@@ -375,6 +428,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
     <div class="amt" style="font-size:34px">한 번 구매<small style="display:block;font-size:15px;margin-top:6px">매달 빠져나가는 구독료 없이, 단 한 번</small></div>
     <div class="once">가격은 출시와 함께 공개됩니다</div>
     <ul>
+      <li><b>✓</b> AI 회의록 · 자동 전사 · 요약 · 할 일</li>
       <li><b>✓</b> 하루종일 녹음 · 수면 분석 · 내용 정리</li>
       <li><b>✓</b> 통화 자동 백업 · 긴급 SOS · 암호 공유</li>
       <li><b>✓</b> Google Drive · USB 외장 백업</li>
