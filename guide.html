@@ -106,13 +106,13 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.18}
   border:1px solid var(--line);background:var(--surf);border-radius:8px;padding:3px 10px;margin-bottom:12px}
 .gsec h2{font-size:clamp(22px,3.4vw,30px);font-weight:700;margin-bottom:6px}
 .lead2{color:var(--mut);font-size:16px;margin:8px 0 20px;max-width:720px}
-.row{display:grid;grid-template-columns:240px 1fr;gap:34px;align-items:start}
-.row.rev{grid-template-columns:1fr 240px}
-.row.rev .shot{grid-column:2;grid-row:1}
-.row.rev .body{grid-column:1;grid-row:1}
+.row{display:flex;gap:34px;align-items:flex-start}
+.row .shot{flex:0 0 240px}
+.row .body{flex:1 1 auto;min-width:0}
+.row.rev{flex-direction:row-reverse}
 @media(max-width:680px){
-  .row,.row.rev{grid-template-columns:1fr;gap:20px}
-  .row.rev .shot,.row.rev .body{grid-column:auto;grid-row:auto}
+  .row,.row.rev{flex-direction:column;gap:20px}
+  .row .shot{flex:none}
 }
 .shot{display:flex;justify-content:center}
 .phone{border:8px solid #0a0a0c;border-radius:34px;background:#000;overflow:hidden;
