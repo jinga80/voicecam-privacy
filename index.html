@@ -62,7 +62,19 @@
   --body:'Noto Sans KR',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+
+/* 우측 섹션 네비게이션(스크롤스파이) */
+.snav{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column}
+.snav::before{content:"";position:absolute;right:5px;top:16px;bottom:16px;width:2px;background:var(--line);z-index:1}
+.snav a{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-end;gap:11px;
+  padding:8px 0;color:var(--mut2);font-size:13px;font-weight:600;text-decoration:none;transition:.18s}
+.snav a span{max-width:92px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:right}
+.snav a:hover{color:var(--tx)}
+.snav a.on{color:var(--amber)}
+.snav .dot{flex:none;width:11px;height:11px;border-radius:50%;border:2px solid var(--mut2);background:var(--bg);transition:.18s}
+.snav a.on .dot{border-color:var(--amber);background:var(--amber);box-shadow:0 0 0 4px rgba(242,182,92,.18)}
+@media(max-width:1180px){.snav{display:none}}
 body{font-family:var(--body);background:var(--bg);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -210,7 +222,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
 </div></nav>
 
 <!-- HERO -->
-<header class="hero"><div class="wrap">
+<header class="hero" id="hero"><div class="wrap">
   <div class="eyebrow">🔒 한 번 구매로 평생 · <b>구독 없음</b></div>
   <h1>녹음을 넘어,<br><span class="stroke">당신의 하루를 읽다</span></h1>
   <p class="lead">보이스캠은 일상과 통화를 기록하고, <b style="color:var(--tx)">녹음을 글로 바꿔 핵심만 정리</b>해 줍니다. 수면·위험 상황까지 알아서 분석하고, 내 <b style="color:var(--tx)">구글 드라이브나 외장장치</b>에 안전하게 백업하면서요.</p>
@@ -238,7 +250,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
 </div></header>
 
 <!-- STORY -->
-<section class="center" style="padding-bottom:30px"><div class="wrap">
+<section id="story" class="center" style="padding-bottom:30px"><div class="wrap">
   <div class="kicker">왜 보이스캠인가</div>
   <div class="h2">그 순간은, 다시 오지 않습니다</div>
   <p class="sub">중요한 통화의 약속, 잊어버린 회의의 결론, 매일 밤 나도 모르게 멈추는 숨, 그리고 혼자 맞닥뜨린 위험한 순간. 보이스캠은 <b style="color:var(--tx)">기록하고, 정리하고, 분석하고, 지켜줍니다</b> — 구독료도, 클라우드 비용도 없이.</p>
@@ -481,5 +493,26 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
   <div class="copy">© 2026 코리아세일즈 (korsales). 본인이 참여하지 않은 타인 간 대화의 무단 녹음은 법에 저촉될 수 있습니다. 관련 법령을 준수해 사용하세요. · 수면 분석은 의료 진단이 아닌 참고용이며, 긴급 SOS는 통신 환경에 따라 동작이 달라질 수 있습니다.</div>
 </div></footer>
 
+<nav class="snav" aria-label="섹션 바로가기">
+  <a href="#hero"><span>홈</span><i class="dot"></i></a>
+  <a href="#story"><span>소개</span><i class="dot"></i></a>
+  <a href="#features"><span>기능</span><i class="dot"></i></a>
+  <a href="#screens"><span>화면</span><i class="dot"></i></a>
+  <a href="#compare"><span>비교</span><i class="dot"></i></a>
+  <a href="#price"><span>가격</span><i class="dot"></i></a>
+</nav>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.snav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function onScroll(){
+    var pos=window.scrollY+window.innerHeight*0.34, cur=0;
+    for(var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop<=pos) cur=i; }
+    for(var j=0;j<links.length;j++){ links[j].classList.toggle('on', j===cur); }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll); onScroll();
+})();
+</script>
 </body>
 </html>
