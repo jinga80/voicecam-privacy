@@ -516,5 +516,73 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--mut)}
   window.addEventListener('resize',onScroll); onScroll();
 })();
 </script>
+<div id="ntf" hidden>
+  <div class="ntf-bg" data-close></div>
+  <div class="ntf-box" role="dialog" aria-modal="true" aria-label="Launch alert signup">
+    <button class="ntf-x" data-close aria-label="Close">×</button>
+    <div class="ntf-title">🔔 Get the launch alert</div>
+    <p class="ntf-sub">We'll let you know the moment <b id="ntf-app">VoiceCam</b> launches.</p>
+    <div class="ntf-seg" id="ntf-seg">
+      <button type="button" class="on" data-m="email">Email</button>
+      <button type="button" data-m="phone">Phone</button>
+    </div>
+    <input id="ntf-in" class="ntf-in" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email">
+    <div class="ntf-err" id="ntf-err" hidden>Please check the format.</div>
+    <button type="button" id="ntf-go" class="ntf-go">Notify me</button>
+    <p class="ntf-priv">Your info is used <b>only to send the launch alert</b>, and you can opt out anytime.</p>
+    <div id="ntf-ok" class="ntf-ok" hidden>✅ You're on the list!<br>We'll be in touch at launch.</div>
+  </div>
+</div>
+<style>
+#ntf{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+#ntf[hidden]{display:none}
+#ntf .ntf-bg{position:absolute;inset:0;background:rgba(10,8,4,.6)}
+#ntf .ntf-box{position:relative;width:100%;max-width:400px;background:#FBF7EE;border-radius:20px;padding:28px 22px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);color:#211E17;box-sizing:border-box}
+#ntf .ntf-x{position:absolute;top:12px;right:14px;border:none;background:none;font-size:27px;line-height:1;color:#9A9080;cursor:pointer}
+#ntf .ntf-title{font-size:22px;font-weight:800}
+#ntf .ntf-sub{margin-top:6px;font-size:14.5px;color:#6B6350}
+#ntf .ntf-seg{display:flex;gap:6px;margin-top:20px;background:#EDE4D2;border-radius:12px;padding:5px}
+#ntf .ntf-seg button{flex:1;border:none;background:none;padding:11px;border-radius:9px;font-size:15px;font-weight:800;color:#6B6350;cursor:pointer}
+#ntf .ntf-seg button.on{background:#fff;color:#211E17;box-shadow:0 1px 4px rgba(0,0,0,.09)}
+#ntf .ntf-in{width:100%;margin-top:14px;padding:14px 16px;border:1.5px solid #DCD1BB;border-radius:12px;font-size:16px;background:#fff;color:#211E17}
+#ntf .ntf-in:focus{outline:none;border-color:#211E17}
+#ntf .ntf-err{margin-top:8px;font-size:13px;color:#B5432E}
+#ntf .ntf-go{width:100%;margin-top:14px;padding:15px;border:none;border-radius:12px;background:#211E17;color:#F6F1E5;font-size:16px;font-weight:800;cursor:pointer}
+#ntf .ntf-priv{margin-top:14px;font-size:12px;color:#9A9080;line-height:1.6}
+#ntf .ntf-ok{margin-top:18px;padding:18px;background:#E3EFE7;border:1px solid #C9E0D3;border-radius:12px;text-align:center;font-weight:800;color:#155440;line-height:1.5}
+</style>
+<script>
+(function(){
+  var ENDPOINT="", TO="korsales.dev@gmail.com";
+  var m=document.getElementById('ntf'); if(!m) return;
+  var app=(document.title.split('—')[0]||'VoiceCam').trim();
+  document.getElementById('ntf-app').textContent=app;
+  var mode='email', inp=document.getElementById('ntf-in'), err=document.getElementById('ntf-err'), ok=document.getElementById('ntf-ok'), seg=document.getElementById('ntf-seg');
+  function open(e){ if(e){e.preventDefault();} ok.hidden=true; m.hidden=false; setTimeout(function(){inp.focus();},50); }
+  function close(){ m.hidden=true; }
+  [].forEach.call(document.querySelectorAll('a[href^="mailto:'+TO+'"]'), function(a){
+    if(/알림|notification|alert|launch/i.test(decodeURIComponent(a.getAttribute('href')||''))) a.addEventListener('click',open);
+  });
+  [].forEach.call(m.querySelectorAll('[data-close]'),function(b){b.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  [].forEach.call(seg.querySelectorAll('button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.remove('on');});
+    b.classList.add('on'); mode=b.getAttribute('data-m'); err.hidden=true;
+    if(mode==='email'){inp.type='email';inp.placeholder='Enter your email';}
+    else{inp.type='tel';inp.placeholder='Enter your phone number';}
+    inp.focus();
+  });});
+  function valid(v){ return mode==='email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) : /^[0-9\-+\s]{9,}$/.test(v); }
+  document.getElementById('ntf-go').addEventListener('click',function(){
+    var v=inp.value.trim();
+    if(!valid(v)){ err.hidden=false; inp.focus(); return; }
+    err.hidden=true;
+    var data=new URLSearchParams({app:app,type:mode,contact:v,page:location.href,ts:new Date().toISOString()});
+    function done(){ ok.hidden=false; inp.value=''; setTimeout(close,2400); }
+    if(ENDPOINT){ fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(done).catch(done); }
+    else { window.location.href='mailto:'+TO+'?subject='+encodeURIComponent('['+app+'] launch alert signup')+'&body='+encodeURIComponent(mode+': '+v); done(); }
+  });
+})();
+</script>
 </body>
 </html>

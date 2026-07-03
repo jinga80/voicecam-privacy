@@ -90,12 +90,25 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px}
 .foot-in{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .foot-links{margin-left:auto;display:flex;gap:18px;font-size:14px;color:var(--mut)}
 .copy{margin-top:18px;font-size:12px;color:var(--mut);line-height:1.7}
+.mbar{display:none}
 @media(max-width:820px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  h1{font-size:38px}.sig{transform:none;margin:0 auto;max-width:400px}
+  section{padding:52px 0}
+  .hero{padding:42px 0 30px}
+  h1{font-size:38px;line-height:1.16}h2{font-size:27px}
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  h1{font-size:38px}.sig{transform:none;margin:0 auto;max-width:380px}
   .pain-grid,.feat{grid-template-columns:1fr}
   .foot-links{margin-left:0;width:100%}
+  .lede{font-size:16px}
+  .nav-cta{display:none}
+  body{padding-bottom:74px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;gap:12px;padding:9px 14px calc(9px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--line);box-shadow:0 -6px 22px rgba(0,0,0,.08)}
+  .mbar .l{display:flex;flex-direction:column;line-height:1.2}
+  .mbar .l b{font-weight:800;font-size:14.5px;color:var(--ink)}
+  .mbar .l span{font-size:11px;color:var(--mut)}
+  .mbar .go{margin-left:auto;background:var(--pri);color:#fff;font-weight:800;padding:13px 20px;border-radius:12px;font-size:15px;box-shadow:0 3px 0 var(--pri-d);white-space:nowrap}
 }
+@media(max-width:420px){h1{font-size:32px}}
 </style>
 </head>
 <body>
@@ -132,9 +145,9 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px}
   <h2>내 공부 기록, 내 폰에만</h2>
   <p>수업노트는 <b>녹음을 개발사 서버로 보내지 않습니다.</b> 모든 정리는 폰 안에서 처리되고, 백업은 오직 <b>본인의 구글 드라이브</b>로만. 민감한 대화가 밖으로 새어 나갈 틈이 없습니다.</p>
   <div class="chips">
-    <span class="chip">🔒 100% 온디바이스 처리</span>
+    <span class="chip">🔒 100% 내 폰에서 처리</span>
     <span class="chip">☁️ 내 구글 드라이브에만 백업</span>
-    <span class="chip">🚫 개발사 서버 저장 없음</span>
+    <span class="chip">🚫 외부유출 없음</span>
     <span class="chip">💸 구독 없음</span>
   </div>
 </div></div></section>
@@ -168,4 +181,79 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px}
   </div>
   <div class="copy">© 2026 코리아세일즈 (korsales). 본인이 참여하지 않은 타인 간 대화의 무단 녹음은 법에 저촉될 수 있습니다. 관련 법령을 준수해 사용하세요. · 수업노트는 녹음을 개발사 서버로 전송하지 않으며, 백업은 사용자 본인의 구글 드라이브로만 이루어집니다.</div>
 </div></footer>
+
+<a class="mbar" href="mailto:korsales.dev@gmail.com?subject=수업노트%20출시%20알림" aria-label="출시 알림 신청">
+  <span class="l"><b>수업노트</b><span>구독 없이 · 내 폰에만</span></span>
+  <span class="go">🔔 출시 알림</span>
+</a>
+
+<div id="ntf" hidden>
+  <div class="ntf-bg" data-close></div>
+  <div class="ntf-box" role="dialog" aria-modal="true" aria-label="출시 알림 신청">
+    <button class="ntf-x" data-close aria-label="닫기">×</button>
+    <div class="ntf-title">🔔 출시 알림 신청</div>
+    <p class="ntf-sub"><b id="ntf-app">이 앱</b>이 출시되면 가장 먼저 알려드릴게요.</p>
+    <div class="ntf-seg" id="ntf-seg">
+      <button type="button" class="on" data-m="email">이메일</button>
+      <button type="button" data-m="phone">전화번호</button>
+    </div>
+    <input id="ntf-in" class="ntf-in" type="email" inputmode="email" autocomplete="email" placeholder="이메일 주소를 입력하세요">
+    <div class="ntf-err" id="ntf-err" hidden>형식을 다시 확인해 주세요.</div>
+    <button type="button" id="ntf-go" class="ntf-go">신청하기</button>
+    <p class="ntf-priv">입력하신 정보는 <b>출시 알림 안내 목적</b>으로만 사용되며, 원치 않으시면 언제든 수신 거부할 수 있어요.</p>
+    <div id="ntf-ok" class="ntf-ok" hidden>✅ 신청이 완료됐어요!<br>출시되면 가장 먼저 알려드릴게요.</div>
+  </div>
+</div>
+<style>
+#ntf{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif}
+#ntf[hidden]{display:none}
+#ntf .ntf-bg{position:absolute;inset:0;background:rgba(20,15,5,.5)}
+#ntf .ntf-box{position:relative;width:100%;max-width:400px;background:#FBF7EE;border-radius:20px;padding:28px 22px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);color:#211E17;box-sizing:border-box}
+#ntf .ntf-x{position:absolute;top:12px;right:14px;border:none;background:none;font-size:27px;line-height:1;color:#9A9080;cursor:pointer}
+#ntf .ntf-title{font-size:22px;font-weight:800}
+#ntf .ntf-sub{margin-top:6px;font-size:14.5px;color:#6B6350}
+#ntf .ntf-seg{display:flex;gap:6px;margin-top:20px;background:#EDE4D2;border-radius:12px;padding:5px}
+#ntf .ntf-seg button{flex:1;border:none;background:none;padding:11px;border-radius:9px;font-size:15px;font-weight:800;color:#6B6350;cursor:pointer}
+#ntf .ntf-seg button.on{background:#fff;color:#211E17;box-shadow:0 1px 4px rgba(0,0,0,.09)}
+#ntf .ntf-in{width:100%;margin-top:14px;padding:14px 16px;border:1.5px solid #DCD1BB;border-radius:12px;font-size:16px;background:#fff;color:#211E17}
+#ntf .ntf-in:focus{outline:none;border-color:#211E17}
+#ntf .ntf-err{margin-top:8px;font-size:13px;color:#B5432E}
+#ntf .ntf-go{width:100%;margin-top:14px;padding:15px;border:none;border-radius:12px;background:#211E17;color:#F6F1E5;font-size:16px;font-weight:800;cursor:pointer}
+#ntf .ntf-priv{margin-top:14px;font-size:12px;color:#9A9080;line-height:1.6}
+#ntf .ntf-ok{margin-top:18px;padding:18px;background:#E3EFE7;border:1px solid #C9E0D3;border-radius:12px;text-align:center;font-weight:800;color:#155440;line-height:1.5}
+</style>
+<script>
+(function(){
+  var ENDPOINT="";
+  var TO="korsales.dev@gmail.com";
+  var m=document.getElementById('ntf'); if(!m) return;
+  var app=(document.title.split('—')[0]||'이 앱').trim();
+  document.getElementById('ntf-app').textContent=app;
+  var mode='email', inp=document.getElementById('ntf-in'), err=document.getElementById('ntf-err'), ok=document.getElementById('ntf-ok'), seg=document.getElementById('ntf-seg');
+  function open(e){ if(e){e.preventDefault();} ok.hidden=true; m.hidden=false; setTimeout(function(){inp.focus();},50); }
+  function close(){ m.hidden=true; }
+  [].forEach.call(document.querySelectorAll('a[href^="mailto:'+TO+'"]'), function(a){
+    if(/알림/.test(decodeURIComponent(a.getAttribute('href')||''))) a.addEventListener('click',open);
+  });
+  [].forEach.call(m.querySelectorAll('[data-close]'),function(b){b.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  [].forEach.call(seg.querySelectorAll('button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.remove('on');});
+    b.classList.add('on'); mode=b.getAttribute('data-m'); err.hidden=true;
+    if(mode==='email'){inp.type='email';inp.placeholder='이메일 주소를 입력하세요';}
+    else{inp.type='tel';inp.placeholder='전화번호를 입력하세요 (예: 010-1234-5678)';}
+    inp.focus();
+  });});
+  function valid(v){ return mode==='email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) : /^[0-9\-+\s]{9,}$/.test(v); }
+  document.getElementById('ntf-go').addEventListener('click',function(){
+    var v=inp.value.trim();
+    if(!valid(v)){ err.hidden=false; inp.focus(); return; }
+    err.hidden=true;
+    var data=new URLSearchParams({app:app,type:(mode==='email'?'이메일':'전화'),contact:v,page:location.href,ts:new Date().toISOString()});
+    function done(){ ok.hidden=false; inp.value=''; setTimeout(close,2400); }
+    if(ENDPOINT){ fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(done).catch(done); }
+    else { window.location.href='mailto:'+TO+'?subject='+encodeURIComponent('['+app+'] 출시 알림 신청')+'&body='+encodeURIComponent((mode==='email'?'이메일: ':'전화: ')+v); done(); }
+  });
+})();
+</script>
 </body></html>
