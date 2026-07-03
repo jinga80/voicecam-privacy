@@ -97,6 +97,10 @@
   .step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:24px;width:38px;height:38px;border-radius:11px;background:var(--green);color:#F4EEE1;font-family:var(--disp);font-weight:900;font-size:18px;display:grid;place-items:center;box-shadow:0 3px 0 var(--green-d)}
   .step h3{font-size:20px;margin:14px 0 8px}
   .step p{font-size:14.5px;color:#4A4436}
+  .step .mascot{height:96px;display:flex;justify-content:center;align-items:flex-end;margin:10px 0 2px}
+  .step .mascot svg{height:100%;width:auto}
+  .cta-mascot{display:flex;justify-content:center;margin-bottom:6px}
+  .cta-mascot svg{height:132px;width:auto}
 
   .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:20px}
   .split.rev .txt{order:2}
@@ -378,9 +382,62 @@
   <h2>딱 <b>세 단계</b>, 그게 전부</h2>
   <p class="lead">앱을 배우지 않아도 됩니다. 설정 한 번이면 그다음은 알아서.</p>
   <div class="steps" style="text-align:left">
-    <div class="step"><h3>켜두기</h3><p>처음 한 번, ‘통화 자동 보관’을 켭니다. 이제 신경 쓸 일이 없어요.</p></div>
-    <div class="step"><h3>평소처럼 통화</h3><p>거래처든 손님이든 평소대로 통화하세요. 장사노트가 알아서 기록합니다.</p></div>
-    <div class="step"><h3>요점만 확인</h3><p>통화가 끝나면 금액·수량·납기·약속이 정리돼 있어요. 다시 들을 필요 없이 한눈에.</p></div>
+    <div class="step">
+      <div class="mascot"><svg viewBox="0 0 124 118" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="통화 자동 보관을 켜는 사장님">
+        <ellipse cx="56" cy="112" rx="30" ry="5" fill="#1E140510"/>
+        <path d="M26 118 q0 -40 30 -40 q30 0 30 40z" fill="#1E6E52"/>
+        <path d="M82 98 q18 -4 18 -28" stroke="#1E6E52" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <circle cx="100" cy="66" r="8.5" fill="#F3D3AC"/><rect x="96.5" y="52" width="7" height="12" rx="3.5" fill="#F3D3AC"/>
+        <rect x="43" y="84" width="26" height="34" rx="5" fill="#EFE7D2"/><rect x="49" y="76" width="14" height="11" fill="#E9BE92"/>
+        <circle cx="56" cy="52" r="26" fill="#F3D3AC"/>
+        <path d="M30 50 q3 -28 26 -28 q23 0 26 28 q-13 -14 -26 -14 q-13 0 -26 14z" fill="#3B2E22"/>
+        <path d="M42 50 q5 5 10 0" stroke="#2A241B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M60 50 q5 5 10 0" stroke="#2A241B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M48 62 q8 7 16 0" stroke="#8A4436" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="41" cy="58" rx="4" ry="2.5" fill="#E8896A" opacity=".5"/><ellipse cx="71" cy="58" rx="4" ry="2.5" fill="#E8896A" opacity=".5"/>
+        <rect x="4" y="18" width="36" height="18" rx="9" fill="#1E6E52"/><circle cx="31" cy="27" r="6.5" fill="#fff"/>
+        <text x="10" y="31" font-family="'Gothic A1',sans-serif" font-weight="900" font-size="8.5" fill="#EBF3EF">ON</text>
+      </svg></div>
+      <h3>켜두기</h3><p>처음 한 번, ‘통화 자동 보관’을 켭니다. 이제 신경 쓸 일이 없어요.</p>
+    </div>
+    <div class="step">
+      <div class="mascot"><svg viewBox="0 0 124 118" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="평소처럼 통화하는 사장님">
+        <ellipse cx="62" cy="112" rx="30" ry="5" fill="#1E140510"/>
+        <path d="M32 118 q0 -40 30 -40 q30 0 30 40z" fill="#1E6E52"/>
+        <path d="M40 96 q-10 -12 0 -26" stroke="#1E6E52" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <circle cx="40" cy="60" r="7.5" fill="#F3D3AC"/>
+        <rect x="30" y="46" width="11" height="24" rx="3" fill="#2A241B"/><rect x="32" y="49" width="7" height="16" rx="2" fill="#4A6B8A"/>
+        <rect x="49" y="84" width="26" height="34" rx="5" fill="#EFE7D2"/><rect x="55" y="76" width="14" height="11" fill="#E9BE92"/>
+        <circle cx="62" cy="52" r="26" fill="#F3D3AC"/>
+        <path d="M36 50 q3 -28 26 -28 q23 0 26 28 q-13 -14 -26 -14 q-13 0 -26 14z" fill="#3B2E22"/>
+        <circle cx="54" cy="50" r="3" fill="#2A241B"/><circle cx="72" cy="50" r="3" fill="#2A241B"/>
+        <path d="M56 62 q6 4 12 0" stroke="#8A4436" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="49" cy="57" rx="4" ry="2.5" fill="#E8896A" opacity=".5"/><ellipse cx="77" cy="57" rx="4" ry="2.5" fill="#E8896A" opacity=".5"/>
+        <text x="88" y="42" font-family="'Gothic A1',sans-serif" font-weight="900" font-size="14" fill="#B4832A">♪</text>
+      </svg></div>
+      <h3>평소처럼 통화</h3><p>거래처든 손님이든 평소대로 통화하세요. 장사노트가 알아서 기록합니다.</p>
+    </div>
+    <div class="step">
+      <div class="mascot"><svg viewBox="0 0 124 118" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="정리된 요점을 확인하는 사장님">
+        <ellipse cx="62" cy="112" rx="30" ry="5" fill="#1E140510"/>
+        <path d="M32 118 q0 -40 30 -40 q30 0 30 40z" fill="#1E6E52"/>
+        <rect x="55" y="76" width="14" height="11" fill="#E9BE92"/>
+        <circle cx="62" cy="52" r="26" fill="#F3D3AC"/>
+        <path d="M36 50 q3 -28 26 -28 q23 0 26 28 q-13 -14 -26 -14 q-13 0 -26 14z" fill="#3B2E22"/>
+        <path d="M48 50 q5 5 10 0" stroke="#2A241B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M66 50 q5 5 10 0" stroke="#2A241B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M54 62 q8 7 16 0" stroke="#8A4436" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="47" cy="58" rx="4" ry="2.5" fill="#E8896A" opacity=".5"/><ellipse cx="77" cy="58" rx="4" ry="2.5" fill="#E8896A" opacity=".5"/>
+        <path d="M40 100 q6 -8 18 -8" stroke="#1E6E52" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M84 100 q-6 -8 -18 -8" stroke="#1E6E52" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <rect x="44" y="82" width="36" height="30" rx="4" fill="#FBF7EE" stroke="#D8CDB6" stroke-width="1.4"/>
+        <line x1="50" y1="90" x2="74" y2="90" stroke="#CDBFA2" stroke-width="2" stroke-linecap="round"/>
+        <line x1="50" y1="97" x2="70" y2="97" stroke="#CDBFA2" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="72" cy="104" r="7" fill="#1E6E52"/><path d="M68 104 l3 3 l5 -6" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <circle cx="44" cy="94" r="5" fill="#F3D3AC"/><circle cx="80" cy="94" r="5" fill="#F3D3AC"/>
+      </svg></div>
+      <h3>요점만 확인</h3><p>통화가 끝나면 금액·수량·납기·약속이 정리돼 있어요. 다시 들을 필요 없이 한눈에.</p>
+    </div>
   </div>
 </div></section>
 
@@ -543,6 +600,21 @@
 
 <!-- 13. CTA -->
 <section id="get" class="band"><div class="wrap">
+  <div class="cta-mascot"><svg viewBox="0 0 150 138" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="반갑게 인사하는 장사노트 사장님">
+    <ellipse cx="70" cy="132" rx="36" ry="6" fill="#1E14050f"/>
+    <path d="M34 138 q0 -48 36 -48 q36 0 36 48z" fill="#1E6E52"/>
+    <path d="M100 108 q24 -6 22 -44" stroke="#1E6E52" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <circle cx="122" cy="58" r="10" fill="#F3D3AC"/>
+    <path d="M134 46 q5 -3 6 -9" stroke="#B4832A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M139 55 q7 -2 10 -8" stroke="#B4832A" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".7"/>
+    <rect x="55" y="98" width="30" height="40" rx="6" fill="#EFE7D2"/><rect x="62" y="88" width="16" height="13" fill="#E9BE92"/>
+    <circle cx="70" cy="60" r="30" fill="#F3D3AC"/>
+    <path d="M40 58 q4 -32 30 -32 q26 0 30 32 q-15 -16 -30 -16 q-15 0 -30 16z" fill="#3B2E22"/>
+    <path d="M52 58 q6 6 12 0" stroke="#2A241B" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M76 58 q6 6 12 0" stroke="#2A241B" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+    <path d="M60 72 q10 9 20 0" stroke="#8A4436" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <ellipse cx="51" cy="67" rx="5" ry="3" fill="#E8896A" opacity=".55"/><ellipse cx="89" cy="67" rx="5" ry="3" fill="#E8896A" opacity=".55"/>
+  </svg></div>
   <span class="eye">곧 만나요, 사장님</span>
   <h2>말이 증거가 되는 순간,<br><b>장사가 편해집니다.</b></h2>
   <p class="lead center">출시되면 가장 먼저, 가장 좋은 조건으로 알려드릴게요.</p>
