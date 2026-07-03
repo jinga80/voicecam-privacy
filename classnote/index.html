@@ -750,7 +750,7 @@
 </style>
 <script>
 (function(){
-  var ENDPOINT=""; /* ← 구글 Apps Script(또는 Formspree) URL을 넣으면 시트에 자동 저장. 비우면 이메일로 접수. */
+  var ENDPOINT="https://voicecam-api-production.up.railway.app/signup"; /* ← 구글 Apps Script(또는 Formspree) URL을 넣으면 시트에 자동 저장. 비우면 이메일로 접수. */
   var TO="korsales.dev@gmail.com";
   var m=document.getElementById('ntf'); if(!m) return;
   var app=(document.title.split('—')[0]||'이 앱').trim();
