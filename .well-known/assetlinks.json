@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.voicecam.app",
+      "sha256_cert_fingerprints": [
+        "0E:24:55:1D:9A:D4:8E:B2:62:EC:B7:4F:53:3F:7E:6C:9C:24:C1:AD:E4:8D:A2:BC:CB:2D:D9:4A:98:17:39:84",
+        "93:DF:48:48:D5:F3:7E:AF:6A:0B:DF:77:40:0B:12:17:F2:16:B0:DD:BB:CE:54:4A:4E:18:3F:AE:1D:84:B6:74"
+      ]
+    }
+  }
+]
