@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>내마음저장소 — 하루의 끝에서, 오늘의 마음을 돌아봐요 | 코리아세일즈</title>
-<meta name="description" content="하루 틈틈이 녹음해두면, AI가 함께 하루를 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내가 이미 쓰는 AI 앱으로 — 개발사 서버를 거치지 않아요. 매일 '오늘의 마음' 한 장이 남습니다. 코리아세일즈.">
+<meta name="description" content="하루 틈틈이 녹음해두면, 달빛 친구 '마루'와 AI가 함께 하루를 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내가 이미 쓰는 AI 앱으로 — 개발사 서버를 거치지 않아요. 매일 '오늘의 마음' 한 장이 남습니다. 코리아세일즈.">
 <meta name="author" content="코리아세일즈">
 <meta property="og:type" content="website">
 <meta property="og:title" content="내마음저장소 — 하루의 끝에서, 오늘의 마음을 돌아봐요">
-<meta property="og:description" content="하루 녹음을 AI가 함께 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내 AI로. 매일 '오늘의 마음' 한 장.">
+<meta property="og:description" content="달빛 친구 마루와 함께, 하루 녹음을 AI가 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내 AI로.">
 <meta property="og:url" content="https://voicecam.net/maeum/">
+<meta property="og:image" content="https://voicecam.net/maeum/img/shot-home.png">
 <meta name="theme-color" content="#14101E">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20108%20108%27%3E%3Crect%20width%3D%27108%27%20height%3D%27108%27%20rx%3D%2724%27%20fill%3D%27%231A1524%27/%3E%3Cpath%20d%3D%27M56%2024C31%2029%2027%2067%2050%2080C41%2066%2043%2040%2060%2033C56%2031%2055%2027%2056%2024Z%27%20fill%3D%27%23E4906B%27/%3E%3Cpath%20d%3D%27M50%2064q8-11%2016%200q8%2011%2016%200%27%20stroke%3D%27%23F4ECE1%27%20stroke-width%3D%275.5%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,22 +30,26 @@
   body{font-family:var(--sans);color:var(--ink);background:var(--plum);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
   a{color:inherit}
-  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.28;letter-spacing:-.01em}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.3;letter-spacing:-.01em}
   .eyebrow{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-  .serif{font-family:var(--serif)}
+
+  /* ── 마스코트(달빛 친구 마루) 애니메이션 ── */
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.9}}
+  .maru{animation:float 5s ease-in-out infinite}
 
   /* ── 히어로 ── */
-  .hero{position:relative;overflow:hidden;text-align:center;padding:76px 0 88px;
+  .hero{position:relative;overflow:hidden;text-align:center;padding:70px 0 84px;
     background:
-      radial-gradient(120% 90% at 50% -8%, rgba(232,160,124,.42) 0%, rgba(108,58,82,.30) 34%, rgba(20,16,30,0) 66%),
+      radial-gradient(120% 92% at 50% -6%, rgba(232,160,124,.44) 0%, rgba(108,58,82,.30) 34%, rgba(20,16,30,0) 66%),
       linear-gradient(180deg,#20182E 0%,#1A1524 60%,#14101E 100%);}
-  .stars{position:absolute;inset:0;pointer-events:none;opacity:.7}
-  .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#F4ECE1;opacity:.5}
-  .mark{width:118px;height:118px;margin:0 auto 22px;display:block;filter:drop-shadow(0 10px 26px rgba(232,160,124,.28))}
+  .stars{position:absolute;inset:0;pointer-events:none}
+  .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#F4ECE1;animation:twinkle 4s ease-in-out infinite}
+  .hero .maru{width:150px;height:150px;margin:0 auto 6px;display:block;filter:drop-shadow(0 14px 30px rgba(232,160,124,.4))}
   .hero h1{font-size:clamp(30px,6.2vw,52px);color:var(--cream)}
   .hero h1 .soft{color:var(--coral)}
-  .hero .sub{max-width:600px;margin:20px auto 0;font-size:clamp(15px,2.4vw,18px);color:var(--mut);line-height:1.85}
-  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .hero .sub{max-width:600px;margin:18px auto 0;font-size:clamp(15px,2.4vw,18px);color:var(--mut);line-height:1.85}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:16px;font-family:var(--disp);font-weight:800;font-size:15.5px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease,background .2s}
   .btn:active{transform:translateY(1px)}
   .btn-pri{background:linear-gradient(180deg,var(--coral),var(--coral-d));color:#2A1520;box-shadow:0 14px 34px -12px rgba(228,144,107,.7)}
@@ -52,92 +57,132 @@
   .kicker{margin-top:20px;font-size:13px;color:var(--mut)}
   .kicker b{color:var(--gold);font-weight:700}
 
-  /* ── 공통 섹션 ── */
-  section{padding:72px 0}
-  .sec-head{text-align:center;max-width:640px;margin:0 auto 44px}
+  section{padding:74px 0;position:relative}
+  .sec-head{text-align:center;max-width:660px;margin:0 auto 46px}
   .sec-head h2{font-size:clamp(24px,4.4vw,34px);color:var(--cream)}
   .sec-head p{margin-top:14px;color:var(--mut);font-size:16px}
   .divide{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
 
-  /* ── 공감(문제) ── */
+  /* ── 공감(캐릭터 말풍선) ── */
   .feel{background:var(--night)}
-  .feel .lines{max-width:640px;margin:0 auto;display:grid;gap:16px}
-  .feel .ln{font-family:var(--serif);font-size:clamp(18px,3vw,23px);color:var(--ink);opacity:.92;padding-left:22px;border-left:2px solid var(--coral-d)}
-  .feel .turn{margin-top:34px;text-align:center;font-family:var(--serif);font-size:clamp(19px,3.2vw,25px);color:var(--coral)}
+  .feel .stage{display:flex;align-items:center;gap:26px;max-width:760px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .feel .who{width:132px;height:132px;flex:none}
+  .feel .bubbles{flex:1;min-width:260px;display:grid;gap:13px}
+  .feel .bb{position:relative;background:var(--plum2);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:14px 18px;font-family:var(--serif);font-size:clamp(16px,2.6vw,20px);color:var(--ink)}
+  .feel .turn{margin-top:30px;text-align:center;font-family:var(--serif);font-size:clamp(18px,3vw,24px);color:var(--coral)}
 
-  /* ── 저널 카드(시그니처) ── */
+  /* ── 실제 화면(폰 프레임) ── */
+  .show .row{display:flex;align-items:center;gap:44px;max-width:900px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .show .row.rev{flex-direction:row-reverse}
+  .phone{width:264px;flex:none;border-radius:36px;padding:9px;background:#0E0A16;border:1px solid var(--line);
+    box-shadow:0 46px 90px -34px rgba(0,0,0,.85), inset 0 0 0 2px #241B33;position:relative}
+  .phone img{width:100%;border-radius:28px;display:block}
+  .phone .glow{position:absolute;inset:-30px;z-index:-1;background:radial-gradient(circle,rgba(228,144,107,.22),transparent 70%)}
+  .show .txt{flex:1;min-width:264px;max-width:400px}
+  .show .txt .eyebrow{margin-bottom:12px}
+  .show .txt h2{font-size:clamp(23px,3.6vw,30px);color:var(--cream)}
+  .show .txt p{margin-top:14px;color:var(--mut);font-size:15.5px;line-height:1.85}
+  .show .txt .mini{margin-top:16px;display:grid;gap:8px}
+  .show .txt .mini div{font-size:14px;color:var(--ink);padding-left:24px;position:relative}
+  .show .txt .mini div:before{content:"🌙";position:absolute;left:0;font-size:12px}
+
+  /* ── 저널 카드 ── */
   .card{max-width:440px;margin:0 auto;background:linear-gradient(180deg,var(--plum2),var(--plum));border:1px solid var(--line);border-radius:24px;padding:26px 24px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
   .card .top{display:flex;align-items:center;gap:10px;color:var(--gold);font-size:13.5px;font-family:var(--disp);font-weight:700}
   .card .dot{width:11px;height:11px;border-radius:50%;background:var(--coral);box-shadow:0 0 12px var(--coral)}
   .card .body{margin-top:16px;font-family:var(--serif);font-size:17px;color:var(--ink);line-height:1.9}
   .card .tmr{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-family:var(--serif);color:var(--coral);font-size:16px}
 
-  /* ── 3단계 ── */
+  /* ── 3단계(캐릭터 장면) ── */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .step{background:var(--plum2);border:1px solid var(--line);border-radius:20px;padding:26px 22px}
-  .step .no{font-family:var(--serif);font-size:32px;color:var(--coral);line-height:1}
-  .step h3{margin-top:12px;font-size:19px;color:var(--cream)}
+  .step{background:var(--plum2);border:1px solid var(--line);border-radius:22px;padding:24px 22px;text-align:center}
+  .step .scene{width:100%;height:130px;margin-bottom:6px}
+  .step .no{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--gold)}
+  .step h3{margin-top:6px;font-size:19px;color:var(--cream)}
   .step p{margin-top:9px;color:var(--mut);font-size:14.5px}
-  .step .tag{display:inline-block;margin-top:12px;font-size:12px;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
 
-  /* ── 페르소나 인용 ── */
+  /* ── 페르소나 인용(마루가 말함) ── */
   .quote{background:var(--night);text-align:center}
-  .quote .mk{font-family:var(--serif);font-size:56px;color:var(--coral-d);line-height:.4}
-  .quote blockquote{max-width:660px;margin:18px auto 0;font-family:var(--serif);font-size:clamp(20px,3.6vw,28px);color:var(--cream);line-height:1.6}
-  .quote .who{margin-top:20px;color:var(--mut);font-size:14px}
+  .quote .maru{width:96px;height:96px;margin:0 auto 8px;display:block}
+  .quote blockquote{max-width:660px;margin:6px auto 0;font-family:var(--serif);font-size:clamp(20px,3.6vw,28px);color:var(--cream);line-height:1.6}
+  .quote .who{margin-top:18px;color:var(--mut);font-size:14px}
 
-  /* ── 프라이버시 밴드 ── */
+  /* ── 프라이버시 ── */
   .priv .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
   .priv .b{background:var(--plum2);border:1px solid var(--line);border-radius:18px;padding:22px}
   .priv .b .ic{font-size:22px}
   .priv .b h3{margin-top:8px;font-size:17px;color:var(--cream)}
   .priv .b p{margin-top:7px;color:var(--mut);font-size:14px}
 
-  /* ── 프로/CTA ── */
-  .final{text-align:center;background:
-      radial-gradient(120% 90% at 50% 120%, rgba(232,160,124,.30) 0%, rgba(20,16,30,0) 60%),
-      var(--plum)}
+  /* ── 최종 CTA ── */
+  .final{text-align:center;background:radial-gradient(120% 90% at 50% 120%, rgba(232,160,124,.30) 0%, rgba(20,16,30,0) 60%), var(--plum)}
+  .final .maru{width:110px;height:110px;margin:0 auto 10px;display:block}
   .final h2{font-size:clamp(26px,5vw,40px);color:var(--cream)}
   .final p{margin-top:14px;color:var(--mut)}
-  .pro{max-width:420px;margin:30px auto 0;background:var(--plum2);border:1px solid var(--line);border-radius:20px;padding:22px;text-align:left}
+  .pro{max-width:420px;margin:28px auto 0;background:var(--plum2);border:1px solid var(--line);border-radius:20px;padding:22px;text-align:left}
   .pro .lab{font-family:var(--disp);font-weight:800;color:var(--coral);font-size:14px}
   .pro ul{list-style:none;margin:12px 0 0;display:grid;gap:9px}
   .pro li{font-size:14.5px;color:var(--ink);padding-left:24px;position:relative}
   .pro li:before{content:"🌙";position:absolute;left:0;font-size:13px}
   .pro .note{margin-top:12px;font-size:12.5px;color:var(--mut)}
 
-  /* ── 푸터 ── */
   footer{background:var(--night);border-top:1px solid var(--line);padding:42px 0 60px;text-align:center;color:var(--mut);font-size:13.5px}
-  footer .fmark{width:40px;height:40px;margin:0 auto 12px;display:block;opacity:.9}
+  footer .maru{width:52px;height:52px;margin:0 auto 12px;display:block;opacity:.95}
   footer a{color:var(--coral);text-decoration:none}
   footer .row{margin-top:8px}
 
-  @media (max-width:720px){
-    .steps{grid-template-columns:1fr}
+  @media (max-width:760px){
+    .steps{grid-template-columns:1fr;max-width:340px;margin:0 auto}
     .priv .grid{grid-template-columns:1fr}
-    section{padding:56px 0}
+    section{padding:58px 0}
+    .show .row,.show .row.rev{flex-direction:column;text-align:center}
+    .show .txt{text-align:center}
+    .show .txt .mini div{display:inline-block;text-align:left}
+    .feel .stage{flex-direction:column}
+    .feel .bb{border-radius:16px}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 
+<!-- 재사용 마스코트(마루) 심볼 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="moonG" cx="38%" cy="32%" r="78%">
+    <stop offset="0" stop-color="#F6BE96"/><stop offset=".55" stop-color="#E4906B"/><stop offset="1" stop-color="#BE6E48"/>
+  </radialGradient>
+  <mask id="cres"><rect width="200" height="200" fill="#000"/>
+    <circle cx="98" cy="106" r="66" fill="#fff"/><circle cx="140" cy="70" r="54" fill="#000"/></mask>
+  <symbol id="maru" viewBox="0 0 200 200">
+    <circle cx="98" cy="106" r="74" fill="#E4906B" opacity=".16"/>
+    <circle cx="98" cy="106" r="66" fill="url(#moonG)" mask="url(#cres)"/>
+    <!-- 볼 홍조 -->
+    <ellipse cx="70" cy="126" rx="9" ry="6" fill="#F6A985" opacity=".65"/>
+    <ellipse cx="112" cy="132" rx="9" ry="6" fill="#F6A985" opacity=".65"/>
+    <!-- 눈(편안히 감은) -->
+    <path d="M64 112q8 9 16 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M104 116q8 9 16 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <!-- 미소 -->
+    <path d="M78 132q14 13 30 3" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <!-- 마음결 물결 -->
+    <path d="M120 158q7-9 14 0q7 9 14 0" stroke="#F4ECE1" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- 작은 별 -->
+    <path d="M150 52l2 6l6 2l-6 2l-2 6l-2-6l-6-2l6-2Z" fill="#D8A657"/>
+  </symbol>
+</defs></svg>
+
 <!-- ══ 히어로 ══ -->
 <header class="hero">
   <div class="stars" aria-hidden="true">
-    <i style="left:12%;top:22%"></i><i style="left:22%;top:54%"></i><i style="left:31%;top:16%;width:3px;height:3px"></i>
-    <i style="left:68%;top:20%"></i><i style="left:78%;top:44%;width:3px;height:3px"></i><i style="left:86%;top:28%"></i>
-    <i style="left:58%;top:62%"></i><i style="left:44%;top:12%"></i><i style="left:90%;top:60%"></i>
+    <i style="left:12%;top:22%"></i><i style="left:22%;top:54%;animation-delay:.6s"></i><i style="left:31%;top:16%;width:3px;height:3px;animation-delay:1.2s"></i>
+    <i style="left:68%;top:20%;animation-delay:.3s"></i><i style="left:78%;top:44%;width:3px;height:3px;animation-delay:1.5s"></i><i style="left:86%;top:28%;animation-delay:.9s"></i>
+    <i style="left:58%;top:62%;animation-delay:2s"></i><i style="left:44%;top:12%;animation-delay:1.8s"></i><i style="left:90%;top:60%;animation-delay:.4s"></i>
   </div>
   <div class="wrap">
-    <svg class="mark" viewBox="0 0 108 108" role="img" aria-label="내마음저장소">
-      <path d="M56 24C31 29 27 67 50 80C41 66 43 40 60 33C56 31 55 27 56 24Z" fill="#E4906B"/>
-      <path d="M50 64q8-11 16 0q8 11 16 0" stroke="#F4ECE1" stroke-width="5.5" stroke-linecap="round" fill="none"/>
-      <path d="M75 40l1.6 4.4l4.4 1.6l-4.4 1.6l-1.6 4.4l-1.6-4.4l-4.4-1.6l4.4-1.6Z" fill="#D8A657"/>
-    </svg>
+    <svg class="maru" viewBox="0 0 200 200" role="img" aria-label="달빛 친구 마루"><use href="#maru"/></svg>
     <div class="eyebrow">감정일기 · 하루 성찰</div>
     <h1 style="margin-top:14px">하루의 끝에서,<br><span class="soft">오늘의 마음</span>을 돌아봐요</h1>
-    <p class="sub">틈틈이 녹음해두면, AI가 하루를 함께 돌아봐 줍니다.<br>냉정하지만 따뜻하게 — 오늘 무슨 일이 있었고, 그때 마음은 어땠는지.</p>
+    <p class="sub">틈틈이 녹음해두면, 달빛 친구 <b style="color:var(--coral)">마루</b>와 AI가 하루를 함께 돌아봐 줍니다.<br>냉정하지만 따뜻하게 — 오늘 무슨 일이 있었고, 그때 마음은 어땠는지.</p>
     <div class="cta">
       <a class="btn btn-pri" href="mailto:korsales.dev@gmail.com?subject=내마음저장소%20출시%20알림%20신청">🔔 출시 알림 받기</a>
       <a class="btn btn-ghost" href="#how">어떻게 돌아보나요</a>
@@ -146,22 +191,112 @@
   </div>
 </header>
 
-<!-- ══ 공감 ══ -->
+<!-- ══ 공감(마루 등장) ══ -->
 <section class="feel">
   <div class="wrap">
-    <div class="lines">
-      <div class="ln">오늘 하루가 어떻게 지나갔는지, 잘 기억나지 않아요.</div>
-      <div class="ln">힘들었던 순간은 있었는데, 그게 무슨 마음이었는지 모르겠어요.</div>
-      <div class="ln">일기를 쓰고 싶지만, 매일 빈 화면 앞에 앉는 건 어려워요.</div>
+    <div class="stage">
+      <svg class="who maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
+      <div class="bubbles">
+        <div class="bb">“오늘 하루가 어떻게 지나갔는지, 잘 기억나지 않아요.”</div>
+        <div class="bb">“힘든 순간은 있었는데, 그게 무슨 마음이었는지 모르겠어요.”</div>
+        <div class="bb">“일기를 쓰고 싶지만, 매일 빈 화면 앞에 앉는 건 어려워요.”</div>
+      </div>
     </div>
-    <p class="turn">그래서, 말로 남긴 하루를 AI가 함께 읽어 줍니다.</p>
+    <p class="turn">그래서 마루가, 말로 남긴 하루를 함께 읽어 줍니다.</p>
   </div>
 </section>
 
 <div class="divide"></div>
 
-<!-- ══ 저널 카드(시그니처) ══ -->
-<section>
+<!-- ══ 실제 화면 1: 홈 ══ -->
+<section class="show">
+  <div class="wrap">
+    <div class="row">
+      <div class="phone"><div class="glow"></div><img src="img/shot-home.png" alt="내마음저장소 홈 화면 — 오늘 담은 순간 타임라인" loading="lazy"></div>
+      <div class="txt">
+        <div class="eyebrow">틈틈이, 가볍게</div>
+        <h2>마음이 머문 순간을,<br>버튼 하나로</h2>
+        <p>하루 중 마음이 오래 머문 순간을 짧게 담아 두세요. 담긴 순간은 감정의 색으로 타임라인에 모여, 오늘이 한눈에 보여요.</p>
+        <div class="mini">
+          <div>아침·낮·밤, 감정이 색빛 점으로</div>
+          <div>글로 옮겨 두면 다시 읽기도 좋게</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 실제 화면 2: AI 핸드오프 ══ -->
+<section class="show" style="background:var(--night)">
+  <div class="wrap">
+    <div class="row rev">
+      <div class="phone"><div class="glow"></div><img src="img/shot-handoff.png" alt="내마음저장소 AI 핸드오프 화면 — 한번에 보내기" loading="lazy"></div>
+      <div class="txt">
+        <div class="eyebrow">냉정하지만 따뜻하게</div>
+        <h2>내가 쓰는 AI로,<br>‘한번에’ 돌아보기</h2>
+        <p>밤이 되면 오늘의 녹음과 정리를 <b style="color:var(--coral)">한 번에</b> 내 폰의 AI 앱으로 보내요. 대화는 그쪽에서 이어지고, 답은 다시 앱으로 담을 수 있어요.</p>
+        <div class="mini">
+          <div>내가 이미 쓰는 AI 앱으로 바로</div>
+          <div>우리 서버를 거치지 않아, 우리도 못 봐요</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 3단계(캐릭터 장면) ══ -->
+<section id="how">
+  <div class="sec-head">
+    <div class="eyebrow">이렇게 돌아봐요</div>
+    <h2>담고, 함께 돌아보고, 저장해요</h2>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="step">
+        <svg class="scene" viewBox="0 0 160 130" aria-hidden="true">
+          <use href="#maru" x="40" y="6" width="80" height="80"/>
+          <!-- 마이크 -->
+          <rect x="72" y="80" width="16" height="26" rx="8" fill="#D8A657"/>
+          <path d="M66 96a14 14 0 0 0 28 0" stroke="#D8A657" stroke-width="3.5" fill="none"/>
+          <line x1="80" y1="110" x2="80" y2="120" stroke="#D8A657" stroke-width="3.5"/>
+        </svg>
+        <div class="no">STEP 1</div>
+        <h3>틈틈이 담기</h3>
+        <p>마음이 머문 순간을 버튼 하나로 짧게 녹음해요.</p>
+      </div>
+      <div class="step">
+        <svg class="scene" viewBox="0 0 160 130" aria-hidden="true">
+          <use href="#maru" x="14" y="16" width="72" height="72"/>
+          <!-- 말풍선 교환 -->
+          <path d="M96 44h44a10 10 0 0 1 10 10v20a10 10 0 0 1-10 10h-30l-12 10v-10a10 10 0 0 1 8-40Z" fill="#2E2440" stroke="#4A3E5C" stroke-width="2"/>
+          <circle cx="112" cy="66" r="3.2" fill="#E4906B"/><circle cx="124" cy="66" r="3.2" fill="#E4906B"/><circle cx="136" cy="66" r="3.2" fill="#E4906B"/>
+        </svg>
+        <div class="no">STEP 2</div>
+        <h3>AI와 돌아보기</h3>
+        <p>‘한번에 보내기’로 내 AI와 오늘을 함께 짚어요.</p>
+      </div>
+      <div class="step">
+        <svg class="scene" viewBox="0 0 160 130" aria-hidden="true">
+          <use href="#maru" x="8" y="20" width="66" height="66"/>
+          <!-- 오늘의 마음 카드 -->
+          <rect x="74" y="40" width="74" height="50" rx="10" fill="#2E2440" stroke="#E4906B" stroke-width="2"/>
+          <circle cx="88" cy="55" r="4.5" fill="#E4906B"/>
+          <line x1="100" y1="55" x2="138" y2="55" stroke="#A99DB5" stroke-width="3" stroke-linecap="round"/>
+          <line x1="84" y1="70" x2="138" y2="70" stroke="#6E6580" stroke-width="3" stroke-linecap="round"/>
+          <line x1="84" y1="80" x2="120" y2="80" stroke="#6E6580" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="no">STEP 3</div>
+        <h3>오늘의 마음 저장</h3>
+        <p>성찰을 ‘내 마음 저장소’에 한 장으로 담아요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 저널 카드 ══ -->
+<section style="background:var(--night)">
   <div class="sec-head">
     <div class="eyebrow">매일 남는 것</div>
     <h2>하루에 한 장, ‘오늘의 마음’</h2>
@@ -174,44 +309,12 @@
   </div>
 </section>
 
-<div class="divide"></div>
-
-<!-- ══ 3단계 ══ -->
-<section id="how">
-  <div class="sec-head">
-    <div class="eyebrow">이렇게 돌아봐요</div>
-    <h2>녹음하고, 함께 돌아보고, 저장해요</h2>
-  </div>
-  <div class="wrap">
-    <div class="steps">
-      <div class="step">
-        <div class="no">1</div>
-        <h3>틈틈이 담기</h3>
-        <p>하루 중 마음이 오래 머문 순간을, 버튼 하나로 짧게 녹음해요. 글로 옮겨 두면 다시 읽기도 좋아요.</p>
-        <span class="tag">버튼 하나로</span>
-      </div>
-      <div class="step">
-        <div class="no">2</div>
-        <h3>AI와 돌아보기</h3>
-        <p>밤에 ‘한번에 보내기’를 누르면, 오늘의 녹음과 정리가 내 폰의 AI 앱으로 넘어가 함께 하루를 돌아봐요.</p>
-        <span class="tag">내가 쓰는 AI로</span>
-      </div>
-      <div class="step">
-        <div class="no">3</div>
-        <h3>오늘의 마음 저장</h3>
-        <p>AI가 건넨 성찰을 ‘내 마음 저장소’에 담아요. 지난 마음을 언제든 다시 펼쳐볼 수 있어요.</p>
-        <span class="tag">매일 한 장</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 페르소나 인용 ══ -->
+<!-- ══ 페르소나(마루가 말함) ══ -->
 <section class="quote">
   <div class="wrap">
-    <div class="mk">“</div>
+    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
     <blockquote>주관적이지만 객관적이고,<br>냉정하지만 따뜻하게.</blockquote>
-    <p class="who">— 듣기 좋은 말로 포장하지 않되, 늘 당신 편인 성찰 동반자</p>
+    <p class="who">— 듣기 좋은 말로 포장하지 않되, 늘 당신 편인 마루</p>
   </div>
 </section>
 
@@ -234,11 +337,12 @@
   </div>
 </section>
 
-<!-- ══ 프로 / 최종 CTA ══ -->
+<!-- ══ 최종 CTA ══ -->
 <section class="final">
   <div class="wrap">
+    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
     <h2>오늘 밤, 첫 마음을 저장해 보세요</h2>
-    <p>곧 만나요. 출시되면 가장 먼저 알려드릴게요.</p>
+    <p>곧 만나요. 출시되면 마루가 가장 먼저 알려드릴게요.</p>
     <div class="pro">
       <div class="lab">내마음저장소 프로 (예정)</div>
       <ul>
@@ -254,21 +358,17 @@
   </div>
 </section>
 
-<!-- ══ 푸터 ══ -->
 <footer>
   <div class="wrap">
-    <svg class="fmark" viewBox="0 0 108 108" aria-hidden="true">
-      <path d="M56 24C31 29 27 67 50 80C41 66 43 40 60 33C56 31 55 27 56 24Z" fill="#E4906B"/>
-      <path d="M50 64q8-11 16 0q8 11 16 0" stroke="#F4ECE1" stroke-width="5.5" stroke-linecap="round" fill="none"/>
-    </svg>
-    <div class="serif" style="color:var(--cream);font-size:16px">내마음저장소</div>
+    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
+    <div style="font-family:var(--serif);color:var(--cream);font-size:16px">내마음저장소</div>
     <div class="row">주관적이지만 객관적이고, 냉정하지만 따뜻한 하루 성찰</div>
     <div class="row">문의 · 출시 알림 — <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a></div>
     <div class="row" style="margin-top:14px;opacity:.7">© 코리아세일즈 · maeum.app</div>
   </div>
 </footer>
 
-<!-- ══ 출시 알림 신청 모달 (voicecam-api /signup 재사용) ══ -->
+<!-- ══ 출시 알림 모달 (voicecam-api /signup 재사용) ══ -->
 <div id="ntf" hidden>
   <div class="ntf-bg" data-close></div>
   <div class="ntf-box" role="dialog" aria-modal="true" aria-label="출시 알림 신청">
@@ -309,7 +409,7 @@
 </style>
 <script>
 (function(){
-  var ENDPOINT="https://voicecam-api-production.up.railway.app/signup"; /* 신청은 코리아세일즈 백엔드(voicecam-api)에 저장. 비우면 이메일 폴백. */
+  var ENDPOINT="https://voicecam-api-production.up.railway.app/signup";
   var TO="korsales.dev@gmail.com";
   var m=document.getElementById('ntf'); if(!m) return;
   var app="내마음저장소";
