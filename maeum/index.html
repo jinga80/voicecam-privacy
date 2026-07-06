@@ -153,21 +153,39 @@
   </radialGradient>
   <mask id="cres"><rect width="200" height="200" fill="#000"/>
     <circle cx="98" cy="106" r="66" fill="#fff"/><circle cx="140" cy="70" r="54" fill="#000"/></mask>
-  <symbol id="maru" viewBox="0 0 200 200">
+  <!-- 몸통(공통): 초승달 + 홍조 + 물결 + 별 -->
+  <symbol id="maruBase" viewBox="0 0 200 200">
     <circle cx="98" cy="106" r="74" fill="#E4906B" opacity=".16"/>
     <circle cx="98" cy="106" r="66" fill="url(#moonG)" mask="url(#cres)"/>
-    <!-- 볼 홍조 -->
     <ellipse cx="70" cy="126" rx="9" ry="6" fill="#F6A985" opacity=".65"/>
     <ellipse cx="112" cy="132" rx="9" ry="6" fill="#F6A985" opacity=".65"/>
-    <!-- 눈(편안히 감은) -->
+    <path d="M120 158q7-9 14 0q7 9 14 0" stroke="#F4ECE1" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M150 52l2 6l6 2l-6 2l-2 6l-2-6l-6-2l6-2Z" fill="#D8A657"/>
+  </symbol>
+  <!-- 기본(평온): 편안히 감은 눈 -->
+  <symbol id="maru" viewBox="0 0 200 200"><use href="#maruBase"/>
     <path d="M64 112q8 9 16 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
     <path d="M104 116q8 9 16 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <!-- 미소 -->
     <path d="M78 132q14 13 30 3" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <!-- 마음결 물결 -->
-    <path d="M120 158q7-9 14 0q7 9 14 0" stroke="#F4ECE1" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <!-- 작은 별 -->
-    <path d="M150 52l2 6l6 2l-6 2l-2 6l-2-6l-6-2l6-2Z" fill="#D8A657"/>
+  </symbol>
+  <!-- 인사·기쁨: 초롱한 눈 + 활짝 웃음 -->
+  <symbol id="maru-hi" viewBox="0 0 200 200"><use href="#maruBase"/>
+    <circle cx="72" cy="112" r="6.2" fill="#3A2030"/><circle cx="74.4" cy="109.4" r="2" fill="#F4ECE1"/>
+    <circle cx="112" cy="116" r="6.2" fill="#3A2030"/><circle cx="114.4" cy="113.4" r="2" fill="#F4ECE1"/>
+    <path d="M80 129q16 18 33 2" stroke="#3A2030" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <!-- 경청: 초점 있는 눈 + 작은 미소 -->
+  <symbol id="maru-listen" viewBox="0 0 200 200"><use href="#maruBase"/>
+    <ellipse cx="72" cy="112" rx="5" ry="6.6" fill="#3A2030"/><circle cx="74" cy="109" r="1.8" fill="#F4ECE1"/>
+    <ellipse cx="112" cy="116" rx="5" ry="6.6" fill="#3A2030"/><circle cx="114" cy="113" r="1.8" fill="#F4ECE1"/>
+    <path d="M90 132q9 7 18 0" stroke="#3A2030" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <!-- 위로: 포근히 감은(웃는) 눈 + 하트 -->
+  <symbol id="maru-warm" viewBox="0 0 200 200"><use href="#maruBase"/>
+    <path d="M64 117q8 -9 16 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M104 121q8 -9 16 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M78 131q15 14 30 2" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M44 60c-2.4-4.4-9-3.2-9 1.2c0 3.4 4.6 5.8 9 9c4.4-3.2 9-5.6 9-9c0-4.4-6.6-5.6-9-1.2Z" fill="#E4906B"/>
   </symbol>
 </defs></svg>
 
@@ -179,7 +197,7 @@
     <i style="left:58%;top:62%;animation-delay:2s"></i><i style="left:44%;top:12%;animation-delay:1.8s"></i><i style="left:90%;top:60%;animation-delay:.4s"></i>
   </div>
   <div class="wrap">
-    <svg class="maru" viewBox="0 0 200 200" role="img" aria-label="달빛 친구 마루"><use href="#maru"/></svg>
+    <svg class="maru" viewBox="0 0 200 200" role="img" aria-label="달빛 친구 마루"><use href="#maru-hi"/></svg>
     <div class="eyebrow">감정일기 · 하루 성찰</div>
     <h1 style="margin-top:14px">하루의 끝에서,<br><span class="soft">오늘의 마음</span>을 돌아봐요</h1>
     <p class="sub">틈틈이 녹음해두면, 달빛 친구 <b style="color:var(--coral)">마루</b>와 AI가 하루를 함께 돌아봐 줍니다.<br>냉정하지만 따뜻하게 — 오늘 무슨 일이 있었고, 그때 마음은 어땠는지.</p>
@@ -195,7 +213,7 @@
 <section class="feel">
   <div class="wrap">
     <div class="stage">
-      <svg class="who maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
+      <svg class="who maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru-listen"/></svg>
       <div class="bubbles">
         <div class="bb">“오늘 하루가 어떻게 지나갔는지, 잘 기억나지 않아요.”</div>
         <div class="bb">“힘든 순간은 있었는데, 그게 무슨 마음이었는지 모르겠어요.”</div>
@@ -312,7 +330,7 @@
 <!-- ══ 페르소나(마루가 말함) ══ -->
 <section class="quote">
   <div class="wrap">
-    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
+    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru-warm"/></svg>
     <blockquote>주관적이지만 객관적이고,<br>냉정하지만 따뜻하게.</blockquote>
     <p class="who">— 듣기 좋은 말로 포장하지 않되, 늘 당신 편인 마루</p>
   </div>
@@ -340,7 +358,7 @@
 <!-- ══ 최종 CTA ══ -->
 <section class="final">
   <div class="wrap">
-    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru"/></svg>
+    <svg class="maru" viewBox="0 0 200 200" aria-hidden="true"><use href="#maru-hi"/></svg>
     <h2>오늘 밤, 첫 마음을 저장해 보세요</h2>
     <p>곧 만나요. 출시되면 마루가 가장 먼저 알려드릴게요.</p>
     <div class="pro">
