@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>내마음저장소 — 하루의 끝에서, 오늘의 마음을 돌아봐요 | 코리아세일즈</title>
+<meta name="description" content="하루 틈틈이 녹음해두면, AI가 함께 하루를 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내가 이미 쓰는 AI 앱으로 — 개발사 서버를 거치지 않아요. 매일 '오늘의 마음' 한 장이 남습니다. 코리아세일즈.">
+<meta name="author" content="코리아세일즈">
+<meta property="og:type" content="website">
+<meta property="og:title" content="내마음저장소 — 하루의 끝에서, 오늘의 마음을 돌아봐요">
+<meta property="og:description" content="하루 녹음을 AI가 함께 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내 AI로. 매일 '오늘의 마음' 한 장.">
+<meta property="og:url" content="https://voicecam.net/maeum/">
+<meta name="theme-color" content="#14101E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20108%20108%27%3E%3Crect%20width%3D%27108%27%20height%3D%27108%27%20rx%3D%2724%27%20fill%3D%27%231A1524%27/%3E%3Cpath%20d%3D%27M56%2024C31%2029%2027%2067%2050%2080C41%2066%2043%2040%2060%2033C56%2031%2055%2027%2056%2024Z%27%20fill%3D%27%23E4906B%27/%3E%3Cpath%20d%3D%27M50%2064q8-11%2016%200q8%2011%2016%200%27%20stroke%3D%27%23F4ECE1%27%20stroke-width%3D%275.5%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gothic+A1:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#14101E; --plum:#1A1524; --plum2:#241B33; --plum3:#2E2440;
+    --coral:#E4906B; --coral-d:#C6764F; --gold:#D8A657; --dusk:#E8A07C;
+    --cream:#F4ECE1; --ink:#EDE6F0; --mut:#A99DB5; --line:#372B4D;
+    --serif:'Gowun Batang','Apple SD Gothic Neo',serif;
+    --disp:'Gothic A1','Apple SD Gothic Neo',sans-serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--plum);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.28;letter-spacing:-.01em}
+  .eyebrow{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .serif{font-family:var(--serif)}
+
+  /* ── 히어로 ── */
+  .hero{position:relative;overflow:hidden;text-align:center;padding:76px 0 88px;
+    background:
+      radial-gradient(120% 90% at 50% -8%, rgba(232,160,124,.42) 0%, rgba(108,58,82,.30) 34%, rgba(20,16,30,0) 66%),
+      linear-gradient(180deg,#20182E 0%,#1A1524 60%,#14101E 100%);}
+  .stars{position:absolute;inset:0;pointer-events:none;opacity:.7}
+  .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#F4ECE1;opacity:.5}
+  .mark{width:118px;height:118px;margin:0 auto 22px;display:block;filter:drop-shadow(0 10px 26px rgba(232,160,124,.28))}
+  .hero h1{font-size:clamp(30px,6.2vw,52px);color:var(--cream)}
+  .hero h1 .soft{color:var(--coral)}
+  .hero .sub{max-width:600px;margin:20px auto 0;font-size:clamp(15px,2.4vw,18px);color:var(--mut);line-height:1.85}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:16px;font-family:var(--disp);font-weight:800;font-size:15.5px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease,background .2s}
+  .btn:active{transform:translateY(1px)}
+  .btn-pri{background:linear-gradient(180deg,var(--coral),var(--coral-d));color:#2A1520;box-shadow:0 14px 34px -12px rgba(228,144,107,.7)}
+  .btn-ghost{background:rgba(244,236,225,.04);border-color:var(--line);color:var(--ink)}
+  .kicker{margin-top:20px;font-size:13px;color:var(--mut)}
+  .kicker b{color:var(--gold);font-weight:700}
+
+  /* ── 공통 섹션 ── */
+  section{padding:72px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 44px}
+  .sec-head h2{font-size:clamp(24px,4.4vw,34px);color:var(--cream)}
+  .sec-head p{margin-top:14px;color:var(--mut);font-size:16px}
+  .divide{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+  /* ── 공감(문제) ── */
+  .feel{background:var(--night)}
+  .feel .lines{max-width:640px;margin:0 auto;display:grid;gap:16px}
+  .feel .ln{font-family:var(--serif);font-size:clamp(18px,3vw,23px);color:var(--ink);opacity:.92;padding-left:22px;border-left:2px solid var(--coral-d)}
+  .feel .turn{margin-top:34px;text-align:center;font-family:var(--serif);font-size:clamp(19px,3.2vw,25px);color:var(--coral)}
+
+  /* ── 저널 카드(시그니처) ── */
+  .card{max-width:440px;margin:0 auto;background:linear-gradient(180deg,var(--plum2),var(--plum));border:1px solid var(--line);border-radius:24px;padding:26px 24px;box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
+  .card .top{display:flex;align-items:center;gap:10px;color:var(--gold);font-size:13.5px;font-family:var(--disp);font-weight:700}
+  .card .dot{width:11px;height:11px;border-radius:50%;background:var(--coral);box-shadow:0 0 12px var(--coral)}
+  .card .body{margin-top:16px;font-family:var(--serif);font-size:17px;color:var(--ink);line-height:1.9}
+  .card .tmr{margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);font-family:var(--serif);color:var(--coral);font-size:16px}
+
+  /* ── 3단계 ── */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{background:var(--plum2);border:1px solid var(--line);border-radius:20px;padding:26px 22px}
+  .step .no{font-family:var(--serif);font-size:32px;color:var(--coral);line-height:1}
+  .step h3{margin-top:12px;font-size:19px;color:var(--cream)}
+  .step p{margin-top:9px;color:var(--mut);font-size:14.5px}
+  .step .tag{display:inline-block;margin-top:12px;font-size:12px;color:var(--gold);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+
+  /* ── 페르소나 인용 ── */
+  .quote{background:var(--night);text-align:center}
+  .quote .mk{font-family:var(--serif);font-size:56px;color:var(--coral-d);line-height:.4}
+  .quote blockquote{max-width:660px;margin:18px auto 0;font-family:var(--serif);font-size:clamp(20px,3.6vw,28px);color:var(--cream);line-height:1.6}
+  .quote .who{margin-top:20px;color:var(--mut);font-size:14px}
+
+  /* ── 프라이버시 밴드 ── */
+  .priv .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
+  .priv .b{background:var(--plum2);border:1px solid var(--line);border-radius:18px;padding:22px}
+  .priv .b .ic{font-size:22px}
+  .priv .b h3{margin-top:8px;font-size:17px;color:var(--cream)}
+  .priv .b p{margin-top:7px;color:var(--mut);font-size:14px}
+
+  /* ── 프로/CTA ── */
+  .final{text-align:center;background:
+      radial-gradient(120% 90% at 50% 120%, rgba(232,160,124,.30) 0%, rgba(20,16,30,0) 60%),
+      var(--plum)}
+  .final h2{font-size:clamp(26px,5vw,40px);color:var(--cream)}
+  .final p{margin-top:14px;color:var(--mut)}
+  .pro{max-width:420px;margin:30px auto 0;background:var(--plum2);border:1px solid var(--line);border-radius:20px;padding:22px;text-align:left}
+  .pro .lab{font-family:var(--disp);font-weight:800;color:var(--coral);font-size:14px}
+  .pro ul{list-style:none;margin:12px 0 0;display:grid;gap:9px}
+  .pro li{font-size:14.5px;color:var(--ink);padding-left:24px;position:relative}
+  .pro li:before{content:"🌙";position:absolute;left:0;font-size:13px}
+  .pro .note{margin-top:12px;font-size:12.5px;color:var(--mut)}
+
+  /* ── 푸터 ── */
+  footer{background:var(--night);border-top:1px solid var(--line);padding:42px 0 60px;text-align:center;color:var(--mut);font-size:13.5px}
+  footer .fmark{width:40px;height:40px;margin:0 auto 12px;display:block;opacity:.9}
+  footer a{color:var(--coral);text-decoration:none}
+  footer .row{margin-top:8px}
+
+  @media (max-width:720px){
+    .steps{grid-template-columns:1fr}
+    .priv .grid{grid-template-columns:1fr}
+    section{padding:56px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- ══ 히어로 ══ -->
+<header class="hero">
+  <div class="stars" aria-hidden="true">
+    <i style="left:12%;top:22%"></i><i style="left:22%;top:54%"></i><i style="left:31%;top:16%;width:3px;height:3px"></i>
+    <i style="left:68%;top:20%"></i><i style="left:78%;top:44%;width:3px;height:3px"></i><i style="left:86%;top:28%"></i>
+    <i style="left:58%;top:62%"></i><i style="left:44%;top:12%"></i><i style="left:90%;top:60%"></i>
+  </div>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 108 108" role="img" aria-label="내마음저장소">
+      <path d="M56 24C31 29 27 67 50 80C41 66 43 40 60 33C56 31 55 27 56 24Z" fill="#E4906B"/>
+      <path d="M50 64q8-11 16 0q8 11 16 0" stroke="#F4ECE1" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <path d="M75 40l1.6 4.4l4.4 1.6l-4.4 1.6l-1.6 4.4l-1.6-4.4l-4.4-1.6l4.4-1.6Z" fill="#D8A657"/>
+    </svg>
+    <div class="eyebrow">감정일기 · 하루 성찰</div>
+    <h1 style="margin-top:14px">하루의 끝에서,<br><span class="soft">오늘의 마음</span>을 돌아봐요</h1>
+    <p class="sub">틈틈이 녹음해두면, AI가 하루를 함께 돌아봐 줍니다.<br>냉정하지만 따뜻하게 — 오늘 무슨 일이 있었고, 그때 마음은 어땠는지.</p>
+    <div class="cta">
+      <a class="btn btn-pri" href="mailto:korsales.dev@gmail.com?subject=내마음저장소%20출시%20알림%20신청">🔔 출시 알림 받기</a>
+      <a class="btn btn-ghost" href="#how">어떻게 돌아보나요</a>
+    </div>
+    <p class="kicker">녹음은 <b>내 폰에만</b> · 대화는 <b>내가 쓰는 AI</b>로 · 개발사 서버를 거치지 않아요</p>
+  </div>
+</header>
+
+<!-- ══ 공감 ══ -->
+<section class="feel">
+  <div class="wrap">
+    <div class="lines">
+      <div class="ln">오늘 하루가 어떻게 지나갔는지, 잘 기억나지 않아요.</div>
+      <div class="ln">힘들었던 순간은 있었는데, 그게 무슨 마음이었는지 모르겠어요.</div>
+      <div class="ln">일기를 쓰고 싶지만, 매일 빈 화면 앞에 앉는 건 어려워요.</div>
+    </div>
+    <p class="turn">그래서, 말로 남긴 하루를 AI가 함께 읽어 줍니다.</p>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 저널 카드(시그니처) ══ -->
+<section>
+  <div class="sec-head">
+    <div class="eyebrow">매일 남는 것</div>
+    <h2>하루에 한 장, ‘오늘의 마음’</h2>
+    <p>돌아본 하루는 이렇게 저장돼요. 내일의 나에게 남기는 한 줄과 함께.</p>
+  </div>
+  <div class="card">
+    <div class="top"><span class="dot"></span>😌&nbsp; 10월 3일 · 목요일 밤 · 평온</div>
+    <div class="body">아침엔 발표가 걱정돼 계속 긴장했지만, 결국 무사히 끝냈어요. 오후엔 오랜만에 걷다가 마음이 좀 가벼워졌고요. 스스로에게 조금 야박했던 하루였네요.</div>
+    <div class="tmr">내일의 나에게 — 오늘 잘 버텼어요. 내일은 조금만 더 천천히.</div>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 3단계 ══ -->
+<section id="how">
+  <div class="sec-head">
+    <div class="eyebrow">이렇게 돌아봐요</div>
+    <h2>녹음하고, 함께 돌아보고, 저장해요</h2>
+  </div>
+  <div class="wrap">
+    <div class="steps">
+      <div class="step">
+        <div class="no">1</div>
+        <h3>틈틈이 담기</h3>
+        <p>하루 중 마음이 오래 머문 순간을, 버튼 하나로 짧게 녹음해요. 글로 옮겨 두면 다시 읽기도 좋아요.</p>
+        <span class="tag">버튼 하나로</span>
+      </div>
+      <div class="step">
+        <div class="no">2</div>
+        <h3>AI와 돌아보기</h3>
+        <p>밤에 ‘한번에 보내기’를 누르면, 오늘의 녹음과 정리가 내 폰의 AI 앱으로 넘어가 함께 하루를 돌아봐요.</p>
+        <span class="tag">내가 쓰는 AI로</span>
+      </div>
+      <div class="step">
+        <div class="no">3</div>
+        <h3>오늘의 마음 저장</h3>
+        <p>AI가 건넨 성찰을 ‘내 마음 저장소’에 담아요. 지난 마음을 언제든 다시 펼쳐볼 수 있어요.</p>
+        <span class="tag">매일 한 장</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 페르소나 인용 ══ -->
+<section class="quote">
+  <div class="wrap">
+    <div class="mk">“</div>
+    <blockquote>주관적이지만 객관적이고,<br>냉정하지만 따뜻하게.</blockquote>
+    <p class="who">— 듣기 좋은 말로 포장하지 않되, 늘 당신 편인 성찰 동반자</p>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 프라이버시 ══ -->
+<section class="priv">
+  <div class="sec-head">
+    <div class="eyebrow">마음이니까, 더 조심스럽게</div>
+    <h2>내 하루는 내 것</h2>
+    <p>가장 사적인 기록이라, 프라이버시를 설계의 처음에 두었어요.</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="b"><div class="ic">📴</div><h3>녹음은 내 폰에만</h3><p>녹음 파일과 글은 기본적으로 내 기기에 저장돼요. 우리 서버로 올리지 않아요.</p></div>
+      <div class="b"><div class="ic">🤝</div><h3>대화는 내 AI로</h3><p>성찰 대화는 이미 쓰고 있는 AI 앱에서 이어져요. 우리 서버를 거치지 않아, 우리도 볼 수 없어요.</p></div>
+      <div class="b"><div class="ic">🌙</div><h3>광고 없이, 오롯이</h3><p>마음을 들여다보는 시간엔 방해가 없어야 하니까. 조용한 밤의 톤으로.</p></div>
+      <div class="b"><div class="ic">✍️</div><h3>진단하지 않아요</h3><p>판단하거나 훈계하지 않아요. 그저 오늘을 함께 짚고, 내일 한 걸음을 곁에서 제안할 뿐.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 프로 / 최종 CTA ══ -->
+<section class="final">
+  <div class="wrap">
+    <h2>오늘 밤, 첫 마음을 저장해 보세요</h2>
+    <p>곧 만나요. 출시되면 가장 먼저 알려드릴게요.</p>
+    <div class="pro">
+      <div class="lab">내마음저장소 프로 (예정)</div>
+      <ul>
+        <li>무제한 깊은 성찰 대화</li>
+        <li>모든 감정 기록 영구 보관</li>
+        <li>광고 없이, 오롯이 내 마음에</li>
+      </ul>
+      <p class="note">기본 기능은 무료로 시작해요. 프로는 구독(월/연)으로 열립니다.</p>
+    </div>
+    <div class="cta">
+      <a class="btn btn-pri" href="mailto:korsales.dev@gmail.com?subject=내마음저장소%20출시%20알림%20신청">🔔 출시 알림 받기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 푸터 ══ -->
+<footer>
+  <div class="wrap">
+    <svg class="fmark" viewBox="0 0 108 108" aria-hidden="true">
+      <path d="M56 24C31 29 27 67 50 80C41 66 43 40 60 33C56 31 55 27 56 24Z" fill="#E4906B"/>
+      <path d="M50 64q8-11 16 0q8 11 16 0" stroke="#F4ECE1" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div class="serif" style="color:var(--cream);font-size:16px">내마음저장소</div>
+    <div class="row">주관적이지만 객관적이고, 냉정하지만 따뜻한 하루 성찰</div>
+    <div class="row">문의 · 출시 알림 — <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a></div>
+    <div class="row" style="margin-top:14px;opacity:.7">© 코리아세일즈 · maeum.app</div>
+  </div>
+</footer>
+
+<!-- ══ 출시 알림 신청 모달 (voicecam-api /signup 재사용) ══ -->
+<div id="ntf" hidden>
+  <div class="ntf-bg" data-close></div>
+  <div class="ntf-box" role="dialog" aria-modal="true" aria-label="출시 알림 신청">
+    <button class="ntf-x" data-close aria-label="닫기">×</button>
+    <div class="ntf-title">🔔 출시 알림 신청</div>
+    <p class="ntf-sub"><b id="ntf-app">내마음저장소</b>가 출시되면 가장 먼저 알려드릴게요.</p>
+    <div class="ntf-seg" id="ntf-seg">
+      <button type="button" class="on" data-m="email">이메일</button>
+      <button type="button" data-m="tel">전화</button>
+    </div>
+    <input id="ntf-in" class="ntf-in" type="email" inputmode="email" autocomplete="email" placeholder="이메일 주소를 입력하세요">
+    <div class="ntf-err" id="ntf-err" hidden>형식을 다시 확인해 주세요.</div>
+    <button type="button" id="ntf-go" class="ntf-go">신청하기</button>
+    <p class="ntf-priv">입력하신 정보는 <b>출시 알림 안내 목적</b>으로만 사용되며, 원치 않으시면 언제든 수신 거부할 수 있어요.</p>
+    <div id="ntf-ok" class="ntf-ok" hidden>✅ 신청이 완료됐어요!<br>출시되면 가장 먼저 알려드릴게요.</div>
+  </div>
+</div>
+<style>
+#ntf{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;font-family:var(--sans)}
+#ntf[hidden]{display:none}
+#ntf .ntf-bg{position:absolute;inset:0;background:rgba(10,7,16,.62)}
+#ntf .ntf-box{position:relative;width:100%;max-width:400px;background:#241B33;border:1px solid #372B4D;border-radius:20px;padding:28px 22px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.7);color:#EDE6F0;animation:ntfin .18s ease}
+@keyframes ntfin{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+#ntf .ntf-x{position:absolute;top:12px;right:14px;border:none;background:none;font-size:27px;line-height:1;color:#A99DB5;cursor:pointer}
+#ntf .ntf-title{font-size:22px;font-weight:800;font-family:var(--disp)}
+#ntf .ntf-sub{margin-top:6px;font-size:14.5px;color:#A99DB5}
+#ntf .ntf-sub b{color:#E4906B}
+#ntf .ntf-seg{display:flex;gap:8px;margin-top:16px}
+#ntf .ntf-seg button{flex:1;padding:10px;border:1px solid #372B4D;background:transparent;color:#A99DB5;border-radius:11px;font-size:14px;font-weight:700;cursor:pointer}
+#ntf .ntf-seg button.on{background:#E4906B;border-color:#E4906B;color:#2A1520}
+#ntf .ntf-in{width:100%;margin-top:12px;padding:14px;border:1px solid #372B4D;background:#1A1524;color:#EDE6F0;border-radius:12px;font-size:16px}
+#ntf .ntf-in::placeholder{color:#6E6580}
+#ntf .ntf-err{margin-top:8px;color:#E88B6B;font-size:13px}
+#ntf .ntf-go{width:100%;margin-top:14px;padding:15px;border:none;border-radius:12px;background:linear-gradient(180deg,#E4906B,#C6764F);color:#2A1520;font-size:16px;font-weight:800;cursor:pointer}
+#ntf .ntf-go:active{transform:translateY(1px)}
+#ntf .ntf-priv{margin-top:12px;font-size:12px;color:#8A7EA0;line-height:1.6}
+#ntf .ntf-ok{margin-top:14px;padding:14px;background:#1F3326;border:1px solid #2E5A3E;border-radius:12px;color:#BFE6CC;font-size:14.5px;text-align:center}
+</style>
+<script>
+(function(){
+  var ENDPOINT="https://voicecam-api-production.up.railway.app/signup"; /* 신청은 코리아세일즈 백엔드(voicecam-api)에 저장. 비우면 이메일 폴백. */
+  var TO="korsales.dev@gmail.com";
+  var m=document.getElementById('ntf'); if(!m) return;
+  var app="내마음저장소";
+  document.getElementById('ntf-app').textContent=app;
+  var mode='email', inp=document.getElementById('ntf-in'), err=document.getElementById('ntf-err'), ok=document.getElementById('ntf-ok'), seg=document.getElementById('ntf-seg');
+  function open(e){ if(e){e.preventDefault();} ok.hidden=true; m.hidden=false; setTimeout(function(){inp.focus();},50); }
+  function close(){ m.hidden=true; }
+  [].forEach.call(document.querySelectorAll('a[href^="mailto:'+TO+'"]'), function(a){
+    if(/알림/.test(decodeURIComponent(a.getAttribute('href')||''))) a.addEventListener('click',open);
+  });
+  [].forEach.call(m.querySelectorAll('[data-close]'),function(b){b.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  [].forEach.call(seg.querySelectorAll('button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.remove('on');});
+    b.classList.add('on'); mode=b.getAttribute('data-m'); err.hidden=true;
+    if(mode==='email'){inp.type='email';inp.placeholder='이메일 주소를 입력하세요';}
+    else{inp.type='tel';inp.placeholder='전화번호를 입력하세요 (예: 010-1234-5678)';}
+    inp.focus();
+  });});
+  function valid(v){ return mode==='email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) : /^[0-9\-+\s]{9,}$/.test(v); }
+  document.getElementById('ntf-go').addEventListener('click',function(){
+    var v=inp.value.trim();
+    if(!valid(v)){ err.hidden=false; inp.focus(); return; }
+    err.hidden=true;
+    var data=new URLSearchParams({app:app,type:(mode==='email'?'이메일':'전화'),contact:v,page:location.href,ts:new Date().toISOString()});
+    function done(){ ok.hidden=false; inp.value=''; setTimeout(close,2400); }
+    if(ENDPOINT){ fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(done).catch(done); }
+    else { window.location.href='mailto:'+TO+'?subject='+encodeURIComponent('['+app+'] 출시 알림 신청')+'&body='+encodeURIComponent((mode==='email'?'이메일: ':'전화: ')+v); done(); }
+  });
+})();
+</script>
+</body>
+</html>
