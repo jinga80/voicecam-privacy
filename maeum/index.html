@@ -10,8 +10,18 @@
 <meta property="og:title" content="내마음저장소 — 하루의 끝에서, 오늘의 마음을 돌아봐요">
 <meta property="og:description" content="달빛 친구 마루와 함께, 하루 녹음을 AI가 돌아봐 주는 감정일기. 냉정하지만 따뜻하게. 녹음은 내 폰에만, 대화는 내 AI로.">
 <meta property="og:url" content="https://voicecam.net/maeum/">
-<meta property="og:image" content="https://voicecam.net/maeum/img/shot-home.png">
+<meta property="og:image" content="https://voicecam.net/maeum/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="달빛 친구 마루와 함께 오늘의 마음을 돌아보는 감정일기 — 내마음저장소">
+<meta property="og:site_name" content="내마음저장소">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="내마음저장소 — 하루의 끝에서, 오늘의 마음을 돌아봐요">
+<meta name="twitter:description" content="달빛 친구 마루와 함께, 하루 녹음을 AI가 돌아봐 주는 감정일기. 녹음은 내 폰에만, 대화는 내 AI로.">
+<meta name="twitter:image" content="https://voicecam.net/maeum/img/og.png">
 <meta name="theme-color" content="#14101E">
+<script>document.documentElement.className+=' js';</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20108%20108%27%3E%3Crect%20width%3D%27108%27%20height%3D%27108%27%20rx%3D%2724%27%20fill%3D%27%231A1524%27/%3E%3Cpath%20d%3D%27M56%2024C31%2029%2027%2067%2050%2080C41%2066%2043%2040%2060%2033C56%2031%2055%2027%2056%2024Z%27%20fill%3D%27%23E4906B%27/%3E%3Cpath%20d%3D%27M50%2064q8-11%2016%200q8%2011%2016%200%27%20stroke%3D%27%23F4ECE1%27%20stroke-width%3D%275.5%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +47,20 @@
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
   @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.9}}
   .maru{animation:float 5s ease-in-out infinite}
+  /* 히어로 등장 시 한 번 손 흔들 듯 인사(래퍼가 회전, 안쪽 svg는 float 유지) */
+  @keyframes greet{0%{transform:rotate(0)}12%{transform:rotate(-10deg)}26%{transform:rotate(8deg)}40%{transform:rotate(-6deg)}54%{transform:rotate(4deg)}68%,100%{transform:rotate(0)}}
+  .greet{display:inline-block;transform-origin:50% 82%;animation:greet 1.7s ease-in-out .25s 1 both}
+  /* 눈 깜빡임(눈 위 눈꺼풀 오버레이가 아주 잠깐 닫힘) */
+  @keyframes blink{0%,90%,100%{opacity:0}93%,96%{opacity:1}}
+  .blink .lid{opacity:0;animation:blink 6s ease-in-out 2s infinite}
+  /* 스크롤 진입 리빌(첫 페인트 전 .js가 붙어 깜빡임 없음) */
+  .js section{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+  .js section.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .maru,.greet,.blink .lid{animation:none!important;transform:none!important}
+    .js section{opacity:1!important;transform:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
 
   /* ── 히어로 ── */
   .hero{position:relative;overflow:hidden;text-align:center;padding:70px 0 84px;
@@ -197,7 +221,10 @@
     <i style="left:58%;top:62%;animation-delay:2s"></i><i style="left:44%;top:12%;animation-delay:1.8s"></i><i style="left:90%;top:60%;animation-delay:.4s"></i>
   </div>
   <div class="wrap">
-    <svg class="maru" viewBox="0 0 200 200" role="img" aria-label="달빛 친구 마루"><use href="#maru-hi"/></svg>
+    <span class="greet"><svg class="maru blink" viewBox="0 0 200 200" role="img" aria-label="달빛 친구 마루"><use href="#maru-hi"/>
+      <g class="lid"><circle cx="72" cy="112" r="7.4" fill="#EF9E77"/><path d="M64.5 112q7.5 6 15 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+      <g class="lid"><circle cx="112" cy="116" r="7.4" fill="#EF9E77"/><path d="M104.5 116q7.5 6 15 0" stroke="#3A2030" stroke-width="4.5" fill="none" stroke-linecap="round"/></g>
+    </svg></span>
     <div class="eyebrow">감정일기 · 하루 성찰</div>
     <h1 style="margin-top:14px">하루의 끝에서,<br><span class="soft">오늘의 마음</span>을 돌아봐요</h1>
     <p class="sub">틈틈이 녹음해두면, 달빛 친구 <b style="color:var(--coral)">마루</b>와 AI가 하루를 함께 돌아봐 줍니다.<br>냉정하지만 따뜻하게 — 오늘 무슨 일이 있었고, 그때 마음은 어땠는지.</p>
@@ -426,6 +453,16 @@
 #ntf .ntf-ok{margin-top:14px;padding:14px;background:#1F3326;border:1px solid #2E5A3E;border-radius:12px;color:#BFE6CC;font-size:14.5px;text-align:center}
 </style>
 <script>
+(function(){
+  /* 스크롤 진입 리빌 */
+  var secs=document.querySelectorAll('section');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(secs,function(s){io.observe(s);});
+  } else { [].forEach.call(secs,function(s){s.classList.add('in');}); }
+})();
 (function(){
   var ENDPOINT="https://voicecam-api-production.up.railway.app/signup";
   var TO="korsales.dev@gmail.com";
