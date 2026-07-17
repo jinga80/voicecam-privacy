@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>메모해 — 내 차엔 블랙박스, 내 폰엔 '메모해' | 코리아세일즈</title>
+<meta name="description" content="음성 블랙박스 · 명령 녹음비서. 화면이 꺼져 있어도 '메모해' 한마디면 녹음이 시작되고, '메모끝'이면 끝. 자동인식 녹음과 명령인식 녹음, 시간대별 AI 요약, 응급콜, 클라우드 자동 암호화 저장. 블랙박스처럼 일상 속의 분쟁을 방지하고, 나의 안전과 기억을 보장합니다. 코리아세일즈.">
+<meta name="author" content="코리아세일즈">
+<meta property="og:type" content="website">
+<meta property="og:title" content="메모해 — 내 차엔 블랙박스, 내 폰엔 '메모해'">
+<meta property="og:description" content="깜깜이 녹음비서 — 화면이 꺼져 있어도, 언제든지 '메모해'. 음성기반 블랙박스로 일상 속 분쟁을 방지하고 나의 안전과 기억을 보장합니다.">
+<meta property="og:url" content="https://voicecam.net/memohae/">
+<meta property="og:image" content="https://voicecam.net/memohae/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="내 차엔 블랙박스, 내 폰엔 메모해 — 음성 블랙박스 · 명령 녹음비서">
+<meta property="og:site_name" content="메모해">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="메모해 — 내 차엔 블랙박스, 내 폰엔 '메모해'">
+<meta name="twitter:description" content="깜깜이 녹음비서 — 화면이 꺼져 있어도, 언제든지 '메모해'. 음성기반 블랙박스.">
+<meta name="twitter:image" content="https://voicecam.net/memohae/img/og.png">
+<meta name="theme-color" content="#101826">
+<script>document.documentElement.className+=' js';</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20108%20108%27%3E%3Crect%20width%3D%27108%27%20height%3D%27108%27%20rx%3D%2724%27%20fill%3D%27%23101826%27/%3E%3Cpath%20d%3D%27M54%2C25%20L78.5%2C39.5%20L78.5%2C68.5%20L54%2C83%20L29.5%2C68.5%20L29.5%2C39.5%20Z%27%20stroke%3D%27%23FFD54A%27%20stroke-width%3D%275%27%20stroke-linejoin%3D%27round%27%20fill%3D%27none%27/%3E%3Cpath%20d%3D%27M54%2C39%20a6.5%2C6.5%200%200%201%206.5%2C6.5%20v7%20a6.5%2C6.5%200%200%201%20-13%2C0%20v-7%20a6.5%2C6.5%200%200%201%206.5%2C-6.5%20Z%27%20fill%3D%27%23FFD54A%27/%3E%3Cpath%20d%3D%27M43.5%2C50.5%20v2%20a10.5%2C10.5%200%200%200%2021%2C0%20v-2%27%20stroke%3D%27%23FFD54A%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3Cpath%20d%3D%27M54%2C63.5%20L54%2C69.5%20M47%2C71.5%20L61%2C71.5%27%20stroke%3D%27%23FFD54A%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3Ccircle%20cx%3D%2770.5%27%20cy%3D%2733%27%20r%3D%273.4%27%20fill%3D%27%23FF5A5A%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#101826; --navy2:#151F30; --navy3:#1B2739; --navy4:#22304596;
+    --yellow:#FFD54A; --yellow-d:#E9B92E; --rec:#FF5A5A;
+    --ink:#EAF0F8; --mut:#93A1B6; --line:#263449;
+    --head:'Black Han Sans','Gothic A1','Apple SD Gothic Neo',sans-serif;
+    --disp:'Space Grotesk','Gothic A1',sans-serif;
+    --sans:'Gothic A1',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--navy);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+  h1,h2{font-family:var(--head);font-weight:400;line-height:1.24;letter-spacing:.005em}
+  h3{font-family:var(--sans);font-weight:800;line-height:1.35}
+  .eyebrow{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow)}
+  .yy{color:var(--yellow)}
+
+  /* ── 브랜드 마크(육각 블랙박스) 애니메이션 ── */
+  @keyframes recblink{0%,100%{opacity:1}50%{opacity:.18}}
+  .mark .rec{animation:recblink 1.6s ease-in-out infinite}
+  @keyframes hexpulse{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.06);opacity:1}}
+  .mark .halo{transform-origin:50% 50%;animation:hexpulse 3.2s ease-in-out infinite}
+  /* 스크롤 진입 리빌(첫 페인트 전 .js가 붙어 깜빡임 없음) */
+  .js section{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+  .js section.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .mark .rec,.mark .halo{animation:none!important}
+    .js section{opacity:1!important;transform:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+
+  /* ── 배경 육각 모티프 ── */
+  .hexbg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .hexbg svg{position:absolute;opacity:.07}
+
+  /* ── 히어로 ── */
+  .hero{position:relative;overflow:hidden;text-align:center;padding:76px 0 88px;
+    background:
+      radial-gradient(110% 84% at 50% -10%, rgba(255,213,74,.17) 0%, rgba(255,213,74,.05) 36%, rgba(16,24,38,0) 64%),
+      linear-gradient(180deg,#152036 0%,#121B2C 55%,#101826 100%);}
+  .hero .mark{width:148px;height:148px;margin:0 auto 10px;display:block;filter:drop-shadow(0 16px 34px rgba(255,213,74,.28))}
+  .hero h1{font-size:clamp(31px,6.4vw,56px);color:#fff}
+  .hero .sub{max-width:640px;margin:18px auto 0;font-size:clamp(15px,2.4vw,18.5px);color:var(--mut);line-height:1.85}
+  .hero .sub b{color:var(--yellow);font-weight:800}
+  .badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:8px 16px;border:1px solid rgba(255,213,74,.4);border-radius:999px;background:rgba(255,213,74,.08);font-family:var(--disp);font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--yellow);text-transform:uppercase}
+  .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--rec);box-shadow:0 0 10px var(--rec);animation:recblink 1.6s ease-in-out infinite}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:14px;font-family:var(--sans);font-weight:800;font-size:15.5px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease,background .2s}
+  .btn:active{transform:translateY(1px)}
+  .btn-pri{background:linear-gradient(180deg,var(--yellow),var(--yellow-d));color:#191100;box-shadow:0 14px 34px -12px rgba(255,213,74,.55)}
+  .btn-ghost{background:rgba(234,240,248,.04);border-color:var(--line);color:var(--ink)}
+  .kicker{margin-top:20px;font-size:13px;color:var(--mut)}
+  .kicker b{color:var(--yellow);font-weight:800}
+
+  section{padding:76px 0;position:relative}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 44px;position:relative}
+  .sec-head h2{font-size:clamp(25px,4.6vw,36px);color:#fff;margin-top:12px}
+  .sec-head p{margin-top:14px;color:var(--mut);font-size:16px}
+  .divide{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .night{background:#0C1220}
+
+  /* ── 음성 명령(채팅 말풍선) ── */
+  .talk .chat{max-width:620px;margin:0 auto;display:grid;gap:14px}
+  .talk .row{display:flex;justify-content:flex-end}
+  .talk .bb{position:relative;max-width:86%;background:linear-gradient(180deg,#FFDD6E,var(--yellow));color:#221803;border-radius:18px 18px 4px 18px;padding:13px 18px;font-weight:700;font-size:clamp(15px,2.5vw,18px);line-height:1.6;box-shadow:0 12px 28px -14px rgba(255,213,74,.5)}
+  .talk .bb .tag{display:block;margin-top:6px;font-family:var(--disp);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A5C00}
+  .talk .sys{display:flex;justify-content:flex-start}
+  .talk .sys .bb{background:var(--navy3);color:var(--ink);border:1px solid var(--line);border-radius:18px 18px 18px 4px;font-weight:500;box-shadow:none}
+  .talk .sys .bb b{color:var(--yellow)}
+  .talk .mic{display:flex;align-items:center;gap:10px;justify-content:center;margin:4px auto 22px;color:var(--mut);font-size:13.5px}
+  .talk .mic .dot{width:9px;height:9px;border-radius:50%;background:var(--rec);box-shadow:0 0 10px var(--rec);animation:recblink 1.6s ease-in-out infinite}
+
+  /* ── 두 가지 모드 ── */
+  .modes .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto}
+  .mode{background:var(--navy2);border:1px solid var(--line);border-radius:22px;padding:28px 26px;position:relative;overflow:hidden}
+  .mode:before{content:"";position:absolute;top:-40px;right:-40px;width:130px;height:130px;
+    background:radial-gradient(circle,rgba(255,213,74,.12),transparent 70%)}
+  .mode .ic{width:56px;height:56px;margin-bottom:14px}
+  .mode h3{font-size:20px;color:#fff}
+  .mode h3 .no{font-family:var(--disp);font-size:12px;letter-spacing:.2em;color:var(--yellow);display:block;margin-bottom:6px}
+  .mode p{margin-top:10px;color:var(--mut);font-size:14.5px}
+  .mode .flow{margin-top:16px;display:grid;gap:9px}
+  .mode .flow div{font-size:14px;color:var(--ink);padding:9px 13px;background:var(--navy);border:1px solid var(--line);border-radius:11px}
+  .mode .flow b{color:var(--yellow)}
+
+  /* ── 화면(폰 프레임 플레이스홀더) ── */
+  .show .row{display:flex;align-items:center;gap:46px;max-width:900px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .phone{width:264px;height:540px;flex:none;border-radius:36px;padding:9px;background:#0A0F1A;border:1px solid var(--line);
+    box-shadow:0 46px 90px -34px rgba(0,0,0,.9), inset 0 0 0 2px #1B2739;position:relative}
+  .phone .scr{width:100%;height:100%;border-radius:28px;background:linear-gradient(180deg,#141E30,#0E1626);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:1px solid #1E2B40}
+  .phone .scr .mark{width:120px;height:120px}
+  .phone .scr .t{font-family:var(--head);font-size:19px;color:#fff;letter-spacing:.02em}
+  .phone .scr .s{font-size:12px;color:var(--mut)}
+  .phone .scr .recline{display:flex;align-items:center;gap:7px;font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:.18em;color:var(--rec)}
+  .phone .scr .recline i{width:8px;height:8px;border-radius:50%;background:var(--rec);box-shadow:0 0 8px var(--rec);animation:recblink 1.6s ease-in-out infinite}
+  .phone .glow{position:absolute;inset:-30px;z-index:-1;background:radial-gradient(circle,rgba(255,213,74,.16),transparent 70%)}
+  .show .txt{flex:1;min-width:264px;max-width:400px}
+  .show .txt .eyebrow{margin-bottom:12px}
+  .show .txt h2{font-size:clamp(24px,3.8vw,32px);color:#fff}
+  .show .txt p{margin-top:14px;color:var(--mut);font-size:15.5px;line-height:1.85}
+  .show .txt p b{color:var(--yellow)}
+  .show .txt .mini{margin-top:16px;display:grid;gap:8px}
+  .show .txt .mini div{font-size:14px;color:var(--ink);padding-left:24px;position:relative}
+  .show .txt .mini div:before{content:"⬢";position:absolute;left:0;font-size:12px;color:var(--yellow)}
+
+  /* ── 기능 그리드 ── */
+  .feat .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .f{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:22px;transition:border-color .2s}
+  .f:hover{border-color:rgba(255,213,74,.45)}
+  .f .hex{width:44px;height:44px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:12px}
+  .f .hex svg.frame{position:absolute;inset:0}
+  .f .hex span{font-size:19px;position:relative}
+  .f h3{font-size:16.5px;color:#fff}
+  .f p{margin-top:7px;color:var(--mut);font-size:13.8px}
+  .feat .note{max-width:640px;margin:26px auto 0;text-align:center;font-size:13.5px;color:var(--mut);border:1px dashed var(--line);border-radius:14px;padding:13px 18px}
+  .feat .note b{color:var(--yellow)}
+
+  /* ── 프라이버시 ── */
+  .priv .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
+  .priv .b{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:22px}
+  .priv .b .ic{font-size:22px}
+  .priv .b h3{margin-top:8px;font-size:17px;color:#fff}
+  .priv .b p{margin-top:7px;color:var(--mut);font-size:14px}
+
+  /* ── 최종 CTA ── */
+  .final{text-align:center;background:radial-gradient(120% 90% at 50% 120%, rgba(255,213,74,.14) 0%, rgba(16,24,38,0) 60%), var(--navy)}
+  .final .mark{width:104px;height:104px;margin:0 auto 12px;display:block}
+  .final h2{font-size:clamp(25px,5vw,40px);color:#fff}
+  .final .close{max-width:560px;margin:18px auto 0;font-size:clamp(15.5px,2.6vw,19px);color:var(--ink);line-height:1.8}
+  .final .close b{color:var(--yellow)}
+  .final p.small{margin-top:14px;color:var(--mut);font-size:14px}
+
+  footer{background:#0C1220;border-top:1px solid var(--line);padding:42px 0 60px;text-align:center;color:var(--mut);font-size:13.5px}
+  footer .mark{width:52px;height:52px;margin:0 auto 12px;display:block;opacity:.95}
+  footer a{color:var(--yellow);text-decoration:none}
+  footer .row{margin-top:8px}
+
+  @media (max-width:760px){
+    .feat .grid{grid-template-columns:1fr 1fr}
+    .modes .grid,.priv .grid{grid-template-columns:1fr}
+    section{padding:58px 0}
+    .show .row{flex-direction:column;text-align:center}
+    .show .txt{text-align:center}
+    .show .txt .mini div{display:inline-block;text-align:left}
+  }
+  @media (max-width:480px){
+    .feat .grid{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+<link rel="canonical" href="https://voicecam.net/memohae/">
+</head>
+<body>
+
+<!-- 재사용 브랜드 마크(육각 블랙박스 + 마이크) 심볼 — ic_memohae_mark.xml 동일 패스 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="mh-mark" viewBox="0 0 108 108">
+    <!-- 육각 헤일로 -->
+    <path class="halo" d="M54,17 L85.5,35.5 L85.5,72.5 L54,91 L22.5,72.5 L22.5,35.5 Z" stroke="#FFD54A" stroke-width="1.6" stroke-linejoin="round" fill="none" opacity=".55"/>
+    <!-- 육각 블랙박스 프레임 -->
+    <path d="M54,25 L78.5,39.5 L78.5,68.5 L54,83 L29.5,68.5 L29.5,39.5 Z" stroke="#FFD54A" stroke-width="5" stroke-linejoin="round" fill="none"/>
+    <!-- 마이크 캡슐 -->
+    <path d="M54,39 a6.5,6.5 0 0 1 6.5,6.5 v7 a6.5,6.5 0 0 1 -13,0 v-7 a6.5,6.5 0 0 1 6.5,-6.5 Z" fill="#FFD54A"/>
+    <!-- 마이크 홀더(아크) -->
+    <path d="M43.5,50.5 v2 a10.5,10.5 0 0 0 21,0 v-2" stroke="#FFD54A" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <!-- 스탠드 + 받침 -->
+    <path d="M54,63.5 L54,69.5 M47,71.5 L61,71.5" stroke="#FFD54A" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <!-- REC 점 -->
+    <circle class="rec" cx="70.5" cy="33" r="3.4" fill="#FF5A5A"/>
+  </symbol>
+  <symbol id="mh-hexline" viewBox="0 0 108 108">
+    <path d="M54,10 L92,32 L92,76 L54,98 L16,76 L16,32 Z" stroke="#FFD54A" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</defs></svg>
+
+<!-- ══ 히어로 ══ -->
+<header class="hero">
+  <div class="hexbg" aria-hidden="true">
+    <svg style="left:-3%;top:12%;width:180px;height:180px"><use href="#mh-hexline"/></svg>
+    <svg style="right:-4%;top:34%;width:240px;height:240px"><use href="#mh-hexline"/></svg>
+    <svg style="left:16%;bottom:-8%;width:140px;height:140px"><use href="#mh-hexline"/></svg>
+    <svg style="right:20%;top:2%;width:90px;height:90px"><use href="#mh-hexline"/></svg>
+  </div>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 108 108" role="img" aria-label="메모해 — 육각 블랙박스 안의 마이크"><use href="#mh-mark"/></svg>
+    <div class="badge"><span class="dot"></span>음성기반 블랙박스</div>
+    <h1 style="margin-top:18px">내 차엔 블랙박스,<br>내 폰엔 <span class="yy">‘메모해’</span></h1>
+    <p class="sub">깜깜이 녹음비서 — 화면이 꺼져 있어도, 언제든지 <b>‘메모해’</b></p>
+    <div class="cta">
+      <a class="btn btn-pri" href="mailto:korsales.dev@gmail.com?subject=메모해%20출시%20알림%20신청">🔔 출시 알림 받기</a>
+      <a class="btn btn-ghost" href="#modes">어떻게 녹음하나요</a>
+    </div>
+    <p class="kicker">녹음은 <b>내 폰과 내 클라우드에만</b> · 업로드 시 <b>자동 암호화</b></p>
+  </div>
+</header>
+
+<!-- ══ 음성 명령(채팅) ══ -->
+<section class="talk night">
+  <div class="sec-head">
+    <div class="eyebrow">Voice Command</div>
+    <h2>말만 하면, 메모가 됩니다</h2>
+    <p>주머니 속에서도, 화면이 꺼져 있어도 — 한마디면 충분해요.</p>
+  </div>
+  <div class="wrap">
+    <div class="chat">
+      <div class="row"><div class="bb">“메모해 119 불러줘”<span class="tag">응급콜</span></div></div>
+      <div class="row"><div class="bb">“메모해 지하2층 12구역에 주차했어”<span class="tag">주차 메모</span></div></div>
+      <div class="row"><div class="bb">“메모해 아이디어가 떠올랐어”<span class="tag">아이디어 기록</span></div></div>
+      <div class="row"><div class="bb">“이번주 토요일 결혼식 일정 기억해”<span class="tag">일정 자동 저장</span></div></div>
+      <div class="row"><div class="bb">“짜장 하나 짬뽕 두 개 시켰는데, 짜장 두 개 짬뽕 하나가 나왔네~”<span class="tag">분쟁 예시</span></div></div>
+      <div class="sys"><div class="bb">⬢ 방금 대화, <b>블랙박스처럼</b> 남겨뒀어요. 필요할 때 꺼내 보세요.</div></div>
+    </div>
+    <div class="mic" style="margin-top:26px"><span class="dot"></span>화면이 꺼져 있어도 듣고 있는, 깜깜이 녹음비서</div>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 두 가지 모드 ══ -->
+<section class="modes" id="modes">
+  <div class="sec-head">
+    <div class="eyebrow">2 Modes</div>
+    <h2>녹음은 두 가지 방식으로</h2>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="mode">
+        <svg class="ic" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+        <h3><span class="no">MODE 01</span>자동인식 녹음</h3>
+        <p>내가 정한 시간대에 알아서 돌아가는 블랙박스 모드. 신경 쓰지 않아도, 필요한 순간이 남아 있어요.</p>
+        <div class="flow">
+          <div><b>녹음 시간대</b>만 정해두면</div>
+          <div>그 시간엔 <b>자동으로</b> 기록</div>
+        </div>
+      </div>
+      <div class="mode">
+        <svg class="ic" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+        <h3><span class="no">MODE 02</span>명령인식 녹음</h3>
+        <p>부르면 시작하고, 말하면 끝나는 명령 모드. 시작과 끝을 진동·화면 알림으로 확실하게 알려줘요.</p>
+        <div class="flow">
+          <div>“<b>메모해</b>” → 녹음 시작</div>
+          <div>“<b>메모끝</b>” → 녹음 끝</div>
+          <div>시작·끝마다 <b>진동 · 화면 알림</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 화면(폰 프레임 플레이스홀더) ══ -->
+<!-- TODO: 실기기 스크린샷 교체 — 아래 .scr 플레이스홀더를 <img src="img/shot-*.png">로 교체 -->
+<section class="show night">
+  <div class="wrap">
+    <div class="row">
+      <div class="phone"><div class="glow"></div>
+        <div class="scr" role="img" aria-label="메모해 앱 화면 자리 — 실기기 스크린샷 준비 중">
+          <svg class="mark" viewBox="0 0 108 108"><use href="#mh-mark"/></svg>
+          <div class="t">메모해</div>
+          <div class="recline"><i></i>REC · STANDBY</div>
+          <div class="s">실기기 화면 준비 중</div>
+        </div>
+      </div>
+      <div class="txt">
+        <div class="eyebrow">Always On, Quietly</div>
+        <h2>주머니 속의<br>블랙박스</h2>
+        <p>차에 블랙박스를 달아두듯, 폰에는 <b>메모해</b>를 켜두세요. 녹음된 말은 문자로 바뀌고, 시간대별로 AI가 요약해 줍니다. 약속을 말하면 일정으로, “119 불러줘” 한마디는 응급콜로.</p>
+        <div class="mini">
+          <div>음성을 문자로, 시간대별 AI 요약</div>
+          <div>약속 말하면 일정 자동 저장</div>
+          <div>압축 저장으로 배터리 소모 최소화</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 기능 그리드 ══ -->
+<section class="feat">
+  <div class="sec-head">
+    <div class="eyebrow">Features</div>
+    <h2>블랙박스답게, 꼼꼼하게</h2>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>⏰</span></div><h3>녹음시간대 설정</h3><p>원하는 시간대에만 자동 녹음 — 출퇴근길, 근무시간, 밤길.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>📝</span></div><h3>음성을 문자로 + AI 요약</h3><p>녹음은 문자로 바뀌고, 시간대별로 AI가 핵심만 요약해요.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>📅</span></div><h3>일정 자동 저장</h3><p>약속을 말하면 알아듣고 일정으로 자동 저장해요.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🚨</span></div><h3>응급콜</h3><p>“메모해 119 불러줘” — 위급한 순간, 말 한마디로 연결.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🔐</span></div><h3>클라우드 자동 암호화 저장</h3><p>업로드 전 기기에서 암호화 — 내 클라우드에도 안전하게.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🚫</span></div><h3>데이터 옵트아웃</h3><p>원치 않는 데이터 활용은 언제든 끌 수 있어요. 선택은 내가.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🔋</span></div><h3>압축 저장 · 배터리 최소화</h3><p>고효율 압축으로 용량과 배터리 부담을 줄였어요.</p></div>
+    </div>
+    <p class="note">🔋 <b>저전력 설계</b> — 배터리 소모 최소화(측정치 공개 예정)</p>
+  </div>
+</section>
+
+<!-- ══ 프라이버시 ══ -->
+<section class="priv night">
+  <div class="sec-head">
+    <div class="eyebrow">Privacy First</div>
+    <h2>기록은 온전히 내 것</h2>
+    <p>녹음은 내 폰과 내 클라우드에만 · 업로드 시 자동 암호화</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="b"><div class="ic">📱</div><h3>내 폰과 내 클라우드에만</h3><p>녹음 파일은 내 기기와 내가 연결한 클라우드에만 저장돼요.</p></div>
+      <div class="b"><div class="ic">🔐</div><h3>업로드 시 자동 암호화</h3><p>클라우드로 올라가기 전, 기기 안에서 먼저 암호화됩니다.</p></div>
+      <div class="b"><div class="ic">🚫</div><h3>데이터 옵트아웃</h3><p>데이터 활용은 언제든 설정에서 끌 수 있어요.</p></div>
+      <div class="b"><div class="ic">📳</div><h3>몰래 녹음하지 않아요</h3><p>녹음 시작·끝을 진동과 화면 알림으로 분명하게 알립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 최종 CTA ══ -->
+<section class="final">
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+    <h2>오늘부터, 내 폰에도 블랙박스를</h2>
+    <p class="close"><b>블랙박스처럼 일상 속의 분쟁을 방지하고,<br>나의 안전과 기억을 보장합니다.</b></p>
+    <p class="small">출시되면 가장 먼저 알려드릴게요.</p>
+    <div class="cta">
+      <a class="btn btn-pri" href="mailto:korsales.dev@gmail.com?subject=메모해%20출시%20알림%20신청">🔔 출시 알림 받기</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+    <div style="font-family:var(--head);color:#fff;font-size:17px;letter-spacing:.02em">메모해</div>
+    <div class="row">음성 블랙박스 · 명령 녹음비서 — 깜깜이 녹음비서</div>
+    <div class="row">문의 · 출시 알림 — <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a></div>
+    <div class="row" style="margin-top:14px;opacity:.7">© 코리아세일즈 · memohae</div>
+  </div>
+</footer>
+
+<!-- ══ 출시 알림 모달 (voicecam-api /signup 재사용) ══ -->
+<div id="ntf" hidden>
+  <div class="ntf-bg" data-close></div>
+  <div class="ntf-box" role="dialog" aria-modal="true" aria-label="출시 알림 신청">
+    <button class="ntf-x" data-close aria-label="닫기">×</button>
+    <div class="ntf-title">🔔 출시 알림 신청</div>
+    <p class="ntf-sub"><b id="ntf-app">메모해</b>가 출시되면 가장 먼저 알려드릴게요.</p>
+    <div class="ntf-seg" id="ntf-seg">
+      <button type="button" class="on" data-m="email">이메일</button>
+      <button type="button" data-m="tel">전화</button>
+    </div>
+    <input id="ntf-in" class="ntf-in" type="email" inputmode="email" autocomplete="email" placeholder="이메일 주소를 입력하세요">
+    <div class="ntf-err" id="ntf-err" hidden>형식을 다시 확인해 주세요.</div>
+    <button type="button" id="ntf-go" class="ntf-go">신청하기</button>
+    <p class="ntf-priv">입력하신 정보는 <b>출시 알림 안내 목적</b>으로만 사용되며, 원치 않으시면 언제든 수신 거부할 수 있어요.</p>
+    <div id="ntf-ok" class="ntf-ok" hidden>✅ 신청이 완료됐어요!<br>출시되면 가장 먼저 알려드릴게요.</div>
+  </div>
+</div>
+<style>
+#ntf{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;font-family:var(--sans)}
+#ntf[hidden]{display:none}
+#ntf .ntf-bg{position:absolute;inset:0;background:rgba(5,9,16,.66)}
+#ntf .ntf-box{position:relative;width:100%;max-width:400px;background:#16202F;border:1px solid #263449;border-radius:20px;padding:28px 22px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.75);color:#EAF0F8;animation:ntfin .18s ease}
+@keyframes ntfin{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+#ntf .ntf-x{position:absolute;top:12px;right:14px;border:none;background:none;font-size:27px;line-height:1;color:#93A1B6;cursor:pointer}
+#ntf .ntf-title{font-size:22px;font-weight:800;font-family:var(--sans)}
+#ntf .ntf-sub{margin-top:6px;font-size:14.5px;color:#93A1B6}
+#ntf .ntf-sub b{color:#FFD54A}
+#ntf .ntf-seg{display:flex;gap:8px;margin-top:16px}
+#ntf .ntf-seg button{flex:1;padding:10px;border:1px solid #263449;background:transparent;color:#93A1B6;border-radius:11px;font-size:14px;font-weight:700;cursor:pointer}
+#ntf .ntf-seg button.on{background:#FFD54A;border-color:#FFD54A;color:#191100}
+#ntf .ntf-in{width:100%;margin-top:12px;padding:14px;border:1px solid #263449;background:#101826;color:#EAF0F8;border-radius:12px;font-size:16px}
+#ntf .ntf-in::placeholder{color:#5B6B84}
+#ntf .ntf-err{margin-top:8px;color:#FF7A6B;font-size:13px}
+#ntf .ntf-go{width:100%;margin-top:14px;padding:15px;border:none;border-radius:12px;background:linear-gradient(180deg,#FFD54A,#E9B92E);color:#191100;font-size:16px;font-weight:800;cursor:pointer}
+#ntf .ntf-go:active{transform:translateY(1px)}
+#ntf .ntf-priv{margin-top:12px;font-size:12px;color:#7386A1;line-height:1.6}
+#ntf .ntf-ok{margin-top:14px;padding:14px;background:#12271B;border:1px solid #2E5A3E;border-radius:12px;color:#BFE6CC;font-size:14.5px;text-align:center}
+</style>
+<script>
+(function(){
+  /* 스크롤 진입 리빌 */
+  var secs=document.querySelectorAll('section');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(secs,function(s){io.observe(s);});
+  } else { [].forEach.call(secs,function(s){s.classList.add('in');}); }
+})();
+(function(){
+  var ENDPOINT="https://voicecam-api-production.up.railway.app/signup";
+  var TO="korsales.dev@gmail.com";
+  var m=document.getElementById('ntf'); if(!m) return;
+  var app="메모해";
+  document.getElementById('ntf-app').textContent=app;
+  var mode='email', inp=document.getElementById('ntf-in'), err=document.getElementById('ntf-err'), ok=document.getElementById('ntf-ok'), seg=document.getElementById('ntf-seg');
+  function open(e){ if(e){e.preventDefault();} ok.hidden=true; m.hidden=false; setTimeout(function(){inp.focus();},50); }
+  function close(){ m.hidden=true; }
+  [].forEach.call(document.querySelectorAll('a[href^="mailto:'+TO+'"]'), function(a){
+    if(/알림/.test(decodeURIComponent(a.getAttribute('href')||''))) a.addEventListener('click',open);
+  });
+  [].forEach.call(m.querySelectorAll('[data-close]'),function(b){b.addEventListener('click',close);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  [].forEach.call(seg.querySelectorAll('button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(seg.querySelectorAll('button'),function(x){x.classList.remove('on');});
+    b.classList.add('on'); mode=b.getAttribute('data-m'); err.hidden=true;
+    if(mode==='email'){inp.type='email';inp.placeholder='이메일 주소를 입력하세요';}
+    else{inp.type='tel';inp.placeholder='전화번호를 입력하세요 (예: 010-1234-5678)';}
+    inp.focus();
+  });});
+  function valid(v){ return mode==='email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v) : /^[0-9\-+\s]{9,}$/.test(v); }
+  document.getElementById('ntf-go').addEventListener('click',function(){
+    var v=inp.value.trim();
+    if(!valid(v)){ err.hidden=false; inp.focus(); return; }
+    err.hidden=true;
+    var data=new URLSearchParams({app:app,type:(mode==='email'?'이메일':'전화'),contact:v,page:location.href,ts:new Date().toISOString()});
+    function done(){ ok.hidden=false; inp.value=''; setTimeout(close,2400); }
+    if(ENDPOINT){ fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(done).catch(done); }
+    else { window.location.href='mailto:'+TO+'?subject='+encodeURIComponent('['+app+'] 출시 알림 신청')+'&body='+encodeURIComponent((mode==='email'?'이메일: ':'전화: ')+v); done(); }
+  });
+})();
+</script>
+</body>
+</html>
