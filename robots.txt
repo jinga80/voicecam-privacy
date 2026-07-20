@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /ir-
+Disallow: /memohae-aa9e137cf15c/
 Sitemap: https://voicecam.net/sitemap.xml

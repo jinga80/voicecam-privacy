@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>메모해 — 서비스 소개 &amp; 앱 다운로드 | 코리아세일즈</title>
+<meta name="description" content="음성 블랙박스 · 명령 녹음비서 '메모해' 서비스 총정리와 최신 앱(APK) 다운로드. 화면이 꺼져 있어도 '메모해' 한마디면 녹음, '메모끝'·'그만'이면 저장. 온디바이스·자동 암호화.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="메모해 — 서비스 소개 & 앱 다운로드">
+<meta property="og:description" content="음성 블랙박스 · 명령 녹음비서. 최신 앱(APK) 바로 다운로드.">
+<meta property="og:image" content="https://voicecam.net/memohae/img/og.png">
+<meta name="theme-color" content="#101826">
+<script>document.documentElement.className+=' js';</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20108%20108%27%3E%3Crect%20width%3D%27108%27%20height%3D%27108%27%20rx%3D%2724%27%20fill%3D%27%23101826%27/%3E%3Cpath%20d%3D%27M54%2C25%20L78.5%2C39.5%20L78.5%2C68.5%20L54%2C83%20L29.5%2C68.5%20L29.5%2C39.5%20Z%27%20stroke%3D%27%23FFD54A%27%20stroke-width%3D%275%27%20stroke-linejoin%3D%27round%27%20fill%3D%27none%27/%3E%3Cpath%20d%3D%27M54%2C39%20a6.5%2C6.5%200%200%201%206.5%2C6.5%20v7%20a6.5%2C6.5%200%200%201%20-13%2C0%20v-7%20a6.5%2C6.5%200%200%201%206.5%2C-6.5%20Z%27%20fill%3D%27%23FFD54A%27/%3E%3Cpath%20d%3D%27M43.5%2C50.5%20v2%20a10.5%2C10.5%200%200%200%2021%2C0%20v-2%27%20stroke%3D%27%23FFD54A%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3Cpath%20d%3D%27M54%2C63.5%20L54%2C69.5%20M47%2C71.5%20L61%2C71.5%27%20stroke%3D%27%23FFD54A%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3Ccircle%20cx%3D%2770.5%27%20cy%3D%2733%27%20r%3D%273.4%27%20fill%3D%27%23FF5A5A%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#101826; --navy2:#151F30; --navy3:#1B2739; --navy4:#22304596;
+    --yellow:#FFD54A; --yellow-d:#E9B92E; --rec:#FF5A5A;
+    --ink:#EAF0F8; --mut:#93A1B6; --line:#263449; --ok:#7FD69A; --wait:#E8B45E;
+    --head:'Black Han Sans','Gothic A1','Apple SD Gothic Neo',sans-serif;
+    --disp:'Space Grotesk','Gothic A1',sans-serif;
+    --sans:'Gothic A1',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--navy);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:inherit}
+  h1,h2{font-family:var(--head);font-weight:400;line-height:1.24;letter-spacing:.005em}
+  h3{font-family:var(--sans);font-weight:800;line-height:1.35}
+  .eyebrow{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow)}
+  .yy{color:var(--yellow)}
+
+  @keyframes recblink{0%,100%{opacity:1}50%{opacity:.18}}
+  .mark .rec{animation:recblink 1.6s ease-in-out infinite}
+  @keyframes hexpulse{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.06);opacity:1}}
+  .mark .halo{transform-origin:50% 50%;animation:hexpulse 3.2s ease-in-out infinite}
+  .js section{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
+  .js section.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .mark .rec,.mark .halo{animation:none!important}
+    .js section{opacity:1!important;transform:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+
+  .hexbg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .hexbg svg{position:absolute;opacity:.07}
+
+  /* 대외비 리본 */
+  .conf-ribbon{background:#0C1220;border-bottom:1px solid var(--line);text-align:center;padding:9px 16px;font-family:var(--disp);font-weight:700;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+  .conf-ribbon b{color:var(--yellow)}
+
+  /* 히어로 */
+  .hero{position:relative;overflow:hidden;text-align:center;padding:66px 0 74px;
+    background:
+      radial-gradient(110% 84% at 50% -10%, rgba(255,213,74,.17) 0%, rgba(255,213,74,.05) 36%, rgba(16,24,38,0) 64%),
+      linear-gradient(180deg,#152036 0%,#121B2C 55%,#101826 100%);}
+  .hero .mark{width:120px;height:120px;margin:0 auto 8px;display:block;filter:drop-shadow(0 16px 34px rgba(255,213,74,.28))}
+  .hero h1{font-size:clamp(30px,6.2vw,52px);color:#fff;margin-top:12px}
+  .hero .sub{max-width:640px;margin:16px auto 0;font-size:clamp(15px,2.4vw,18px);color:var(--mut);line-height:1.8}
+  .hero .sub b{color:var(--yellow);font-weight:800}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid rgba(255,213,74,.4);border-radius:999px;background:rgba(255,213,74,.08);font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.14em;color:var(--yellow);text-transform:uppercase}
+  .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--rec);box-shadow:0 0 10px var(--rec);animation:recblink 1.6s ease-in-out infinite}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 26px;border-radius:14px;font-family:var(--sans);font-weight:800;font-size:15.5px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .12s ease,background .2s}
+  .btn:active{transform:translateY(1px)}
+  .btn-pri{background:linear-gradient(180deg,var(--yellow),var(--yellow-d));color:#191100;box-shadow:0 14px 34px -12px rgba(255,213,74,.55)}
+  .btn-ghost{background:rgba(234,240,248,.04);border-color:var(--line);color:var(--ink)}
+  .btn .v{font-family:var(--disp);font-weight:700;font-size:12px;opacity:.72}
+  .kicker{margin-top:16px;font-size:13px;color:var(--mut)}
+  .kicker b{color:var(--yellow);font-weight:800}
+
+  section{padding:66px 0;position:relative}
+  .sec-head{text-align:center;max-width:700px;margin:0 auto 40px;position:relative}
+  .sec-head h2{font-size:clamp(24px,4.4vw,34px);color:#fff;margin-top:12px}
+  .sec-head p{margin-top:12px;color:var(--mut);font-size:15.5px}
+  .divide{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .night{background:#0C1220}
+
+  /* 한 줄 정의 */
+  .oneliner{text-align:center}
+  .oneliner .big{max-width:760px;margin:0 auto;font-size:clamp(19px,3.2vw,26px);color:var(--ink);line-height:1.6;font-weight:700}
+  .oneliner .big b{color:var(--yellow)}
+  .facts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+  .facts span{border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13.5px;color:var(--ink);background:rgba(255,213,74,.05)}
+  .facts b{color:var(--yellow)}
+
+  /* 두 모드 */
+  .modes .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:840px;margin:0 auto}
+  .mode{background:var(--navy2);border:1px solid var(--line);border-radius:22px;padding:26px;position:relative;overflow:hidden}
+  .mode:before{content:"";position:absolute;top:-40px;right:-40px;width:130px;height:130px;background:radial-gradient(circle,rgba(255,213,74,.12),transparent 70%)}
+  .mode .ic{width:52px;height:52px;margin-bottom:12px}
+  .mode h3{font-size:19px;color:#fff}
+  .mode h3 .no{font-family:var(--disp);font-size:11.5px;letter-spacing:.2em;color:var(--yellow);display:block;margin-bottom:6px}
+  .mode p{margin-top:9px;color:var(--mut);font-size:14px}
+  .mode .flow{margin-top:15px;display:grid;gap:8px}
+  .mode .flow div{font-size:13.5px;color:var(--ink);padding:9px 13px;background:var(--navy);border:1px solid var(--line);border-radius:11px}
+  .mode .flow b{color:var(--yellow)}
+
+  /* 어떻게 작동 (폰목업 + 스텝) */
+  .show .row{display:flex;align-items:center;gap:46px;max-width:920px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+  .phone{width:250px;height:512px;flex:none;border-radius:34px;padding:9px;background:#0A0F1A;border:1px solid var(--line);
+    box-shadow:0 46px 90px -34px rgba(0,0,0,.9), inset 0 0 0 2px #1B2739;position:relative}
+  .phone .scr{width:100%;height:100%;border-radius:26px;background:linear-gradient(180deg,#141E30,#0E1626);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;border:1px solid #1E2B40}
+  .phone .scr .mark{width:104px;height:104px}
+  .phone .scr .t{font-family:var(--head);font-size:18px;color:#fff;letter-spacing:.02em}
+  .phone .scr .s{font-size:12px;color:var(--mut);text-align:center;padding:0 20px}
+  .phone .scr .recline{display:flex;align-items:center;gap:7px;font-family:var(--disp);font-weight:700;font-size:11.5px;letter-spacing:.16em;color:var(--rec)}
+  .phone .scr .recline i{width:8px;height:8px;border-radius:50%;background:var(--rec);box-shadow:0 0 8px var(--rec);animation:recblink 1.6s ease-in-out infinite}
+  .phone .glow{position:absolute;inset:-30px;z-index:-1;background:radial-gradient(circle,rgba(255,213,74,.16),transparent 70%)}
+  .show .txt{flex:1;min-width:280px;max-width:420px}
+  .show .txt h2{font-size:clamp(23px,3.6vw,30px);color:#fff}
+  .verified{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:7px 14px;border:1px solid rgba(127,214,154,.4);border-radius:999px;background:rgba(127,214,154,.08);font-family:var(--disp);font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ok)}
+  .show .txt .flow{margin-top:16px;display:grid;gap:10px}
+  .show .txt .flow div{font-size:14.5px;color:var(--ink);padding-left:26px;position:relative}
+  .show .txt .flow div:before{content:"›";position:absolute;left:6px;color:var(--yellow);font-weight:800}
+  .show .txt .flow b{color:var(--yellow)}
+  .show .txt .mini{margin-top:16px;display:grid;gap:8px}
+  .show .txt .mini div{font-size:13.8px;color:var(--mut);padding-left:24px;position:relative}
+  .show .txt .mini div:before{content:"⬢";position:absolute;left:0;font-size:11px;color:var(--yellow)}
+
+  /* 기능 그리드 */
+  .feat .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .f{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:20px;transition:border-color .2s}
+  .f:hover{border-color:rgba(255,213,74,.45)}
+  .f .hex{width:42px;height:42px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:11px}
+  .f .hex svg.frame{position:absolute;inset:0}
+  .f .hex span{font-size:18px;position:relative}
+  .f h3{font-size:16px;color:#fff}
+  .f p{margin-top:6px;color:var(--mut);font-size:13.5px}
+
+  /* 현황·신뢰 */
+  .status .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .st{background:var(--navy2);border:1px solid var(--line);border-radius:18px;padding:22px}
+  .st h4{font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:13px;display:flex;align-items:center;gap:8px}
+  .st.done h4{color:var(--ok)} .st.fac h4{color:var(--yellow)} .st.wait h4{color:var(--wait)}
+  .st ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .st li{font-size:13.5px;color:var(--ink);line-height:1.5;padding-left:18px;position:relative}
+  .st li:before{content:"";position:absolute;left:2px;top:8px;width:7px;height:7px;border-radius:2px;background:var(--mut)}
+  .st.done li:before{background:var(--ok)} .st.fac li:before{background:var(--yellow)} .st.wait li:before{background:var(--wait)}
+  .st li b{color:#fff;font-weight:700}
+  .status .note{max-width:720px;margin:24px auto 0;text-align:center;font-size:13px;color:var(--mut);border:1px dashed var(--line);border-radius:14px;padding:12px 18px}
+  .status .note b{color:var(--yellow)}
+
+  /* 다운로드 블록 */
+  .dl{text-align:center;background:radial-gradient(120% 90% at 50% -10%, rgba(255,213,74,.14) 0%, rgba(16,24,38,0) 60%), var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .dlcard{max-width:640px;margin:0 auto;background:#0C1220;border:1px solid var(--line);border-radius:24px;padding:36px 30px}
+  .dlcard .mark{width:70px;height:70px;margin:0 auto 14px;display:block}
+  .dlcard h2{font-size:clamp(23px,4vw,32px);color:#fff}
+  .dlcard .meta{margin:14px 0 22px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;font-family:var(--disp);font-size:12.5px;color:var(--mut)}
+  .dlcard .meta span{border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+  .dlcard .meta b{color:var(--yellow)}
+  .dlbtn{display:inline-flex;align-items:center;gap:11px;padding:18px 34px;border-radius:16px;background:linear-gradient(180deg,var(--yellow),var(--yellow-d));color:#191100;font-family:var(--sans);font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 18px 40px -12px rgba(255,213,74,.55)}
+  .dlbtn:active{transform:translateY(1px)}
+  .steps{max-width:560px;margin:28px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:left}
+  .step{background:var(--navy);border:1px solid var(--line);border-radius:14px;padding:15px}
+  .step .n{font-family:var(--disp);font-weight:700;font-size:11px;letter-spacing:.14em;color:var(--yellow)}
+  .step p{margin-top:6px;font-size:13px;color:var(--mut);line-height:1.5}
+  .step p b{color:var(--ink)}
+  .dlnote{margin-top:20px;font-size:12.5px;color:var(--mut)}
+  .dlnote b{color:var(--ink)}
+
+  /* 상세 IR */
+  .ir{text-align:center}
+  .ir .box{max-width:640px;margin:0 auto;border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:var(--navy2)}
+  .ir h2{font-size:clamp(21px,3.4vw,28px);color:#fff}
+  .ir p{margin-top:12px;color:var(--mut);font-size:14.5px}
+  .ir a.btn{margin-top:20px}
+  .ir .lock{font-size:12.5px;color:var(--wait);margin-top:14px}
+
+  footer{background:#0C1220;border-top:1px solid var(--line);padding:40px 0 56px;text-align:center;color:var(--mut);font-size:13.5px}
+  footer .mark{width:50px;height:50px;margin:0 auto 12px;display:block;opacity:.95}
+  footer a{color:var(--yellow);text-decoration:none}
+  footer .row{margin-top:8px}
+
+  @media (max-width:820px){
+    .status .grid{grid-template-columns:1fr}
+    .feat .grid{grid-template-columns:1fr 1fr}
+    .modes .grid{grid-template-columns:1fr}
+    .show .row{flex-direction:column;text-align:center}
+    .show .txt{text-align:center}
+    .show .txt .flow div,.show .txt .mini div{display:inline-block;text-align:left}
+    .steps{grid-template-columns:1fr}
+    section{padding:52px 0}
+  }
+  @media (max-width:480px){ .feat .grid{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+<link rel="canonical" href="https://voicecam.net/memohae/">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="mh-mark" viewBox="0 0 108 108">
+    <path class="halo" d="M54,17 L85.5,35.5 L85.5,72.5 L54,91 L22.5,72.5 L22.5,35.5 Z" stroke="#FFD54A" stroke-width="1.6" stroke-linejoin="round" fill="none" opacity=".55"/>
+    <path d="M54,25 L78.5,39.5 L78.5,68.5 L54,83 L29.5,68.5 L29.5,39.5 Z" stroke="#FFD54A" stroke-width="5" stroke-linejoin="round" fill="none"/>
+    <path d="M54,39 a6.5,6.5 0 0 1 6.5,6.5 v7 a6.5,6.5 0 0 1 -13,0 v-7 a6.5,6.5 0 0 1 6.5,-6.5 Z" fill="#FFD54A"/>
+    <path d="M43.5,50.5 v2 a10.5,10.5 0 0 0 21,0 v-2" stroke="#FFD54A" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M54,63.5 L54,69.5 M47,71.5 L61,71.5" stroke="#FFD54A" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle class="rec" cx="70.5" cy="33" r="3.4" fill="#FF5A5A"/>
+  </symbol>
+  <symbol id="mh-hexline" viewBox="0 0 108 108">
+    <path d="M54,10 L92,32 L92,76 L54,98 L16,76 L16,32 Z" stroke="#FFD54A" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</defs></svg>
+
+<div class="conf-ribbon">코리아세일즈 · <b>메모해</b> 투자 소개 자료 — 대외 공유 주의</div>
+
+<!-- ══ 히어로 ══ -->
+<header class="hero">
+  <div class="hexbg" aria-hidden="true">
+    <svg style="left:-3%;top:12%;width:180px;height:180px"><use href="#mh-hexline"/></svg>
+    <svg style="right:-4%;top:34%;width:240px;height:240px"><use href="#mh-hexline"/></svg>
+    <svg style="left:16%;bottom:-8%;width:140px;height:140px"><use href="#mh-hexline"/></svg>
+  </div>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 108 108" role="img" aria-label="메모해 — 육각 블랙박스 안의 마이크"><use href="#mh-mark"/></svg>
+    <div class="badge"><span class="dot"></span>음성기반 블랙박스</div>
+    <h1 style="margin-top:16px">내 차엔 블랙박스,<br>내 폰엔 <span class="yy">‘메모해’</span></h1>
+    <p class="sub">깜깜이 녹음비서 — 화면이 꺼져 있어도, 언제든지 <b>‘메모해’</b><br>음성 블랙박스 · 명령 녹음비서를 <b>지금 바로 설치</b>해 보세요.</p>
+    <div class="cta">
+      <a class="btn btn-pri" href="#download">📥 앱 다운로드 <span class="v">APK · v1.0.0</span></a>
+      <a class="btn btn-ghost" href="#how">어떻게 작동하나요</a>
+    </div>
+    <p class="kicker">녹음은 <b>내 폰과 내 클라우드에만</b> · 업로드 시 <b>자동 암호화</b> · 서버로 전송 안 함</p>
+  </div>
+</header>
+
+<!-- ══ 한 줄 정의 ══ -->
+<section class="oneliner night">
+  <div class="wrap">
+    <div class="eyebrow" style="margin-bottom:14px">What it is</div>
+    <p class="big">화면이 꺼져 있어도 <b>“메모해”</b> 한마디면 녹음이 시작되고, <b>“메모끝”</b>·<b>“그만”</b>이면 저장됩니다. 녹음은 문자로 바뀌고, <b>시간대별 AI 요약·일정·응급콜</b>까지 <b>폰 안에서</b> 처리합니다.</p>
+    <div class="facts">
+      <span><b>폰만 있으면</b> 끝</span>
+      <span><b>온디바이스</b> 웨이크워드</span>
+      <span><b>서버 0</b> · 녹음 미전송</span>
+      <span><b>업로드 자동 암호화</b></span>
+      <span><b>7개 국어</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 두 가지 모드 ══ -->
+<section class="modes">
+  <div class="sec-head">
+    <div class="eyebrow">2 Modes</div>
+    <h2>녹음은 두 가지 방식으로</h2>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="mode">
+        <svg class="ic" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+        <h3><span class="no">MODE 01</span>자동인식 녹음</h3>
+        <p>내가 정한 시간대에 알아서 돌아가는 블랙박스 모드. 신경 쓰지 않아도 필요한 순간이 남습니다.</p>
+        <div class="flow">
+          <div><b>녹음 시간대</b>만 정해두면</div>
+          <div>그 시간엔 <b>자동으로</b> 기록</div>
+        </div>
+      </div>
+      <div class="mode">
+        <svg class="ic" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+        <h3><span class="no">MODE 02</span>명령인식 녹음</h3>
+        <p>부르면 시작하고, 말하면 끝나는 명령 모드. 시작·끝을 진동·화면 알림으로 확실하게 알려줘요.</p>
+        <div class="flow">
+          <div>“<b>메모해</b>” → 녹음 시작</div>
+          <div>“<b>메모끝</b>” 또는 “<b>그만</b>” → 저장</div>
+          <div>시작·끝마다 <b>진동 · 화면 알림</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 어떻게 작동 ══ -->
+<section class="show night" id="how">
+  <div class="wrap">
+    <div class="row">
+      <div class="phone"><div class="glow"></div>
+        <div class="scr" role="img" aria-label="메모해 명령 대기 화면">
+          <svg class="mark" viewBox="0 0 108 108"><use href="#mh-mark"/></svg>
+          <div class="t">메모해</div>
+          <div class="recline"><i></i>REC · 명령 대기 중</div>
+          <div class="s">“메모해”라고 말하세요</div>
+        </div>
+      </div>
+      <div class="txt">
+        <span class="verified">✓ 실기기 검증 완료</span>
+        <h2>부르면 켜지고,<br>말하면 끝납니다</h2>
+        <div class="flow">
+          <div>“<b>메모해</b>” 한마디로 <b>녹음 시작</b></div>
+          <div>“<b>메모끝</b>”·“<b>그만</b>”으로 <b>저장 + 전사</b></div>
+          <div><b>온디바이스</b> — 인터넷 없이도 인식</div>
+          <div>화면 꺼진 채 <b>상시 대기</b>, 부르면 즉시</div>
+        </div>
+        <div class="mini">
+          <div>음성을 문자로, 시간대별 AI 요약</div>
+          <div>약속 말하면 일정 자동 저장</div>
+          <div>“메모해 119 불러줘” → 응급콜</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 기능 그리드 ══ -->
+<section class="feat">
+  <div class="sec-head">
+    <div class="eyebrow">Features</div>
+    <h2>블랙박스답게, 꼼꼼하게</h2>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>⏰</span></div><h3>녹음시간대 설정</h3><p>원하는 시간대에만 자동 녹음 — 출퇴근길·근무시간·밤길.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>📝</span></div><h3>음성을 문자로 + AI 요약</h3><p>녹음은 문자로, 시간대별로 AI가 핵심만 요약해요.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>📅</span></div><h3>일정 자동 저장</h3><p>약속을 말하면 알아듣고 일정으로 자동 저장.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🚨</span></div><h3>응급콜</h3><p>“메모해 119 불러줘” — 위급한 순간, 말 한마디로.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🔐</span></div><h3>클라우드 자동 암호화</h3><p>업로드 전 기기에서 암호화 — 내 클라우드에도 안전하게.</p></div>
+      <div class="f"><div class="hex"><svg class="frame" viewBox="0 0 108 108"><use href="#mh-hexline"/></svg><span>🔋</span></div><h3>저전력 · 데이터 옵트아웃</h3><p>압축 저장으로 배터리 부담↓, 데이터 활용은 언제든 off.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divide"></div>
+
+<!-- ══ 현황·신뢰 ══ -->
+<section class="status night">
+  <div class="sec-head">
+    <div class="eyebrow">Status &amp; Trust</div>
+    <h2>컨셉이 아니라, 이미 작동하는 제품</h2>
+    <p>과장하지 않습니다 — 작동하는 것과 준비 중인 것을 구분해 적었습니다.</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="st done"><h4>✅ 완료</h4><ul>
+        <li><b>웨이크워드 실기기 검증</b> — 메모해→녹음→그만→저장·전사 E2E</li>
+        <li>상시 대기 · <b>크래시 자동복구</b> · 새벽 자동정리(롤오버)</li>
+        <li>업로드 자동 암호화 · 데이터 옵트아웃</li>
+        <li><b>4개 브랜드 빌드 green</b> · 7개 국어</li>
+      </ul></div>
+      <div class="st fac"><h4>🏭 검증된 공장</h4><ul>
+        <li>한 코드베이스에서 <b>브랜드만 바꿔</b> 앱 생산</li>
+        <li>형제 앱 <b>보이스캠 · 가게노트 · 내마음저장소</b>로 파이프라인 검증</li>
+        <li>온디바이스 녹음·전사·요약·백업 기술 재사용</li>
+      </ul></div>
+      <div class="st wait"><h4>⏳ 준비 중</h4><ul>
+        <li>대기 <b>배터리 실측치</b> 확보 → 수치 갱신</li>
+        <li>스토어 등록(조직계정 심사)</li>
+        <li><b>memohae.com</b> 도메인 확정</li>
+      </ul></div>
+    </div>
+    <p class="note">🔋 저전력 설계로 <b>하루 종일 켜도 배터리 부담 최소</b>를 목표로 합니다 — 정확한 측정치는 <b>실측 후 공개</b>(기기·설정에 따라 상이).</p>
+  </div>
+</section>
+
+<!-- ══ 다운로드 ══ -->
+<section class="dl" id="download">
+  <div class="wrap">
+    <div class="dlcard">
+      <svg class="mark" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+      <h2>메모해 앱 다운로드</h2>
+      <div class="meta">
+        <span>Android · <b id="dl-min">8.0+</b></span>
+        <span>버전 <b>v1.0.0</b></span>
+        <span>용량 <b id="dl-size">약 22MB</b></span>
+      </div>
+      <a class="dlbtn" id="dl-btn" href="memohae-1.0.0.apk" download>⬇ APK 다운로드</a>
+      <div class="steps">
+        <div class="step"><div class="n">STEP 1</div><p>버튼을 눌러 <b>APK 파일</b>을 내려받습니다.</p></div>
+        <div class="step"><div class="n">STEP 2</div><p>파일을 열 때 <b>“이 출처 허용”</b>을 켜 주세요(설정 → 앱 설치 허용).</p></div>
+        <div class="step"><div class="n">STEP 3</div><p><b>설치</b> 후 “메모해”라고 말해 바로 사용.</p></div>
+      </div>
+      <p class="dlnote">※ 안드로이드 전용(사이드로드) · 스토어 정식 출시 준비 중입니다. <b>iOS는 현재 미지원.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 상세 IR ══ -->
+<section class="ir">
+  <div class="wrap">
+    <div class="box">
+      <div class="eyebrow">For Investors</div>
+      <h2 style="margin-top:10px">재무 · 시장 · 투자 조건 상세</h2>
+      <p>회사·시장·수익모델·5년 추정·Ask 등 상세 자료는 별도 <b>IR 덱(한/영)</b>에 있습니다.</p>
+      <a class="btn btn-ghost" href="https://voicecam.net/ir-a28593d99c29649f/" target="_blank" rel="noopener">🔒 상세 IR 덱 열기</a>
+      <p class="lock">암호로 보호된 자료입니다 — 접속 비밀번호는 <b>별도로 전달</b>드립니다.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <svg class="mark" viewBox="0 0 108 108" aria-hidden="true"><use href="#mh-mark"/></svg>
+    <div style="font-family:var(--head);color:#fff;font-size:17px;letter-spacing:.02em">메모해</div>
+    <div class="row">음성 블랙박스 · 명령 녹음비서 — 깜깜이 녹음비서</div>
+    <div class="row">문의 — <a href="mailto:korsales.dev@gmail.com">korsales.dev@gmail.com</a></div>
+    <div class="row" style="margin-top:14px;opacity:.7">© 코리아세일즈 · memohae · 투자 논의용 자료</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var secs=document.querySelectorAll('section');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(secs,function(s){io.observe(s);});
+  } else { [].forEach.call(secs,function(s){s.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
